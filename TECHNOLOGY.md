@@ -1,7 +1,7 @@
 # Used Machine-Learning Frameworks
 
 -   ComputerScience-Part: [PyTorch](https://pytorch.org/tutorials/)
--   Physics-Part: [JAX](https://github.com/google/jax)
+-   Physics-Part: [JAX](https://github.com/google/jax) ("numpy on GPU with differentiation")
     -   Will use [Flax](https://github.com/google/flax)
 
 The Neural Networks will be designed in JAX and then be transformed to JAX/Flax for use by the Physics department.
@@ -10,7 +10,7 @@ The Neural Networks will be designed in JAX and then be transformed to JAX/Flax 
 
 -   Planned to be used, now just as a reference: [NetKet3](https://www.netket.org/)
     -   See reference Paper: _NetKet 3 Machine Learning Toolbox for Many-Body Quantum Systems_
--   Going to be used now: [jVMC]()
+-   Going to be used now: [jVMC](https://github.com/markusschmitt/vmc_jax)
     -   Implements _Variational Monte Carlo_ with [JAX](https://jax.readthedocs.io/) and [Flax](https://flax.readthedocs.io/)
 
 # Used Technological Concepts
