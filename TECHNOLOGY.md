@@ -33,6 +33,8 @@ The Neural Networks will be designed in PyTorch to get them generally working an
     -   May be used to allow for better training of the networks
 -   benchmark, compare and visualize neural networks: [Tensorboard](https://www.tensorflow.org/tensorboard)
 -   Visualizing Large (Many-Dimensional) datasets: [t-SNE](https://lvdmaaten.github.io/tsne/)
+-   Approaches to arbitrary size of input images
+    -   https://learnopencv.com/fully-convolutional-image-classification-on-arbitrary-sized-image/
 
 # Used Mathematical/Physics Concepts
 
