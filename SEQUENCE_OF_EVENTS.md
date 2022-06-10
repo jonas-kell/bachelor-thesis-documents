@@ -5,22 +5,22 @@
 -   [x] Meet with both Professors and all three Supervisors for official start of work
 -   [x] Meet with Daniel for Computer-Science pre-briefing, management and time-scope
 -   [x] Meet with Laurin and Tobias for Physics pre-briefing, management and time-scope
--   [ ] Complete for full scope of expectations document (Erwartungshorizont)
+-   [ ] Complete full scope of expectations document (Erwartungshorizont)
 
 # Month 1
 
--   [ ] Get the ImageNet training data into a usable form
-    -   [ ] reduce from 1000 classes to 100 classes
-    -   [ ] get formatted to be able to train a model in a efficient manner
--   [ ] implement a (vision-) transformer architecture after the [DINO](https://github.com/facebookresearch/dino) implementation (`vision_transformer.py`)
+-   [x] Get the ImageNet training data into a usable form
+    -   [x] reduce from 1000 classes to 100 classes
+    -   [x] get formatted to be able to train a model in a efficient manner
+-   [x] implement a (vision-) transformer architecture after the [DINO](https://github.com/facebookresearch/dino) implementation (`vision_transformer.py`)
 
-    -   play with parameters, but most likely use the `vit_tiny` version
-    -   look at the [PoolFormer](https://github.com/sail-sg/poolformer) implementation for implementation details
+    -   [x] play with parameters, but most likely use the `vit_tiny` version
+    -   [ ] look at the [PoolFormer](https://github.com/sail-sg/poolformer) implementation for implementation details
         -   e.g. implementation of MLP with 1x1-Convolution
 
--   [ ] test training on the image data
+-   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results
-    -   [ ] try the training on the standard image-optimized architectures (same as DINO transformer)
+    -   [x] try the training on the standard image-optimized architectures (same as DINO transformer)
     -   [ ] try the training on the graph approaches
         -   classical convolution (kernel that convolutes, everything has the same weights)
         -   "symmetrical convolution" (kernel that convolutes, symmetrical with weights different for NN, NNN)
