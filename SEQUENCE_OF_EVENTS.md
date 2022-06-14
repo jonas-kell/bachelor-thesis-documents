@@ -16,6 +16,7 @@
 
     -   [x] play with parameters, but most likely use the `vit_tiny` version
     -   [ ] look at the [PoolFormer](https://github.com/sail-sg/poolformer) implementation for implementation details
+        -   use as implementation details for replacing of layer types (get rid of attention)
         -   e.g. implementation of MLP with 1x1-Convolution
 
 -   [x] test training on the image data
