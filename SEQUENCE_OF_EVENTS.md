@@ -29,6 +29,7 @@
     -   [ ] try swapping architecture blocks
         -   e.g. swap Transformer Attention with convolution
         -   Replace windowed attention (=Query-Key attention) with matrix attention, that employs a adjacency matrix to reduce the influence to the really connected nodes. (Compare to the [SWIN-Transformer](https://github.com/microsoft/Swin-Transformer) implementation)
+-   [ ] add top 3/5 accuracy to results
 -   [ ] if there is time remaining, try testing on the graph dataset [NCI1](https://paperswithcode.com/dataset/nci1)
 
 # Month 2
