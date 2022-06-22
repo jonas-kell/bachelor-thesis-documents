@@ -1,4 +1,4 @@
-# "Style-Guide"/ Reference to the notation of ML-Networks
+# "Style-Guide" / Reference to the notation of ML-Networks
 
 ## Possible Notation Types
 

@@ -5,7 +5,7 @@
 -   [x] Meet with both Professors and all three Supervisors for official start of work
 -   [x] Meet with Daniel for Computer-Science pre-briefing, management and time-scope
 -   [x] Meet with Laurin and Tobias for Physics pre-briefing, management and time-scope
--   [ ] Complete full scope of expectations document (Erwartungshorizont)
+-   [x] Complete full scope of expectations document (Erwartungshorizont)
 
 # Month 1
 
@@ -15,9 +15,56 @@
 -   [x] implement a (vision-) transformer architecture after the [DINO](https://github.com/facebookresearch/dino) implementation (`vision_transformer.py`)
 
     -   [x] play with parameters, but most likely use the `vit_tiny` version
-    -   [ ] look at the [PoolFormer](https://github.com/sail-sg/poolformer) implementation for implementation details
-        -   use as implementation details for replacing of layer types (get rid of attention)
-        -   e.g. implementation of MLP with 1x1-Convolution
+
+-   [ ] Modify the structure of the Metaformer
+
+    -   [ ] Ability to toggle downstream Graph element (after token mixer, before layernorm)
+        -   look at the [Swin-Transformer](https://github.com/microsoft/Swin-Transformer) implementation for implementation details concerning the adjacency matrix
+    -   [ ] customize, to be able to replace parts of the architecture
+        -   [ ] Default Attention based Metaformer (Transformer)
+        -   [ ] Metaformer with Pooling as a Token Mixer (Poolformer)
+            -   look at the [PoolFormer](https://github.com/sail-sg/poolformer) implementation for implementation details and Metaformer Motivation
+        -   [ ] Metaformer with Convolutions as Token mixers
+            -   [ ] Separate by weight distribution
+                -   Classical Convolution (fully asymmetrically trainable filter weights)
+                    $$
+                    \left(\begin{matrix}
+                        w_\text{1} && w_\text{2} && w_\text{3}\\
+                        w_\text{4} && w_\text{0} && w_\text{5}\\
+                        w_\text{6} && w_\text{7} && w_\text{8}\\
+                    \end{matrix}\right)
+                    $$
+                -   Symmetric Convolution (only symmetrically trainable filter weights)
+                    -   Only NN (two weights per channel)
+                        $$
+                        \left(\begin{matrix}
+                            0 && w_\text{NN} && 0\\
+                            w_\text{NN} && w_\text{0} && w_\text{NN}\\
+                            0 && w_\text{NN} && 0\\
+                        \end{matrix}\right)
+                        $$
+                    -   NN and NNN (three weights per channel)
+                        $$
+                        \left(\begin{matrix}
+                            w_\text{NNN} && w_\text{NN} && w_\text{NNN}\\
+                            w_\text{NN} && w_\text{0} && w_\text{NN}\\
+                            w_\text{NNN} && w_\text{NN} && w_\text{NNN}\\
+                        \end{matrix}\right)
+                        $$
+            -   [ ] Separate by mode of convolution
+                -   normal convolution (-> Conformer):
+                    $$(B, C_I, H, W)(C_I, C_T, K_1, K_2)\rightarrow (B, C_T, H, W)$$
+                -   depthwise seperable convolution (motivated by [MobileNet](https://arxiv.org/abs/1704.04861)) (-> dConformer):
+                    $$(B, C_I, H, W)(1, 1, K_1, K_2)\rightarrow (B, C_I, H, W)$$
+                    $$(B, C_I, H, W)(C_I, C_T, 1, 1)\rightarrow (B, C_T, H, W)$$
+    -   [ ] Full list of Metaformer-Architectures
+        -   default (Vision-) Transformer **(VT)**
+        -   Graph Transformer **(GT)**
+        -   Graph Poolformer **(GP)**
+        -   Classical Conformer **(CC)**
+        -   Symmetric Conformer **(SC)**
+        -   Classical d(epthwise)Conformer **(CD)**
+        -   Symmetric d(epthwise)Conformer **(SD)**
 
 -   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results
