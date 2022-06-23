@@ -12,6 +12,8 @@
 -   [x] Get the ImageNet training data into a usable form
     -   [x] reduce from 1000 classes to 100 classes
     -   [x] get formatted to be able to train a model in a efficient manner
+    -   [ ] Seeding and seed logging for training
+    -   [ ] add top 3/5 accuracy to results
 -   [x] implement a (vision-) transformer architecture after the [DINO](https://github.com/facebookresearch/dino) implementation (`vision_transformer.py`)
 
     -   [x] play with parameters, but most likely use the `vit_tiny` version
@@ -62,21 +64,16 @@
         -   Graph Transformer **(GT)**
         -   Graph Poolformer **(GP)**
         -   Classical Conformer **(CC)**
-        -   Symmetric Conformer **(SC)**
+        -   Symmetric Conformer NN **(SC)**
+        -   Symmetric Conformer NNN **(SC)**
         -   Classical d(epthwise)Conformer **(CD)**
-        -   Symmetric d(epthwise)Conformer **(SD)**
+        -   Symmetric d(epthwise)Conformer NN **(SD)**
+        -   Symmetric d(epthwise)Conformer NNN **(SD)**
 
 -   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results
     -   [x] try the training on the standard image-optimized architectures (same as DINO transformer)
-    -   [ ] try the training on the graph approaches
-        -   classical convolution (kernel that convolutes, everything has the same weights)
-        -   "symmetrical convolution" (kernel that convolutes, symmetrical with weights different for NN, NNN)
-        -   "asymmetrical convolution" (kernel that convolutes, totally asymmetrical weights)
-    -   [ ] try swapping architecture blocks
-        -   e.g. swap Transformer Attention with convolution
-        -   Replace windowed attention (=Query-Key attention) with matrix attention, that employs a adjacency matrix to reduce the influence to the really connected nodes. (Compare to the [SWIN-Transformer](https://github.com/microsoft/Swin-Transformer) implementation)
--   [ ] add top 3/5 accuracy to results
+    -   [ ] real training pass on the modified architectures
 -   [ ] if there is time remaining, try testing on the graph dataset [NCI1](https://paperswithcode.com/dataset/nci1)
 
 # Month 2
