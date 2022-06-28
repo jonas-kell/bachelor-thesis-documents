@@ -64,11 +64,11 @@
         -   Graph Transformer **(GT)**
         -   Graph Poolformer **(GP)**
         -   Classical Conformer **(CC)**
-        -   Symmetric Conformer NN **(SC)**
-        -   Symmetric Conformer NNN **(SC)**
+        -   Symmetric Conformer NN **(SC-NN)**
+        -   Symmetric Conformer NNN **(SC-NNN)**
         -   Classical d(epthwise)Conformer **(CD)**
-        -   Symmetric d(epthwise)Conformer NN **(SD)**
-        -   Symmetric d(epthwise)Conformer NNN **(SD)**
+        -   Symmetric d(epthwise)Conformer NN **(SD-NN)**
+        -   Symmetric d(epthwise)Conformer NNN **(SD-NNN)**
 
 -   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results
