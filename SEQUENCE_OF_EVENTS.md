@@ -12,8 +12,8 @@
 -   [x] Get the ImageNet training data into a usable form
     -   [x] reduce from 1000 classes to 100 classes
     -   [x] get formatted to be able to train a model in a efficient manner
-    -   [ ] Seeding and seed logging for training
-    -   [ ] add top 3/5 accuracy to results
+    -   [x] Seeding and seed logging for training
+    -   [x] add top 3/5 accuracy to results
 -   [x] implement a (vision-) transformer architecture after the [DINO](https://github.com/facebookresearch/dino) implementation (`vision_transformer.py`)
 
     -   [x] play with parameters, but most likely use the `vit_tiny` version
@@ -22,6 +22,8 @@
 
     -   [ ] Ability to toggle downstream Graph element (after token mixer, before layernorm)
         -   look at the [Swin-Transformer](https://github.com/microsoft/Swin-Transformer) implementation for implementation details concerning the adjacency matrix
+        -   [x] implement Graph element creation
+        -   [ ] use Graph element
     -   [ ] customize, to be able to replace parts of the architecture
         -   [ ] Default Attention based Metaformer (Transformer)
         -   [ ] Metaformer with Pooling as a Token Mixer (Poolformer)
