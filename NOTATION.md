@@ -45,3 +45,11 @@ $$(B, C_1, H, W) (C_1, C_2, 1, 1) \rightarrow (B, C_2, H, W)$$
 
 -   Doing _Step 1_ and _Step 2_ separately should increase performance.
 -   1x1-Convolution $\stackrel{\wedge}{=}$ linear Layer
+
+### <u>Types of convolutions</u>
+
+-   normal convolution
+    $$(B, C_I, H, W)(C_I, C_T, K_1, K_2)\rightarrow (B, C_T, H, W)$$
+-   depthwise separable convolution (motivated by [MobileNet](https://arxiv.org/abs/1704.04861)):
+    $$(B, C_I, H, W)(1, 1, K_1, K_2)\rightarrow (B, C_I, H, W)$$
+    $$(B, C_I, H, W)(C_I, C_T, 1, 1)\rightarrow (B, C_T, H, W)$$

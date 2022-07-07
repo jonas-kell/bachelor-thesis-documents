@@ -25,6 +25,7 @@
         -   [x] implement Graph element creation
         -   [ ] use Graph element
     -   [ ] customize, to be able to replace parts of the architecture
+
         -   [ ] Default Attention based Metaformer (Transformer)
         -   [ ] Metaformer with Pooling as a Token Mixer (Poolformer)
             -   look at the [PoolFormer](https://github.com/sail-sg/poolformer) implementation for implementation details and Metaformer Motivation
@@ -55,22 +56,23 @@
                             w_\text{NNN} && w_\text{NN} && w_\text{NNN}\\
                         \end{matrix}\right)
                         $$
-            -   [ ] Separate by mode of convolution
-                -   normal convolution (-> Conformer):
-                    $$(B, C_I, H, W)(C_I, C_T, K_1, K_2)\rightarrow (B, C_T, H, W)$$
-                -   depthwise seperable convolution (motivated by [MobileNet](https://arxiv.org/abs/1704.04861)) (-> dConformer):
-                    $$(B, C_I, H, W)(1, 1, K_1, K_2)\rightarrow (B, C_I, H, W)$$
-                    $$(B, C_I, H, W)(C_I, C_T, 1, 1)\rightarrow (B, C_T, H, W)$$
+
     -   [ ] Full list of Metaformer-Architectures
-        -   default (Vision-) Transformer **(VT)**
-        -   Graph Transformer **(GT)**
-        -   Graph Poolformer **(GP)**
-        -   Classical Conformer **(CC)**
-        -   Symmetric Conformer NN **(SC-NN)**
-        -   Symmetric Conformer NNN **(SC-NNN)**
-        -   Classical d(epthwise)Conformer **(CD)**
-        -   Symmetric d(epthwise)Conformer NN **(SD-NN)**
-        -   Symmetric d(epthwise)Conformer NNN **(SD-NNN)**
+        -   Attention Based
+            -   default (Vision-) Transformer **(VT)**
+            -   Graph (Vision-) Transformer **(GVT)**
+        -   Not Attention Based
+            -   Poolformer **(PF)**
+            -   Graph Poolformer **(GP)**
+            -   Classical d(epthwise)Conformer **(CD)**
+            -   Symmetric d(epthwise)Conformer NN **(SD-NN)**
+            -   Symmetric d(epthwise)Conformer NNN **(SD-NNN)**
+            -   Classical Graph-d(epthwise)Conformer **(GCD)**
+            -   Symmetric Graph-d(epthwise)Conformer NN **(GSD-NN)**
+            -   Symmetric Graph-d(epthwise)Conformer NNN **(GSD-NNN)**
+        -   Not comparable architecture
+            -   Conformer **(CF)**
+            -   Conformer **(GF)** (Pointless to implement)
 
 -   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results
