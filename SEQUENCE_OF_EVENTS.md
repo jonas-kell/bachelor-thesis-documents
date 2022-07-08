@@ -60,15 +60,16 @@
     -   [ ] Full list of Metaformer-Architectures
         -   Attention Based
             -   default (Vision-) Transformer **(VT)**
-            -   Graph (Vision-) Transformer **(GVT)**
+            -   Graph (Vision-) Transformer NN **(GVT-NN)**
+            -   Graph (Vision-) Transformer NNN **(GVT-NNN)**
         -   Not Attention Based
             -   Poolformer **(PF)**
-            -   Graph Poolformer **(GP)**
+            -   Graph Poolformer NN **(GP-NN)**
+            -   Graph Poolformer NNN **(GP-NN)**
             -   Convolution Architectures (Graph and non-graph variants should have identical outputs, but Graph is more versatile in practice and convolution more efficient)
                 -   Classical d(epthwise)Conformer **(CD)**
                 -   Symmetric d(epthwise)Conformer NN **(SD-NN)**
                 -   Symmetric d(epthwise)Conformer NNN **(SD-NNN)**
-                -   Classical Graph-d(epthwise)Conformer **(GCD)**
                 -   Symmetric Graph-d(epthwise)Conformer NN **(GSD-NN)**
                 -   Symmetric Graph-d(epthwise)Conformer NNN **(GSD-NNN)**
         -   Not comparable architecture (Has non-transformer-architecture computing capabilities)
