@@ -64,15 +64,17 @@
         -   Not Attention Based
             -   Poolformer **(PF)**
             -   Graph Poolformer **(GP)**
-            -   Classical d(epthwise)Conformer **(CD)**
-            -   Symmetric d(epthwise)Conformer NN **(SD-NN)**
-            -   Symmetric d(epthwise)Conformer NNN **(SD-NNN)**
-            -   Classical Graph-d(epthwise)Conformer **(GCD)**
-            -   Symmetric Graph-d(epthwise)Conformer NN **(GSD-NN)**
-            -   Symmetric Graph-d(epthwise)Conformer NNN **(GSD-NNN)**
-        -   Not comparable architecture
+            -   Convolution Architectures (Graph and non-graph variants should have identical outputs, but Graph is more versatile in practice and convolution more efficient)
+                -   Classical d(epthwise)Conformer **(CD)**
+                -   Symmetric d(epthwise)Conformer NN **(SD-NN)**
+                -   Symmetric d(epthwise)Conformer NNN **(SD-NNN)**
+                -   Classical Graph-d(epthwise)Conformer **(GCD)**
+                -   Symmetric Graph-d(epthwise)Conformer NN **(GSD-NN)**
+                -   Symmetric Graph-d(epthwise)Conformer NNN **(GSD-NNN)**
+        -   Not comparable architecture (Has non-transformer-architecture computing capabilities)
             -   Conformer **(CF)**
-            -   Conformer **(GF)** (Pointless to implement)
+            -   Symmetric Conformer NN **(GF-NN)**
+            -   Symmetric Conformer NNN **(GF-NNN)**
 
 -   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results
