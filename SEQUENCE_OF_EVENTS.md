@@ -74,8 +74,8 @@
                 -   Symmetric Graph-d(epthwise)Conformer NNN **(GSD-NNN)**
         -   Not comparable architecture (Has non-transformer-architecture computing capabilities)
             -   Conformer **(CF)**
-            -   Symmetric Conformer NN **(GF-NN)**
-            -   Symmetric Conformer NNN **(GF-NNN)**
+            -   Symmetric Conformer NN **(SC-NN)**
+            -   Symmetric Conformer NNN **(SC-NNN)**
 
 -   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results
