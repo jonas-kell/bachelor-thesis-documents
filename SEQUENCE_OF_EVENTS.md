@@ -16,21 +16,22 @@
     -   [x] add top 3/5 accuracy to results
 -   [x] implement a (vision-) transformer architecture after the [DINO](https://github.com/facebookresearch/dino) implementation (`vision_transformer.py`)
 
-    -   [x] play with parameters, but most likely use the `vit_tiny` version
+    -   [x] play with parameters
+        -   [x] converged on using the `vit_tiny` version
 
--   [ ] Modify the structure of the Metaformer
+-   [x] Modify the structure of the Metaformer
 
-    -   [ ] Ability to toggle downstream Graph element (after token mixer, before layernorm)
+    -   [x] Ability to toggle downstream Graph element (after token mixer, before softmax/layernorm)
         -   look at the [Swin-Transformer](https://github.com/microsoft/Swin-Transformer) implementation for implementation details concerning the adjacency matrix
-        -   [x] implement Graph element creation
-        -   [ ] use Graph element
-    -   [ ] customize, to be able to replace parts of the architecture
+        -   [x] implement creation of Graph element filter matrix
+        -   [x] use Graph element in the architecture
+    -   [x] customize, to be able to replace parts of the architecture
 
-        -   [ ] Default Attention based Metaformer (Transformer)
-        -   [ ] Metaformer with Pooling as a Token Mixer (Poolformer)
+        -   [x] Default Attention based Metaformer (Transformer)
+        -   [x] Metaformer with Pooling as a Token Mixer (Poolformer)
             -   look at the [PoolFormer](https://github.com/sail-sg/poolformer) implementation for implementation details and Metaformer Motivation
-        -   [ ] Metaformer with Convolutions as Token mixers
-            -   [ ] Separate by weight distribution
+        -   [x] Metaformer with Convolutions as Token mixers
+            -   [x] Separate by weight distribution
                 -   Classical Convolution (fully asymmetrically trainable filter weights)
                     $$
                     \left(\begin{matrix}
@@ -57,7 +58,7 @@
                         \end{matrix}\right)
                         $$
 
-    -   [ ] Full list of Metaformer-Architectures
+    -   [x] Full list of Metaformer-Architectures
         -   Attention Based
             -   default (Vision-) Transformer **(VT)**
             -   Graph (Vision-) Transformer NN **(GVT-NN)**
@@ -74,39 +75,89 @@
                 -   Symmetric Graph-d(epthwise)Conformer NNN **(GSD-NNN)**
         -   Not comparable architecture (Has non-transformer-architecture computing capabilities)
             -   Conformer **(CF)**
-            -   Symmetric Conformer NN **(SC-NN)**
-            -   Symmetric Conformer NNN **(SC-NNN)**
+            -   Symmetric Conformer NN **(SC-NN)** (not implemented)
+            -   Symmetric Conformer NNN **(SC-NNN)** (not implemented)
 
 -   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results
     -   [x] try the training on the standard image-optimized architectures (same as DINO transformer)
-    -   [ ] real training pass on the modified architectures
--   [ ] if there is time remaining, try testing on the graph dataset [NCI1](https://paperswithcode.com/dataset/nci1)
+    -   [x] real training pass on the modified architectures
+        -   [x] compare main architectures against each other
+        -   [x] on interesting cases compare modifications of one architecture
+            -   different optimizers / learning rates
+            -   different positional encoding
+-   [x] ~~if there is time remaining, try testing on the graph dataset [NCI1](https://paperswithcode.com/dataset/nci1)~~
+-   [x] ~~if there is time remaining, visualize attention heatmaps~~
 
 # Month 2
 
--   [ ] carry the learned information over to JAX.
+-   [x] carry the learned information over to JAX
     -   Either:
-        -   Directly in JAX
-        -   By using the [Jraph](https://github.com/deepmind/jraph) library
--   [ ] Train/Compute on JAX-Jsing Model data
-    -   Everything should be implemented already, drop in possibility for own network
-    -   [ ] benchmark the effects of the graph structure being equal/different to the problem graph structure
+        -   [x] Directly in JAX
+            -   supported by [Flax](https://github.com/google/flax)
+        -   ~~By using the [Jraph](https://github.com/deepmind/jraph) library~~
+-   [x] Train/Compute on JAX-Jsing Model
+
+    -   [x] ~~Everything should be implemented already, drop in possibility for own network~~
+    -   [x] Implement a suited `ground-state-search` (use [ex0_ground_state_search.py](https://github.com/markusschmitt/vmc_jax/blob/master/examples/ex0_ground_state_search.py) as an example)
+        -   [x] perform ground-state-search in general
+        -   [x] get the input-index-interactions for the hamiltonian sorted
+            -   [x] visualization
+            -   [x] random mixing
+        -   [x] tensorboard logging
+            -   [x] default sizes obvious for learning/training (Energy, variance)
+            -   [x] log hyperparameters for better evaluation later on
+            -   [x] measure observables (magnetization in al directions)
+            -   [x] quantum-fisher-information as a histogram
+    -   [x] implement the metaformer models used/examined
+        -   [x] adapter for jVMC predefined models
+        -   [x] metaformer base structure
+        -   [x] dot-product-attention module
+        -   [x] Conformer and Poolformer
+        -   [x] Complex support for the metaformer
+    -   [x] make different ansätze viable to be tested
+        -   [x] single, real network
+        -   [x] two real networks (one for complex part, one for imaginary)
+        -   [x] single complex network
+        -   [x] split-network architecture (last layer half of the data is used for the real part, the other half for the imaginary part)
+    -   [x] benchmark the effects of the graph structure being equal/different to the problem graph structure
+    -   [x] numerical solution: implement a numerical solver for the looked-at problems
+
 -   [ ] Physics-Theory
-    -   [ ] Learn to formulate the mathematical theory in a concise manner to be able to use it in the thesis. Maybe refresh on quantum mechanics notation
+    -   [x] Learn to formulate the mathematical theory in a concise manner to be able to use it in the thesis. Maybe refresh on quantum mechanics notation
+    -   [ ] ratio of `J` to `h` (Ising-Modell-hamiltonian) in conjunction with the lattice structure dictates the 'critical point'. Search data where these have already been evaluated in the literature
     -   [ ] Get familiar with the [Rydberg atom](https://en.wikipedia.org/wiki/Rydberg_atom)-> can be used as a motivation to provide real world applications of the underlying model
     -   [ ] Explanation by Thilo Kopp about two Atoms and one Electron -> to be able to use it as a motivation for the model
 
 # Month 3
 
 -   [ ] Visualize the results
--   [ ] ## Extrapolate to real-world use cases for motivation
+    -   [x] tensorboard logs
+    -   [ ] nice and uniform graphs for the thesis itself
+-   [ ] Extract real-world use cases for motivation
 -   [ ] Write the thesis
     -   Computer Science Part:
         -   Description of the Problem
         -   Description and Motivation for the used Architecture
+            -   Neural Networks
+                -   concept
+                -   usage
+                -   pre-training ([ConvNext](https://arxiv.org/abs/2201.03545)) (short)
+            -   What underlying architectures are modern/being used
+                -   Depthwise <-> normal convolution
+                -   Transformer
+                -   Metaformer (show good performance of Poolformer even though way smaller)
+                -   Graph-Networks
+            -   What architectures are we employing and why
+                -   What biases does the architecture have by itself
+                -   What biases are we giving it on top
         -   Experiments
-    -   Physics Part (Probably):
+    -   Physics Part:
         -   Explanation of the mathematical problem
-        -   Motivation of the ansatz in connection to real world phenomenon/methods
+            -   Discuss the problem in general looking at the linear chain
+            -   look at frustration, using a simple triangular lattice
+            -   look at the phase transitions/topologies caused by the relation of `J` and `h` from the Hamiltonian
+            -   motivate how the computation with neural networks can be justified
+        -   `tdvp` (imaginary time evolution)
         -   Evaluation of results of the transfer to Graph-Transformer-Networks
+        -   Motivation of the ansatz in connection to real world phenomenon/methods (Rydberg-Atom)
