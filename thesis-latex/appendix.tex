@@ -1,0 +1,10 @@
+\chapter{Appendix}
+
+% pdf as a additional information, can be nicely ref-ed ("\fullpage{anhang:test}") because of fake section that doesn't get shown in the table of contents
+% \includepdf[pagecommand={\section*{} \label{appendix:test}}]{appendix/test.pdf}
+
+
+% minted to properly import and style code. ! Needs python libraries
+\newpage
+\section*{testfile.py} \label{appendix:programTest}
+    \inputminted[firstline=2, lastline=12]{python}{appendix/test_file.py}
