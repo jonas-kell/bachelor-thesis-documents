@@ -1,0 +1,6 @@
+[submodule "physics-code"]
+	path = physics-code
+	url = https://github.com/jonas-kell/bachelor-thesis-code
+[submodule "cs-code"]
+	path = cs-code
+	url = https://github.com/jonas-kell/bachelor-thesis-experiments
