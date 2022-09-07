@@ -11,6 +11,7 @@ The work for my Bachelors-Thesis is split into multiple repositories (links for 
 The code that gets referenced in the thesis is managed via git-submodules and needed for building the document. Make sure to initialize the submodules before building
 
 ```cmd
+git submodule init
 git pull --recurse-submodules
 ```
 
