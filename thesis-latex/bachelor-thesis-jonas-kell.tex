@@ -77,52 +77,92 @@ toc=bibliographynumbered            % bibliography gets a number and is listed i
 
 % ! Main Document Body
 \chapter{Introduction}
+\label{sec:introduction}
 \input{./auxillary/introduction}
 \FloatBarrier
-
 \chapter{Theory}
-    \input{./theory/theory}
-    \FloatBarrier
+\label{sec:theory}
     \section{From the Point of Physics}
+        \label{sec:theory-physics}
+        \input{./theory/physics/introduction}
+        \FloatBarrier
         \subsection{The Ground State Search}
+        \label{sec:theory-groundstatesearch}
+        \input{./theory/physics/ground-state-search/ground-state-search}
         \subsection{The Ising Model}
-        \subsection{Numerical Solutions}
+        \label{sec:theory-ising}
+        \input{./theory/physics/ising-model/ising-model}
+        \FloatBarrier
+        \FloatBarrier
+        \subsection{Numerical Solution}
+        \label{sec:theory-numericalsolution}
         \subsection{Solutions with Neural Quantum States}
+        \label{sec:theory-neuralquantumstates}
         \subsection{Imaginary Time Evolution}
+        \label{sec:theory-imagenarytimeevolution}
         \subsection{Explored Lattice Patterns}
+        \label{sec:theory-latticepatterns}
     \section{From the Point of Computer Science}
+        \label{sec:theory-cs}
+        \input{./theory/cs/introduction}
+        \FloatBarrier
         \subsection{The Image Classification Task}
+        \label{sec:theory-imageclassification}
         \subsection{Neural Network Training}
+        \label{sec:theory-neuralnetworktraining}
         \subsection{Neural Network Pre-Training}
+        \label{sec:theory-pretraining}
         \subsection{Employment of Graphs for Problem transfer}
+        \label{sec:theory-graphs}
 
 \chapter{Machine Learning Architectures}
+\label{sec:architectures}
+
     \section{Used Architectures}
         \subsection{Perceptron Architectures}
+        \label{sec:architectures-perceptron}
         \subsection{Pooling}
+        \label{sec:architectures-pooling}
         \subsection{Convolutional Architectures}
+        \label{sec:architectures-convolution}
         \subsection{Attention and the Transformer}
+        \label{sec:architectures-attention}
         \subsection{The Metaformer}
+        \label{sec:architectures-metaformer}
         \subsection{Graph Architectures}
+        \label{sec:architectures-graphs}
     \section{Usage of Inductive Biases}
         \subsection{Conventional Architectures}
+        \label{sec:architectures-biasesnormal}
         \subsection{Metaformer Architectures}
+        \label{sec:architectures-biasesmetaformer}
         \subsection{Graph Architectures}
+        \label{sec:architectures-biasesgraph}
 
 \chapter{Experiments and their Results}
     \section{Metaformer in Image Classification}
         \subsection{Training Settings}
+        \label{sec:experiments-trainingsettings}
+
         \subsection{Importance of Positional Encoding}
+        \label{sec:experiments-positionalencoding}
         \subsection{Comparison of different Token Mixers}
+        \label{sec:experiments-tokenmixers}
 
     \section{Metaformer in Ground State Search}
         \subsection{Comparison to established Architectures}
+        \label{sec:experiments-comparisontoestablished}
         \subsection{Resiliency to the Choice of Lattice Encoding}
+        \label{sec:experiments-resiliencylatticeencoding}
         \subsection{Optimizing the Ansatz}
+        \label{sec:experiments-optimizingtheansatz}
         \subsection{Choice of Hyperparameters}
+        \label{sec:experiments-hyperparameters}
         \subsection{Differences across the Phase Diagram}
+        \label{sec:experiments-phasecriticalpoint}
 
 \chapter{Conclusion}
+\label{sec:conclusion}
 
 % ! Addendum
 \input{bibliography}
