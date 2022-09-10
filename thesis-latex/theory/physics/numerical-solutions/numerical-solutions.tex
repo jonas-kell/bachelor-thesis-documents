@@ -1,0 +1,79 @@
+With the combined knowledge of the two last sections, the ground state (and the ground state energy) can be calculated. It will become evident, that the calculation is really simple to do and program. Sadly it won't be feasable to compute sufficiently large lattices, because of the exponential nature of the problem.
+
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=0.9\textwidth]{./theory/physics/numerical-solutions/simple_case.pdf}}
+    \vspace{-1.5cm}
+    \caption{A representation of two simple latices. The spins are fixed at the point of the numbered locations. All sites have the same distance $d$ from each other. Note, that a spin up \up is directed parallel to the z-axis. That means in this case it would point out of the paper in the direction of the viewer.}
+    \label{fig:simpleThreeLatticeIsing}
+\end{figure}
+
+In the beginning one trivial example will be discussed. The lattice is visualized in \autoref{fig:simpleThreeLatticeIsing}, image a).
+This corresponds to a linear lattice in 1D. Let the Hamiltonian be the one in \ref{eq:hamiltonianExampleA}.
+
+\begin{equation}
+    \label{eq:hamiltonianExampleA}
+    \hamiltonian = \sigma^z_1\sigma^z_2 + \sigma^z_2\sigma^z_3
+\end{equation}
+
+This hamiltonian is anti-ferromagnetic ($J = +1$). It should be easily seen, that the Energy $E$ in \ref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so trying this by one self is advised for someone without prior quantum mechanical experience.
+The ground state therefore will be a \emph{superposition} consisting of equal parts $\ket{\up, \down, \up}$ and $\ket{\down, \up, \down}$ \ref{eq:solutionSimpleExample}. The factor $\frac{1}{\sqrt[]{2}}$ instead of the seemingly more obvious $\frac{1}{2}$ makes the wavefunction be \emph{normalized}. If it wasn't for the square root, \autoref{eq:base-orthonormal} would not be satisfied. This way it is satisfied, which can be tested.
+
+\begin{equation}
+    \label{eq:solutionSimpleExample}
+    \Psi_\mathrm{gnd} = \frac{1}{\sqrt[]{2}} \cdot \ket{\up, \down, \up} +  \frac{1}{\sqrt[]{2}} \cdot \ket{\down, \up, \down}
+\end{equation}
+
+The second example, visualized in \autoref{fig:simpleThreeLatticeIsing}, image b), however is not so simple. The corresponding hamiltonian can be seen in \ref{eq:hamiltonianExampleB}.
+\begin{equation}
+    \label{eq:hamiltonianExampleB}
+    \hamiltonian = \sigma^z_1\sigma^z_2 +\sigma^z_2\sigma^z_3 +\sigma^z_1\sigma^z_3
+\end{equation}
+It has one more interaction than the previous one. Even though it also is anti-symmetric, it is \emph{not} possible to align all three spins in a way, so that they stand anti-parallel to all their neighbors. This phenomenon is called \emph{frustration} \cite*{frustration}.
+
+Already this minimal problem has a complex superposition of eight base states as a ground state. The introduction of the transverse field will only make this more complex. Therefore a systematic way of finding the solution will be presented.
+
+For this purpose, the example from \autoref{fig:simpleThreeLatticeIsing}, image b) will be used once more, but this time with the hamiltonian \ref{eq:hamiltonianExampleTransverse}.
+\begin{equation}
+    \label{eq:hamiltonianExampleTransverse}
+    \hamiltonian = J\cdot \sigma^z_1\sigma^z_2 +J\cdot\sigma^z_2\sigma^z_3 +J\cdot\sigma^z_1\sigma^z_3
+    +h \sigma^x_1+h \sigma^x_2+h \sigma^x_3
+\end{equation}
+
+The goal is now, to write the hamiltonian \hamiltonian as a matrix. 
+The elements of the matrix should be $\bra{m}\hamiltonian\ket{n}$. Where $\ket{m}$ and $\ket{n}$ are two states out of the chosen basis. In this case the eight base states are the following:
+
+\begin{center}
+    \begin{tabular}{llll} 
+        1: $\ket{\up, \up, \up}$ & 2: $\ket{\up, \up, \down}$  & 3: $\ket{\up, \down, \up}$  & 4: $\ket{\up, \down, \down}$ \\
+        5: $\ket{\down, \up, \up}$ & 6: $\ket{\down, \up, \down}$  & 7: $\ket{\down, \down, \up}$  & 8: $\ket{\down, \down, \down}$ 
+    \end{tabular}
+\end{center}
+
+In \ref{eq:matrixElement} an example calculation of $\bra{2}\hamiltonian\ket{4}$ is presented.
+
+\begin{equation}
+    \label{eq:matrixElement}
+    \begin{split}
+        &\bra{\up, \up, \down} \hamiltonian \ket{\up, \down, \down} = \\\\ % new line
+         \bra{\up, \up, \down} J\cdot \sigma^z_1\sigma^z_2 \ket{\up, \down, \down} +
+         &\bra{\up, \up, \down} J\cdot \sigma^z_2\sigma^z_3 \ket{\up, \down, \down} +
+         \bra{\up, \up, \down} J\cdot \sigma^z_1\sigma^z_3 \ket{\up, \down, \down} +\\
+         \bra{\up, \up, \down} h\cdot \sigma^x_1 \ket{\up, \down, \down} +
+         &\bra{\up, \up, \down} h\cdot \sigma^x_2 \ket{\up, \down, \down} +
+         \bra{\up, \up, \down} h\cdot \sigma^x_3 \ket{\up, \down, \down}\stackrel{\ref{eq:pauli-transformation}, \ref{eq:pauli-many-body}}{=}\\\\ % new line
+          \bra{\up, \up, \down} J\cdot  1 \cdot (-1) \ket{\up, \down, \down} +
+         & \bra{\up, \up, \down} J\cdot (-1) \cdot (-1) \ket{\up, \down, \down} +
+          \bra{\up, \up, \down} J\cdot  1 \cdot (-1) \ket{\up, \down, \down} +\\
+          \bra{\up, \up, \down} h\cdot  1 \cdot \ket{\down, \down, \down} +
+         & \bra{\up, \up, \down} h\cdot 1 \cdot \ket{\up, \up, \down} +
+          \bra{\up, \up, \down} h\cdot  1 \cdot \ket{\up, \down, \up} =\\\\ % new line
+          (-J)\cdot      \bra{\up, \up, \down}  \ket{\up, \down, \down} +
+         & J\cdot        \bra{\up, \up, \down} \ket{\up, \down, \down} +
+          (-J)\cdot      \bra{\up, \up, \down}  \ket{\up, \down, \down} +\\
+          h\cdot         \bra{\up, \up, \down}  \ket{\down, \down, \down} +
+         & h\cdot        \bra{\up, \up, \down} \ket{\up, \up, \down} +
+          h\cdot         \bra{\up, \up, \down}  \ket{\up, \down, \up}\stackrel{\ref{eq:base-orthonormal}}{=}\\\\ % new line
+          (-J)\cdot 0 + J\cdot 0 &+  (-J)\cdot 0 + h\cdot 0  + h\cdot 1 + h\cdot 0   = h 
+    \end{split}
+\end{equation}
