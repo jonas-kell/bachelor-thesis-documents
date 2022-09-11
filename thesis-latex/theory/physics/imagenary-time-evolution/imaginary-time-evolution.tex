@@ -1,0 +1,77 @@
+Many different iterative methods are being employed to calculate the desired physical quantities.
+In this section, a mathematical idea will be discussed, that has several applications.
+The method is employed in the \emph{Diffusion Monte Carlo} method (DMC) \cite{quantumMonteCarloSimulationsOfSolids}, a second application of Monte Carlo sampling in comparison to VMC.
+
+This section is about more advanced quantum mechanical principles and is hard to understand without prior experiences. It can though be skipped without sacrificing on the possibility to understand the later parts of the thesis, because it is only supplemental.
+
+The method is described in \cite{imagenarySchroedingerEquation}.
+Equation \ref{eq:schroedinger-general} can be generalized to be no longer time independent. 
+\ref{eq:schroedinger-td} is called the \emph{time-dependent schrödinger equation}. $\hbar$ is the \emph{reduced Planck constant}, $t$ is the time.
+
+\begin{equation}
+    \label{eq:schroedinger-td}
+    \hamiltonian \ket{\Psi(t)} = i\hbar \frac{\partial }{\partial t} \ket{\Psi(t)}
+\end{equation}
+
+In this case, the wavefunction also needs to depend on the time as a variable.
+For a time-independent hamiltonian, the time dependent wavefunction can be obtained via \ref{eq:timeEvolutionWavefunction} \cite{schwablQM} with the energy eigenvalues $E_n$ ($E_0$ being the ground state energy), the energy eigenbase states $\ket{n}$ and the wavefunction at time $t=0$, $\ket{\Psi(0)}$.
+
+\begin{equation}
+    \label{eq:timeEvolutionWavefunction}
+        \ket{\Psi(t)} = e^{-i\hamiltonian t / \hbar} \ket{\Psi(0)}
+\end{equation}
+
+That \ref{eq:timeEvolutionWavefunction} is a solution to \ref{eq:schroedinger-td} can easily be verified \ref{eq:validationTimeEvolution} (notice that the hamiltonian is time-independent).
+
+\begin{equation}
+    \label{eq:validationTimeEvolution}
+    \begin{split}
+        i\hbar \frac{\partial }{\partial t} \ket{\Psi(t)} &\stackrel{\ref{eq:timeEvolutionWavefunction}}{=} 
+        i\hbar \frac{\partial }{\partial t}  e^{-i\hamiltonian t / \hbar} \ket{\Psi(0)}\\
+        &\stackrel{\phantom{\ref{eq:timeEvolutionWavefunction}}}{=} \frac{-i\cdot i \hamiltonian \hbar}{\hbar} e^{-i\hamiltonian t / \hbar} \ket{\Psi(0)}\\
+        &\stackrel{\ref{eq:timeEvolutionWavefunction}}{=} \hamiltonian \ket{\Psi(t)}
+    \end{split}
+\end{equation}
+
+\ref{eq:timeEvolutionWavefunction} can be rewritten in terms of the energy eigenbase.
+
+\begin{equation}
+    \label{eq:rewriteTimeEvolutionWavefuntion}
+    \begin{split}
+        \ket{\Psi(t)} &\stackrel{\phantom{\ref{eq:base-change}, \ref{eq:base-factors}}}{=} e^{-i\hamiltonian t / \hbar} \ket{\Psi(0)} \\
+        &\stackrel{\ref{eq:base-change}, \ref{eq:base-factors}}{=}
+        \sum\limits_{n}^{} e^{-i \hamiltonian t / \hbar} \bra{n}\ket{\Psi(0)} \ket{n}\\
+        &\stackrel{\phantom{\ref{eq:base-change}, \ref{eq:base-factors}}}{=}
+        \sum\limits_{n}^{} e^{-i E_n t / \hbar} \bra{n}\ket{\Psi(0)} \ket{n}
+    \end{split}
+\end{equation}
+
+In \ref{eq:rewriteTimeEvolutionWavefuntion}, a operator gets applied from inside an exponent. This can be explained with the possibility to express the $e$-function in terms of its \emph{Taylor series} \cite{schwablQM}. This is important to understand the transition from \hamiltonian to $E_n$ in the exponent. For the transformation, the function is written as its Taylor series, the operator gets applied and then the Taylor series is reversed into the function. Remember that $\bra{n}\ket{\Psi(0)}$ is simply a complex number.
+
+The method is called \emph{imaginary} time evolution, because of the following step \ref{eq:complexTimeVariableChange}.
+
+\begin{equation}
+    \label{eq:complexTimeVariableChange}
+    \tau = i\cdot t
+\end{equation}
+
+By switching variables like \ref{eq:complexTimeVariableChange} to $\tau$ (a \glqq complex\grqq{} time) in \ref{eq:rewriteTimeEvolutionWavefuntion}, the representation \ref{eq:complexTimeExponential} can be won.
+
+\begin{equation}
+    \label{eq:complexTimeExponential}
+    \ket{\Psi(\tau)} = \sum\limits_{n}^{} e^{-E_n \tau / \hbar} \bra{n}\ket{\Psi(0)} \ket{n}
+\end{equation}
+
+$E_0 > 0$ can be assumed without loss of generality.
+It is known by definition, that $E_0 \leq E_j, j\neq 0$. 
+\ref{eq:complexTimeExponential} contains only terms, that decay exponentially with $\tau$.
+Because of that, for large values of $\tau$ all terms decay to 0, but the $n=0$ term decays the slowest. \ref{eq:complexTimeApplication} is therefore won.
+
+\begin{equation}
+    \label{eq:complexTimeApplication}
+    \lim\limits_{\tau \rightarrow \infty}\frac{\ket{\Psi(\tau)}}{e^{-E_0 \tau / \hbar}} \stackrel{\ref{eq:complexTimeExponential}}{=} \bra{0}\ket{\Psi(0)} \ket{0}
+\end{equation}
+
+This means, that if the starting wavefunction has an overlap with the ground energy eigenstate ($\bra{0}\ket{\Psi(0)} \neq 0$), if the wavefunction is evolved in imaginary time, all contributions except the ground state contribution will be eliminated.
+
+This can be used to find the ground state \cite{quantumMonteCarloSimulationsOfSolids}. A random starting function is chosen and evolved in complex time with the aid of Monte Carlo sampling. The ground state can then be extracted. If there is no overlap between the starting function and the ground state, the method converges to the base state with the smallest energy that also has overlap.
