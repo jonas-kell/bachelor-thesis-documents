@@ -152,10 +152,16 @@ Rewriting \ref{eq:schroedinger-general} in terms of the newly defined matrix ope
     \bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec} = E \cdot \Psi_\mathrm{vec}
 \end{equation}
 
-This representation is quite nice, because now the problem of finding the eigenstates was turned into a problem of finding the eigenvectors for a sparse (hermitian) matrix. 
+This representation is quite useful, because now the problem of finding the eigenstates has been turned into a problem of finding the eigenvectors for a sparse (hermitian) matrix. 
 A problem, that is already solved by a lot of algorithms and software \cite{scipyeigsh}.
-It is now clear, that the smallest eigenvalue of the matrix \emph{is} the ground state energy and the corresponding eigenvector is a representation for the ground state wavefunction.
+It is now clear, that the smallest eigenvalue of the matrix \emph{is} the ground state energy and the corresponding eigenvector \emph{is} a representation for the ground state wavefunction.
 
 Like mentioned, the complexity of the problem does not lie in terms of how to compute this value, but in how to compute it in reasonable time.
-If $L$ is the size of the lattice, it is obvious, that the canonical base contains $2^L$ vectors ($L$ sites, each can be \up or \down).
+If $L$ is the size of the lattice, it is obvious, that the canonical base contains $2^L$ states ($L$ sites, each can be \up or \down).
 Therefore the matrix whose eigenvalues are required has $2^{L+1}$ entries, of which $2^L \cdot m$ are non-zero ($m$ being constant and dependent on the form of the hamiltonian, as well as the number of neighbors to one site in the lattice). 
+
+So even \emph{if} a algorithm was found, to compute the eigenvalues of such a matrix in linear time, the time complexity for solving the problem would still scale in $\mathcal{O} (2^L)$ with the number of lattice sites.
+
+To compute macroscopic crystals, the number of lattice sites would have to be in the same range of magnitude as \emph{Avogadros constant} ($N_\mathrm{A} \approx \SI{6.022E23}{\per\mol}$). Current hardware can not go reasonably into the range of hundreds. 
+
+This naive algorithm is implemented in \cite{selfPhysics} \filepath{/computation/numerical\_solution.py}. On moderately modern hardware it takes about \SI{2.5}{\minute} to compute the ground state energy of a $L=13$ lattice. $L=14$ already takes hours.
