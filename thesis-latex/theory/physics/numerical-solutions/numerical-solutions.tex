@@ -77,3 +77,85 @@ In \ref{eq:matrixElement} an example calculation of $\bra{2}\hamiltonian\ket{4}$
           (-J)\cdot 0 + J\cdot 0 &+  (-J)\cdot 0 + h\cdot 0  + h\cdot 1 + h\cdot 0   = h 
     \end{split}
 \end{equation}
+
+Placing them inside a matrix at the corresponding location yields the matrix representation for $\bra{m}\hamiltonian\ket{n}$ that can be seen in \ref{eq:matrix-hamiltonian}.
+Because of \ref{eq:base-factors}, each wavefunction can be written in terms of the chosen base. This is used in \ref{eq:matrix-hamiltonian-vector}. By representing the wavefunction as a column vector, filled with the scaling factors, the transformation is complete. 
+The calculation of the hamiltonian \hamiltonian acting on a wavefunction $\Psi$ like in \ref{eq:schroedinger-general} can now analogously be computed by performing the matrix multiplication $\bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec}$
+
+\begin{equation}
+    \label{eq:matrix-hamiltonian}
+    \begin{pNiceMatrix}[first-row,first-col]
+        &
+        \ket{\up, \up, \up}&
+        \ket{\up, \up, \down}&
+        \ket{\up, \down, \up}&
+        \ket{\up, \down, \down}&
+        \ket{\down, \up, \up}&
+        \ket{\down, \up, \down}&
+        \ket{\down, \down, \up}&
+        \ket{\down, \down, \down}\\
+        \bra{\up, \up, \up}        \phantom{.} & 3 \cdot J  & h         & h         & 0         & h         & 0         & 0         & 0   \\
+        \bra{\up, \up, \down}      \phantom{.} & h          &-1 \cdot J & 0         & h         & 0         & h         & 0         & 0   \\
+        \bra{\up, \down, \up}      \phantom{.} & h          & 0         &-1 \cdot J & h         & 0         & 0         & h         & 0   \\
+        \bra{\up, \down, \down}    \phantom{.} & 0          & h         & h         &-1 \cdot J & 0         & 0         & 0         & h   \\
+        \bra{\down, \up, \up}      \phantom{.} & h          & 0         & 0         & 0         &-1 \cdot J & h         & h         & 0   \\
+        \bra{\down, \up, \down}    \phantom{.} & 0          & h         & 0         & 0         & h         &-1 \cdot J & 0         & h   \\
+        \bra{\down, \down, \up}    \phantom{.} & 0          & 0         & h         & 0         & h         & 0         &-1 \cdot J & h   \\
+        \bra{\down, \down, \down}  \phantom{.} & 0          & 0         & 0         & h         & 0         & h         & h         & 3 \cdot J \\
+    \end{pNiceMatrix}
+\end{equation}
+
+\begin{equation*}
+    \begin{split}
+        \Psi = 
+            &c_1 \ket{\up, \up, \up}  +
+            c_2 \ket{\up, \up, \down}  +
+            c_3 \ket{\up, \down, \up}  +
+            c_4 \ket{\up, \down, \down}  +\\
+            &c_5 \ket{\down, \up, \up} +
+            c_6 \ket{\down, \up, \down}  +
+            c_7 \ket{\down, \down, \up}  +
+            c_8 \ket{\down, \down, \down}
+    \end{split}
+\end{equation*}
+\begin{equation} % this is very bad style, but it would not for the life me let this stuff be aligned properly
+    \label{eq:matrix-hamiltonian-vector}        
+    \longrightarrow\\
+\end{equation}
+\begin{equation*}
+    \begin{split}
+        \Psi_\mathrm{vec} = 
+        \begin{pNiceMatrix}[first-row]
+            \ket{\up, \up, \up}&
+            \ket{\up, \up, \down}&
+            \ket{\up, \down, \up}&
+            \ket{\up, \down, \down}&
+            \ket{\down, \up, \up}&
+            \ket{\down, \up, \down}&
+            \ket{\down, \down, \up}&
+            \ket{\down, \down, \down}\\
+            c_1&   
+            c_2&
+            c_3&
+            c_4&
+            c_5&
+            c_6&
+            c_7&
+            c_8
+        \end{pNiceMatrix} \raisebox{0.7em}{T}
+    \end{split}
+\end{equation*}
+
+Rewriting \ref{eq:schroedinger-general} in terms of the newly defined matrix operators, results in \ref{eq:schroedinger-matrix}.
+\begin{equation}
+    \label{eq:schroedinger-matrix}
+    \bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec} = E \cdot \Psi_\mathrm{vec}
+\end{equation}
+
+This representation is quite nice, because now the problem of finding the eigenstates was turned into a problem of finding the eigenvectors for a sparse (hermitian) matrix. 
+A problem, that is already solved by a lot of algorithms and software \cite{scipyeigsh}.
+It is now clear, that the smallest eigenvalue of the matrix \emph{is} the ground state energy and the corresponding eigenvector is a representation for the ground state wavefunction.
+
+Like mentioned, the complexity of the problem does not lie in terms of how to compute this value, but in how to compute it in reasonable time.
+If $L$ is the size of the lattice, it is obvious, that the canonical base contains $2^L$ vectors ($L$ sites, each can be \up or \down).
+Therefore the matrix whose eigenvalues are required has $2^{L+1}$ entries, of which $2^L \cdot m$ are non-zero ($m$ being constant and dependent on the form of the hamiltonian, as well as the number of neighbors to one site in the lattice). 
