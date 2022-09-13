@@ -4,7 +4,7 @@ The wavefunction encodes this state while possibly looking at a wide possible ra
 The goal is, to find a representation, that can encode the quantum state with large precision, while requiring as little inputs and parameters as possible. The choice of the general form used for representing the wavefunction is called the \emph{ansatz}. 
 If a wrong ansatz is chosen, the quantum state cannot be encoded efficiently/at all. This will come into play in later chapters.
 
-A wavefunction is typically written in the \emph{bra-ket notation} \ref{eq:braket}. The advantage of this notation is, that it is \emph{independent} of the chosen \emph{base system} \cite[]{schwablQM}. This is used to simplify later notation.  
+A wavefunction is typically written in the \emph{bra-ket notation} (see \autoref{eq:braket}). The advantage of this notation is, that it is \emph{independent} of the chosen \emph{base system} \cite[]{schwablQM}. This is used to simplify later notation.  
 
 \begin{equation}
     \label{eq:braket}
@@ -15,7 +15,7 @@ In this case $x$ denotes an arbitrary coordinate. $\ket{\Psi}$ is an arbitrary w
 
 The following properties will be important:
 
-Representation in an other base \ref{eq:base-change}, where $c_n$ is a complex number that can be obtained via \ref{eq:base-factors}.
+The representation in an other base (\autoref{eq:base-change}), where $c_n$ is a complex number that can be obtained via \autoref{eq:base-factors}.
 \begin{equation}
     \label{eq:base-change}
     \ket{\Psi} = \sum\limits_{}^{n} c_n \cdot \ket{n}
@@ -25,7 +25,7 @@ Representation in an other base \ref{eq:base-change}, where $c_n$ is a complex n
     c_n = \bra{n}\ket{\Psi} = \Psi(n)
 \end{equation}
 
-For an \emph{orthogonal base} \ref{eq:base-orthagonal} is true, for an \emph{orthonormal base} even \ref{eq:base-orthonormal}. $\delta_{n, m}$ is called \emph{Kronecker-$\delta$} \cite{schwablQM}.
+For an \emph{orthogonal base} \autoref{eq:base-orthagonal} is true, for an \emph{orthonormal base} even \autoref{eq:base-orthonormal}. $\delta_{n, m}$ is called \emph{Kronecker-$\delta$} \cite{schwablQM}.
 
 \begin{equation}
     \label{eq:base-orthagonal}
@@ -42,7 +42,7 @@ For an \emph{orthogonal base} \ref{eq:base-orthagonal} is true, for an \emph{ort
     \end{cases} = \delta_{n, m}
 \end{equation}
 
-A wavefunction is the correct representation for a quantum system, if it satisfies the differential equation of the problem, the so called \emph{(time-independent) schrödinger equation} \ref{eq:schroedinger-general}, where \hamiltonian is called the \emph{hamiltonian} of the system. The hamiltonian basically \glqq encodes\grqq{} everything relevant to the problem. If must be seen as an operator, that performs a transformation of $\ket{\Psi}$, so $\hamiltonian = E$ is \emph{not} the simplified version of \ref{eq:schroedinger-general}.
+A wavefunction is the correct representation for a quantum system, if it satisfies the differential equation of the problem, the so called \emph{(time-independent) schrödinger equation} (\autoref{eq:schroedinger-general}), where \hamiltonian is called the \emph{hamiltonian} of the system. The hamiltonian basically \glqq encodes\grqq{} everything relevant to the problem. If must be seen as an operator, that performs a transformation of $\ket{\Psi}$, so $\hamiltonian = E$ is \emph{not} the simplified version of \autoref{eq:schroedinger-general}.
 
 \begin{equation}
     \label{eq:schroedinger-general}

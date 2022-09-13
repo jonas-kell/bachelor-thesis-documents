@@ -12,14 +12,14 @@ In practice a so called \emph{neural quantum state} (NQS) is used.
 This basically is nothing but a neural network, taken from established machine learning tasks.
 The function is parametrized by $M$ variables $\theta_i \in \mathbb{R}, 0\leq i < M$ and takes a spin configuration as an input.
 A spin configuration for $N$ lattice sites can be described by $\sigma_j \in \left\{\up, \down\right\}, 0\leq j < N$.
-The function will be written like \ref{eq:parametrized-wavefunction}.
+The function will be written like \autoref{eq:parametrized-wavefunction}.
 
 \begin{equation}
     \label{eq:parametrized-wavefunction}
     \ket{\Psi_{\theta_0, ..., \theta_{M-1}}(\sigma_0, ..., \sigma_{N-1})} \equiv \ket{\Psi_\theta}
 \end{equation}
 
-In order to compute a helpful representation, some more identities \ref{eq:completeness-of-base} and \ref{eq:wave-function-probability} are necessary \cite{schwablQM}. \ref{eq:completeness-of-base} applies to \emph{complete orthonormal} bases only.
+In order to compute a helpful representation, the identities \autoref{eq:completeness-of-base} and \autoref{eq:wave-function-probability} are necessary \cite{schwablQM}. \autoref{eq:completeness-of-base} applies to \emph{complete orthonormal} bases only.
 
 \begin{equation}
     \label{eq:completeness-of-base}
@@ -69,21 +69,21 @@ Applying this to the problem at hand, the target is to measure the observable co
     \end{split}
 \end{equation}
 
-In the derivation, the \emph{local estimator} \ref{eq:local-estimator} is introduced. Because the computational base is sparse, only very few elements of the sum over $s'$ in \ref{eq:local-estimator} are non-zero \cite{jVMCPaper}. A local estimator can therefore be evaluated in constant time.
+In the derivation, the \emph{local estimator} (\autoref{eq:local-estimator}) is introduced. Because the computational base is sparse, only very few elements of the sum over $s'$ in \autoref{eq:local-estimator} are non-zero \cite{jVMCPaper}. A local estimator can therefore be evaluated in constant time.
 
 \begin{equation}
     \label{eq:local-estimator}
     \operator_\mathrm{loc}^\theta(s) = \sum\limits_{s'} \bra{s} \operator \ket{s'} \frac{\bra{s'} \ket{\Psi_\theta}}{\bra{s} \ket{\Psi_\theta}}
 \end{equation}
 
-The final result in \ref{eq:derivation-local-estimator} has the form of a \emph{probability distribution} over $s$.
+The final result in \autoref{eq:derivation-local-estimator} has the form of a \emph{probability distribution} over $s$.
 So the calculation of a expectation value can be re-formulated as the calculation of the expectation value of $s$ of the local estimator (which can be evaluated in constant time).
 
 This alone is not helpful, because $\ket{s}$ is still exponentially large in regards to the problem size.
 But this shortcoming can be resolved with the introduction of \emph{Monte Carlo} sampling.
 The \emph{probability density} can be estimated, by looking at only a subset of possible $\ket{s}$.
 
-By randomly sampling a large, but manageable number $N_\mathrm{MC}$ of states $s_{(n)}$ with the \emph{Metropolis algorithm} \cite{quantumMonteCarloSimulationsOfSolids}, the true value can be approximated \ref{eq:mc-local-estimator} \cite{jVMCPaper}.
+By randomly sampling a large, but manageable number $N_\mathrm{MC}$ of states $s_{(n)}$ with the \emph{Metropolis algorithm} \cite{quantumMonteCarloSimulationsOfSolids}, the true value can be approximated (\autoref{eq:mc-local-estimator}) \cite{jVMCPaper}.
 
 \begin{equation}
     \label{eq:mc-local-estimator}
@@ -91,7 +91,7 @@ By randomly sampling a large, but manageable number $N_\mathrm{MC}$ of states $s
     \frac{1}{N_\mathrm{MC}} \sum\limits_{n=1}^{N_\mathrm{MC}} \operator_\mathrm{loc}^\theta(s_{(n)})
 \end{equation}
 
-Therefore the energy of a system can be estimated with \ref{eq:energy-optimization}. All the terms can efficiently be computed, using methods from \fullref{sec:theory-numericalsolution}.
+Therefore the energy of a system can be estimated with \autoref{eq:energy-optimization}. All the terms can efficiently be computed, using methods from \fullref{sec:theory-numericalsolution}.
 
 \begin{equation}
     \label{eq:energy-optimization}
@@ -104,7 +104,7 @@ As it is known, that the ground state energy $E_0$ is the smallest energy, the g
 \begin{enumerate}
     \setlength\itemsep{-0.5em}
     \item Start with a randomly initialized NQS
-    \item Estimate its energy with \ref{eq:energy-optimization} and MC-sampled states
+    \item Estimate its energy with \autoref{eq:energy-optimization} and MC-sampled states
     \item Calculate the neural network error, assuming $E(\theta)$ should be smaller (formula in \cite{jVMCPaper})
     \item Propagate the error back into the network
     \item Repeat at 2. with the updated NQS

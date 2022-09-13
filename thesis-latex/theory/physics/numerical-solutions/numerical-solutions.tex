@@ -9,22 +9,22 @@ With the combined knowledge of the two last sections, the ground state (and the 
 \end{figure}
 
 In the beginning one trivial example will be discussed. The lattice is visualized in \autoref{fig:simpleThreeLatticeIsing}, image a).
-This corresponds to a linear lattice in 1D. Let the Hamiltonian be the one in \ref{eq:hamiltonianExampleA}.
+This corresponds to a linear lattice in 1D. Let the Hamiltonian be the one in \autoref{eq:hamiltonianExampleA}.
 
 \begin{equation}
     \label{eq:hamiltonianExampleA}
     \hamiltonian = \sigma^z_1\sigma^z_2 + \sigma^z_2\sigma^z_3
 \end{equation}
 
-This hamiltonian is anti-ferromagnetic ($J = +1$). It should be easily seen, that the Energy $E$ in \ref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so trying this by one self is advised for someone without prior quantum mechanical experience.
-The ground state therefore will be a \emph{superposition} consisting of equal parts $\ket{\up, \down, \up}$ and $\ket{\down, \up, \down}$ \ref{eq:solutionSimpleExample}. The factor $\frac{1}{\sqrt[]{2}}$ instead of the seemingly more obvious $\frac{1}{2}$ makes the wavefunction be \emph{normalized}. If it wasn't for the square root, \autoref{eq:base-orthonormal} would not be satisfied. This way it is satisfied, which can be tested.
+This hamiltonian is anti-ferromagnetic ($J = +1$). It should be easily seen, that the Energy $E$ in \autoref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so trying this by one self is advised for someone without prior quantum mechanical experience.
+The ground state therefore will be a \emph{superposition} consisting of equal parts $\ket{\up, \down, \up}$ and $\ket{\down, \up, \down}$ (\autoref{eq:solutionSimpleExample}). The factor $\frac{1}{\sqrt[]{2}}$ instead of the seemingly more obvious $\frac{1}{2}$ makes the wavefunction be \emph{normalized}. If it wasn't for the square root, \autoref{eq:base-orthonormal} would not be satisfied. This way it is satisfied, which can be tested.
 
 \begin{equation}
     \label{eq:solutionSimpleExample}
     \Psi_\mathrm{gnd} = \frac{1}{\sqrt[]{2}} \cdot \ket{\up, \down, \up} +  \frac{1}{\sqrt[]{2}} \cdot \ket{\down, \up, \down}
 \end{equation}
 
-The second example, visualized in \autoref{fig:simpleThreeLatticeIsing}, image b), however is not so simple. The corresponding hamiltonian can be seen in \ref{eq:hamiltonianExampleB}.
+The second example, visualized in \autoref{fig:simpleThreeLatticeIsing}, image b), however is not so simple. The corresponding hamiltonian can be seen in \autoref{eq:hamiltonianExampleB}.
 \begin{equation}
     \label{eq:hamiltonianExampleB}
     \hamiltonian = \sigma^z_1\sigma^z_2 +\sigma^z_2\sigma^z_3 +\sigma^z_1\sigma^z_3
@@ -33,7 +33,7 @@ It has one more interaction than the previous one. Even though it also is anti-s
 
 Already this minimal problem has a complex superposition of eight base states as a ground state. The introduction of the transverse field will only make this more complex. Therefore a systematic way of finding the solution will be presented.
 
-For this purpose, the example from \autoref{fig:simpleThreeLatticeIsing}, image b) will be used once more, but this time with the hamiltonian \ref{eq:hamiltonianExampleTransverse}.
+For this purpose, the example from \autoref{fig:simpleThreeLatticeIsing}, image b) will be used once more, but this time with the hamiltonian in \autoref{eq:hamiltonianExampleTransverse}.
 \begin{equation}
     \label{eq:hamiltonianExampleTransverse}
     \hamiltonian = J\cdot \sigma^z_1\sigma^z_2 +J\cdot\sigma^z_2\sigma^z_3 +J\cdot\sigma^z_1\sigma^z_3
@@ -50,7 +50,7 @@ The elements of the matrix should be $\bra{m}\hamiltonian\ket{n}$. Where $\ket{m
     \end{tabular}
 \end{center}
 
-In \ref{eq:matrixElement} an example calculation of $\bra{2}\hamiltonian\ket{4}$ is presented.
+In \autoref{eq:matrixElement} an example calculation of $\bra{2}\hamiltonian\ket{4}$ is presented.
 
 \begin{equation}
     \label{eq:matrixElement}
@@ -78,9 +78,9 @@ In \ref{eq:matrixElement} an example calculation of $\bra{2}\hamiltonian\ket{4}$
     \end{split}
 \end{equation}
 
-Placing them inside a matrix at the corresponding location yields the matrix representation for $\bra{m}\hamiltonian\ket{n}$ that can be seen in \ref{eq:matrix-hamiltonian}.
-Because of \ref{eq:base-factors}, each wavefunction can be written in terms of the chosen base. This is used in \ref{eq:matrix-hamiltonian-vector}. By representing the wavefunction as a column vector, filled with the scaling factors, the transformation is complete. 
-The calculation of the hamiltonian \hamiltonian acting on a wavefunction $\Psi$ like in \ref{eq:schroedinger-general} can now analogously be computed by performing the matrix multiplication $\bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec}$
+Placing them inside a matrix at the corresponding location yields the matrix representation for $\bra{m}\hamiltonian\ket{n}$ that can be seen in \autoref{eq:matrix-hamiltonian}.
+Because of \autoref{eq:base-factors}, each wavefunction can be written in terms of the chosen base. This is used in \autoref{eq:matrix-hamiltonian-vector}. By representing the wavefunction as a column vector, filled with the scaling factors, the transformation is complete. 
+The calculation of the hamiltonian \hamiltonian acting on a wavefunction $\Psi$ like in \autoref{eq:schroedinger-general} can now analogously be computed by performing the matrix multiplication $\bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec}$
 
 \begin{equation}
     \label{eq:matrix-hamiltonian}
@@ -146,7 +146,7 @@ The calculation of the hamiltonian \hamiltonian acting on a wavefunction $\Psi$ 
     \end{split}
 \end{equation*}
 
-Rewriting \ref{eq:schroedinger-general} in terms of the newly defined matrix operators, results in \ref{eq:schroedinger-matrix}.
+Rewriting \autoref{eq:schroedinger-general} in terms of the newly defined matrix operators, results in \autoref{eq:schroedinger-matrix}.
 \begin{equation}
     \label{eq:schroedinger-matrix}
     \bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec} = E \cdot \Psi_\mathrm{vec}
