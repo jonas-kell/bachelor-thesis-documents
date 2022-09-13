@@ -43,3 +43,29 @@ The effect of this can be seen in \autoref{fig:direct-comparison-lattice-site-sw
 
 The goal of this setting is to decouple the in-memory representation and the structure of the simulated lattice. 
 Effects of this will be explored in \fullref{sec:experiments-resiliencylatticeencoding}.
+
+General data about the lattices is provided in \autoref{table:lattice-information}.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{l|cc|ccccccc} 
+        \toprule
+        Lattice name & \#nn & \#nnn &$L$(1)&$L$(2)&$L$(3)&$L$(4)&$L$(5)&$L$(6)&$L$(7)\\  
+        \midrule 
+        linear & 2 & 2 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
+        cubic & 4 & 4 & 4 & 9 & 16 & 25 & 36 & 49 & 64\\
+        trigonal\_square & 6 & 6 & 4 & 16 & 36 & 64 & 100 & 144 & 196\\
+        trigonal\_diamond & 6 & 6 & 4 & 9 & 16 & 25 & 36 & 49 & 64\\
+        trigonal\_hexagonal & 6 & 6 & 7 & 19 & 37 & 61 & 91 & 127 & 169\\
+        hexagonal & 3 & 6 & 6 & 24 & 54 & 96 & 150 & 216 & 294\\
+        \bottomrule
+    \end{tabular}
+    \vspace{0.5cm}
+    \caption{General information about the explored lattices. \textbf{\#nn} describes the number of nearest neighbors, \textbf{\#nnn} the number of next nearest neighbors. The numbers describe the maximum possible neighbor count. If a lattice is non-periodic, some sites can have less neighbors. $L(i)$ describes the number of lattice sites for a lattice of \textbf{size=$i$}}
+    \label{table:lattice-information}
+\end{table}
+
+
+
+
+

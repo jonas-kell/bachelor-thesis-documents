@@ -113,3 +113,5 @@ translational
 approximators
 rasterized
 resized
+backpropagation
+CIFAR-10
