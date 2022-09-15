@@ -135,47 +135,85 @@ toc=bibliographynumbered            % bibliography gets a number and is listed i
 \label{sec:architectures}
 
     \section{Used Architectures}
-        \subsection{Perceptron Architectures}
+    \label{sec:architectures-theory}
+    \input{./architectures/theory/introduction}
+        \subsection{Perceptron and Pooling Architectures}
         \label{sec:architectures-perceptron}
-        \subsection{Pooling}
-        \label{sec:architectures-pooling}
+        \input{./architectures/theory/perceptron-pooling/perceptron-pooling}
+        \FloatBarrier
         \subsection{Convolutional Architectures}
         \label{sec:architectures-convolution}
+        \input{./architectures/theory/convolutions/convolutions}
+        \FloatBarrier
         \subsection{Attention and the Transformer}
         \label{sec:architectures-attention}
+        \input{./architectures/theory/attention/attention}
+        \FloatBarrier
         \subsection{The Metaformer}
         \label{sec:architectures-metaformer}
+        \input{./architectures/theory/metaformer/metaformer}
+        \FloatBarrier
         \subsection{Graph Architectures}
         \label{sec:architectures-graphs}
+        \input{./architectures/theory/graphs/graphs}
+        \FloatBarrier
     \section{Usage of Inductive Biases}
+    \label{sec:biases}
+    \input{./architectures/theory/introduction}
         \subsection{Conventional Architectures}
         \label{sec:architectures-biasesnormal}
+        \input{./architectures/biases/conventional-architectures/conventional-architectures}
+        \FloatBarrier
         \subsection{Metaformer Architectures}
         \label{sec:architectures-biasesmetaformer}
+        \input{./architectures/biases/metaformer/metaformer}
+        \FloatBarrier
         \subsection{Graph Architectures}
         \label{sec:architectures-biasesgraph}
+        \input{./architectures/biases/graphs/graphs}
+        \FloatBarrier
 
 \chapter{Experiments and their Results}
+\label{sec:experiments}
     \section{Metaformer in Image Classification}
+    \label{sec:experiments-image-classification}
+    \input{./experiments/image-classification/introduction}
         \subsection{Training Settings}
         \label{sec:experiments-trainingsettings}
-
+        \input{./experiments/image-classification/training-settings/training-settings}
+        \FloatBarrier
         \subsection{Importance of Positional Encoding}
         \label{sec:experiments-positionalencoding}
+        \input{./experiments/image-classification/positional-encoding/positional-encoding}
+        \FloatBarrier
         \subsection{Comparison of different Token Mixers}
         \label{sec:experiments-tokenmixers}
+        \input{./experiments/image-classification/comparison-token-mixers/comparison-token-mixers}
+        \FloatBarrier
 
     \section{Metaformer in Ground State Search}
+    \label{sec:experiments-ground-state-search}
+    \input{./experiments/ground-state-search/introduction}
         \subsection{Comparison to established Architectures}
         \label{sec:experiments-comparisontoestablished}
+        \input{./experiments/ground-state-search/comparison-established/comparison-established}
+        \FloatBarrier
         \subsection{Resiliency to the Choice of Lattice Encoding}
         \label{sec:experiments-resiliencylatticeencoding}
+        \input{./experiments/ground-state-search/resiliency-encoding/resiliency-encoding}
+        \FloatBarrier
         \subsection{Optimizing the Ansatz}
         \label{sec:experiments-optimizingtheansatz}
+        \input{./experiments/ground-state-search/ansatz/ansatz}
+        \FloatBarrier
         \subsection{Choice of Hyperparameters}
         \label{sec:experiments-hyperparameters}
+        \input{./experiments/ground-state-search/hyperparameters/hyperparameters}
+        \FloatBarrier
         \subsection{Differences across the Phase Diagram}
         \label{sec:experiments-phasecriticalpoint}
+        \input{./experiments/ground-state-search/differences-phase-diagramm/differences-phase-diagramm}
+        \FloatBarrier
 
 \chapter{Conclusion}
 \label{sec:conclusion}
