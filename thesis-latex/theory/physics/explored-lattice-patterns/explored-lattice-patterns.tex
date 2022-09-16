@@ -5,6 +5,7 @@ The implementation supports a 1D lattice (the default \textbf{linear} lattice/ch
 
 The lattice structure can be interactively visualized with the use of \cite{selfPhysics} \filepath{/structures/visualize.py}.
 The same code was used to generate the referenced visualization printed in the \nameref{sec:appendix}.
+The construction of the hexagonal lattice types, makes use of the hexagonal coordinate systems defined in \cite[]{hexagonalGrids}.
 
 The numbers, that can be seen in the visualization denote the location-index of the memory, that is responsible for carrying the spin state at that lattice site in the later representation. As will become obvious in \fullref{sec:theory-graphs}, the structure of a lattice cannot always be represented directly analogous in memory. Therefore an alternative way of addressing lattice sites and theirs surroundings needs to be employed.
 In this case, the framework generates the set of \emph{nearest neighbor} (marked green in the visualization) and \emph{next-nearest neighbor} (marked yellow in the visualization) indices for a given lattice site (marked red in the visualization). These are used as structural inputs for later discussed \emph{graph} architectures.
@@ -64,8 +65,6 @@ General data about the lattices is provided in \autoref{table:lattice-informatio
     \caption{General information about the explored lattices. \textbf{\#nn} describes the number of nearest neighbors, \textbf{\#nnn} the number of next nearest neighbors. The numbers describe the maximum possible neighbor count. If a lattice is non-periodic, some sites can have less neighbors. $L(i)$ describes the number of lattice sites for a lattice of \textbf{size=$i$}}
     \label{table:lattice-information}
 \end{table}
-
-% TODO SOURCE: \cite{hexagonalGrids}
 
 
 

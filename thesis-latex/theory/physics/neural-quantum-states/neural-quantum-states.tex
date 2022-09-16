@@ -9,7 +9,7 @@ So even with unlimited time, a numerical calculation could be impossible because
 The iterative methods get around this, by being able to chose a data structure with much higher information density than the full hamiltonian (For example if only the ground state is wanted, it is unnecessary to store anything but information regarding it. The hamiltonian though encodes a lot of \glqq unnecessary\grqq{} information about other states). This structure can then be iteratively refined.
 
 In practice a so called \emph{neural quantum state} (NQS) is used. 
-This basically is nothing but a neural network, taken from established machine learning tasks.
+This basically is nothing but a neural network, taken from established machine learning tasks \cite{restrictedBoltzmanMachines}.
 The function is parametrized by $M$ variables $\theta_i \in \mathbb{R}, 0\leq i < M$ and takes a spin configuration as an input.
 A spin configuration for $N$ lattice sites can be described by $\sigma_j \in \left\{\up, \down\right\}, 0\leq j < N$.
 The function will be written like \autoref{eq:parametrized-wavefunction}.
@@ -111,5 +111,3 @@ As it is known, that the ground state energy $E_0$ is the smallest energy, the g
 \end{enumerate}
 
 Because the method iteratively updates the network by performing tiny variations, it is called \emph{variational Monte Carlo} (VMC) method.
-
-% TODO SOURCE: \cite{restrictedBoltzmanMachines}
