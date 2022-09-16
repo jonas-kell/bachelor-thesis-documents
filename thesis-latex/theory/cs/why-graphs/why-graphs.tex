@@ -1,13 +1,41 @@
-% TODO 
-% - General problem of generalizing rectangular structures 
-% - Outlook on the graph Architectures chapter, where the real element will be defined 
+When using data for training neural networks, a consistent \emph{encoding} has to be used.
+In \autoref{fig:image-classification-general} an image is transformed into a neural network input by reshaping its pixels into one column of numbers. This also works for images with multiple color channels.
+A highly useful property of images is, that they can directly be encoded into \emph{tensors} depending on their format (e.g. a $224\times224$ matrix for a grayscale image or a $3\times224\times224$ tensor for an image with three color channels).
 
+By leaving this structure in the way it already is stored in, properties like the pixel-proximity relation is conserved (while reordering into one column obviously does not preserve this information in the same way).
+Network elements like \emph{convolutions} (\autoref{sec:architectures-convolution}) can use this preserved information to their advantage. 
+The utilization of such kind of information is called an \emph{implicit bias} and discussed in-depth in \autoref{sec:biases}.
+
+The canonical representation of images in memory is also the reason, why \emph{graphics} processing units (GPUs), are highly optimized to run calculation on tensors.
+Because of their hardware design, operations like matrix multiplication or tensor addition can be carried out highly parallelized and efficient.
+
+The hardware was originally designed to render graphics to the computer screen. 
+It is however no longer used exclusively for that.
+If a computational problem can be reduced to solving a matrix calculation, it can easily be carried out by a GPU.
+
+Sadly not all data is generally representable in tensor form. 
+
+A common data structure, in that many nodes exist which have relations defined between them, is called a \emph{graph}.
+Examples for graph data are social media friendship relations or street data inside a navigational system.
+As graphs are quite versatile however, a lot of things can be represented with them.
+
+The novel concept is, to represent the lattice structures from \autoref{sec:theory-latticepatterns} as a graph and then apply neural network architectures, that are specifically designed to deal with that kind of data.
+
+A big advantage is, that as graphs are more versatile as the strict tensor representation, the tensor data of an image can \emph{also} be represented as a graph. 
+A square picture can for example be represented as a graph, if every pixel is treated as its own node. 
+By connecting the neighboring pixels with edges, the problem can be transferred into a graph representation, without losing the information about the proximity of pixels in relation to each other.
+
+Established operations like \emph{pooling} (\autoref{sec:architectures-perceptron-pooling}) or \emph{convolutions} (\autoref{sec:architectures-convolution}) can be defined to work on graph data. 
+That will be done in \autoref{sec:architectures-graphs}. 
+The advantage of the possibility to represent images in both encodings is, that the functionality of the graph operators can be verified and compared against the established implementations for tensors.
+That way, one can be confident, that the calculations will also work for data that is \emph{not} representable in a tensor form.
+
+As a graph with one node per pixel of an image would be quite large - even for low resolution images - larger chunks of the image, called a \emph{patch} (e.g. $16 \times 16$ pixel) can be treated as one unit. 
+With that method, localized interactions can be computed inside a patch, while mid to far range interactions can be computed between nodes/patches, while at the same time drastically cutting down the number of nodes in the graph.
+
+Patching has already been used extensively in \emph{vision transformer} architectures (\autoref{sec:architectures-attention}) \cite{dinoPaper} \cite{imageWorth16x16}. 
+The graph-versions of these transformers are however relatively uncommon.
 
 % SOURCE: \cite{bertPaper}
 % - importance of bi-directional nature, that can look into the future (for us important, as there is not time axis in images and everything can be seen at once)
-
-% SOURCE: \cite{imageWorth16x16}
-% - image processing transformer
-
-% SOURCE: \cite{dinoPaper}
-% - image processing transformer
+% -> decided against using that source here, because talking about image and language processing over complicates the section

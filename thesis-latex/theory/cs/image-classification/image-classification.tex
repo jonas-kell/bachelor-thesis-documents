@@ -16,7 +16,7 @@ The architecture of the network can be viewed generalized in \autoref{fig:image-
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{./theory/cs/image-classification/process.pdf}}
     \caption{Generalized schema of the image classification pipeline used in the experiments portion of this thesis.
-        The image gets rasterized, resized to 224$\times$224 pixel and 8 bit color depth. Then the image is normalized, reshaped into vector form and processed from there. The MLP in this image is only a placeholder. Many of the later discussed neural network architectures treat the reshaping, casting and processing differently. The output for all networks needs to be in form of 100 floating point numbers. the one closest to one gets selected as the networks choice. The class name, the index represents can then be looked up.
+        The image gets rasterized, resized to 224$\times$224 pixel and 8 bit color depth per each of the three color channels. Then the image is normalized, reshaped into vector form and processed from there. The MLP in this image is only a placeholder. Many of the later discussed neural network architectures treat the reshaping, casting and processing differently. The output for all networks needs to be in form of 100 floating point numbers. the one closest to one gets selected as the networks choice. The class name, the index represents can then be looked up.
         Cat image from \cite{catPhoto}.
     }
     \label{fig:image-classification-general}
