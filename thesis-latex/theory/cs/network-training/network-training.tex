@@ -1,18 +1,44 @@
-% TODO 
-% - Theory backpropagation
-% - Optimizer
-% - Hyperparameters
-% - Augmentations
-% - Maybe training hardware
-% - batch size
-% - loss function 
+When initializing neural networks, they most often come only with an empty structure, that allows for the possibility to acquire a computing machine if all the internal parameters and weights are set accordingly.
+For very small computational networks, it is possible to set the weights by hand.
+But already for low tens or hundreds of numbers this becomes an unfeasible task. 
 
-% SOURCE: \cite{mobileNetPaper}
-% - explains distillation and other squeeze methods as complementary 
+Because of that, neural networks are \emph{trained} to get them to the functioning state. In the training phase the structure of the network is (normally) left static, only the parameter values are adjusted. 
+The algorithm that accomplishes an update of the weights, that nudges the network \emph{towards} the desired solution is called \emph{backpropagation} \cite{machineLearningMitchell}.
+It is based on the chain rule of differentiation and uses the severity of changes a parameter inflicted on a (intermediate) result, to update the parameter in a way, that steers said result towards the desired one. 
 
-% SOURCE: \cite{dinoPaper}
-% - discusses augmentations in depth
+As mentioned, for one run, the structure is typically unchanged. 
+The general shape of the network and many turning knobs on the update process can be controlled to allow for a more efficient representation and weight update.
+The controlling variables are called \emph{hyperparameters}.
+The most important hyperparameters in the later experiments will be the \emph{optimizer} (\emph{stochastic gradient descent} and \emph{adamw} \cite{adamwOptimizer} are compared), the \emph{loss function} (\emph{cross entropy loss} is used), and the \emph{batch size}. 
+Additionally, the \emph{learning rate}, \emph{weight decay}, \emph{dampening} and \emph{momentum} can be set to modify the behavior of the optimizer.
 
-% SOURCE: \cite{convNetForThe2020s}
-% - really big focus on the training procedures and hyperparameter design and augmentations 
+Different optimizers change the updating behavior of the network. 
+The loss function defines a measure on how far or close the computed solution is in comparison the the known solution.
+The learning rate defines the step size that gets taken towards the target in one iteration.
+Choosing its value to small results in slow convergence, choosing a value too big can result in overshooting and subsequently also lowering the speed of convergence.
+Dampening and momentum are generally used to combat either of these effects.
+Weight decay generally helps against \emph{overfitting} (If a model's generalization capacity is exhausted or the training examples are to monotone, this can lead to memorization of a subset of training examples. This increases the performance on training data, but hurts the performance on unseen data). 
+As for our applications, overfitting is unimportant or even desired (\autoref{sec:biases}), this parameter left unchanged.
 
+The article \emph{A ConvNet for the 2020s} \cite{convNetForThe2020s} makes the point, that by heavily investing in choosing the appropriate hyperparameters, state of the art performance can be extracted even from \glqq standard\grqq{} model architectures. 
+As the focus in this thesis is to compare the performance of different \emph{architectures} with each other, \emph{no efforts} are made to tune hyperparameters to achieve the absolute best performance. 
+In contrary, hyperparameters were left \emph{deliberately} static, to allow for a more fair comparison where possible.
+
+One more important parameter is the batch size. 
+By processing more than one training example at a time, a more stable and efficient update process can be achieved.
+However the batch size is limited by the available memory. 
+As most of the calculations are performed on a GPU, the video memory is important. 
+The calculations were either performed on a \emph{NVIDIA GeForce GTX 1070} with \SI[]{8}[]{GB} of video ram or a \emph{NVIDIA TITAN Xp} with \SI[]{12}[]{GB}. 
+Both cards are mid to low range in performance and video memory, in comparison to the most up to date cards. 
+Therefore often the batch size and number of iterations had to be set lower than may be desirable for an optimal result. Though it speaks in favor of the applied methods, that good results could be achieved without top-tier hardware.
+
+Very important for generating training data for an image recognition task are the \emph{augmentations}. 
+They are a big focus of the research performed in \cite{convNetForThe2020s} and \cite{dinoPaper}.
+As transformer models generally require really large datasets to train, it is desirable to generate more data from the data that is already collected. 
+This can be achieved by augmenting the training images in a way that does not change the content according to human recognition, but produces a different input for the network.
+Flipping, rotating, cropping or adding noise to an image are all possible augmentations. 
+In the experiments only random horizontal flips are employed, to (hopefully) still be able to overfit all models. 
+This is necessary to be able to judge the models \emph{inductive bias} (\autoref{sec:biases}).
+
+To paint a more complete picture, there are other strategies, than just forcefully training a model directly from scratch. 
+Some of those will be be presented in the following section.
