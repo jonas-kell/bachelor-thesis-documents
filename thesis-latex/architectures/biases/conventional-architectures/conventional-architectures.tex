@@ -20,6 +20,13 @@ The Ising lattices, reviewed in this thesis, have this property.
 If two spins interact or not is only dictated by how close they are.
 Not by the direction one is from the other.
 
+\paragraph{Depthwise separable convolutions} were introduced by research on how to efficiently reduce network size \cite{mobileNetPaper}.
+Their bias is, that interaction between values of one channel (for example one color channel in the case of rgb-images) can be computed independent and then only combined in a second step.
+This makes sense, as there is already quite a lot of information inside one color channel. 
+And as extracting the information per channel before comparing across channels saves a lot of computational resources, this is a logical step to take.
+Also it should in most cases be possible to recognize e.g. a dogs shape only from one color channel. 
+Therefore checking for a shape in all channels separately and then comparing seems easier than forcefully training to assemble shapes across channels.
+
 \paragraph{Recurrent layers} used a lot in translation tasks and video analysis, because of their \emph{time invariance} \cite{relationalInductiveBiasesAndGraphNetworks}. 
 These would likely be very powerful for investigating the development of a quantum system over time. 
 AS this thesis focuses on stationary problems, recurrency is not used.
