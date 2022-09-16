@@ -1,12 +1,29 @@
-% TODO 
-% - Caution, as Markus said, all regular lattices have some level of larger or smaller scale regularities. Convnets will probably always succeed in that case. Graph nets may be even more effective on highly irregular systems.
-% - still hope, that as encoding style and interaction style directly reflect the graph structure, a more efficient representation is possible 
+Extending the base metaformer architecture to a graph architecture has three advantages. 
+Though a hidden problem will be discussed at the end of this section.
 
+\paragraph{Allowing for the application of established operators} like convolutions and pooling to be used on data that doesn't support encoding in tensor like structures. 
+This makes it possible to apply a vast pool of experience and knowledge about convolutional/pooling architectures to graph data, without having to put much thought into inventing new architectures.
 
-% SOURCE: \cite{relationalInductiveBiasesAndGraphNetworks}
-% - graph networks citation
+\paragraph{Improving performance} of the architecture by introducing new biases.
+The \emph{shifted window vision transformer} (swin transformer) \cite{swinTransformerPaper} was able to improve the quality of vision transformers by introducing \emph{non-uniform} blocks that get assembled in a \emph{hierarchical} manner (combining smaller entities to form larger ones and repeating this to form increasingly larger structures).
+The swin transformer was not implemented as a graph transformer, because of the already tensor-like structure of images. 
+However the good performance of the irregularly merged patches might suggest, that using the powers of the graph networks to \emph{force} irregular interactions may be more efficient, than only hard-encoding a specific lattice structure into the architecture.
+Primarily the patch encoder for the lattice input would be a good candidate as a target for further research in that domain.
 
-% SOURCE: \cite{swinTransformerPaper}
-% (- hierarchical structure, that limits self attention to blocks)
-% (- blocks can be uniformly or non-uniformly assembled)
-% - could be interesting as a future research idea on how to perform patching for later lattices more efficiently 
+\paragraph{Becoming encoding independent} as the location in memory and the location in the data structure do not have to be correlated. 
+When representing an image in a tensor, the locality information is stored \emph{implicitly} by the location of the values in relation to each other in memory. 
+For graph structures, this information is stored \emph{explicitly} in the graphs's edges.
+Because of that, the data encoding can be changed and the performance of the graph network is not affected, while changing the positions where data is encoded to, breaks a convolutional filter.
+The \autoref{sec:experiments-resiliencylatticeencoding} examines this.\\
+
+A challenge that may present itself, is to what degree a dataset \emph{requires} being encoded as a graph.
+Because it is already proven, that e.g. image classification networks exist, that do not use the inductive biases of locality or translation. 
+
+It probably makes it harder for a neural network to encode a trigonal lattice as a linear array than as a purposefully built graph network with the lattice structure baked in.
+But as it will become evident in the experiments, it is definitely possible. 
+By taking a look at larger lattices, it is obvious they all have a huge degree of periodicity - which is good as that is what defines a lattice.
+But at the same time this raises a question: Surely, it is convenient to represent everything as a graph, because they can model most arbitrary relationships (in fact not all relationships \cite{relationalInductiveBiasesAndGraphNetworks}). 
+Though they also come with a significant performance overhead when implemented in the current hardware and the methods described in \autoref{sec:architectures-graphs}. 
+
+This poses the question, whether the lattice data experimented on is even \emph{irregular enough} to gain a performance boost from the employment of graph networks.
+In follow up research it would therefore definitely be desirable to measure the impact of graph architectures across multiple magnitudes of \glqq irregularity\grqq{} in their structure.
