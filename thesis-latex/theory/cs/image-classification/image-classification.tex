@@ -10,13 +10,13 @@ The gist is, to build a neural network that can label the things pictured on som
 In our case, an even simpler version of the problem will be considered. 
 The only job of the network is, to select one of $N$ predefined labels, that describe the picture best.
 
-The architecture of the network can be viewed generalized in \autoref{fig:image-classification-general}.
+A generalization of the task pipeline can be viewed in \autoref{fig:image-classification-general}.
 
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{./theory/cs/image-classification/process.pdf}}
     \caption{Generalized schema of the image classification pipeline used in the experiments portion of this thesis.
-        The image gets rasterized, resized to 224$\times$224 pixel and 8 bit color depth per each of the three color channels. Then the image is normalized, reshaped into vector form and processed from there. The MLP in this image is only a placeholder. Many of the later discussed neural network architectures treat the reshaping, casting and processing differently. The output for all networks needs to be in form of 100 floating point numbers. the one closest to one gets selected as the networks choice. The class name, the index represents can then be looked up.
+        The image gets rasterized, resized to 224$\times$224 pixel and 8 bit color depth per each of the three color channels. Then the image is normalized, reshaped into vector form and processed from there. The MLP in this image is only a placeholder. Many of the later discussed neural network architectures treat the reshaping, casting and processing differently. The output for all networks needs to be in form of 100 floating point numbers. The one closest to 1 gets selected as the networks choice. The class name the index represents can then be looked up.
         Cat image from \cite{catPhoto}.
     }
     \label{fig:image-classification-general}
@@ -26,7 +26,7 @@ The aforementioned trivial mapping of inputs to outputs is obviously not feasabl
 
 In order to solve the problem, the mapping function is \emph{approximated} with a neural network. 
 
-To train the network, a pre-labeled set of training images is passed through the network, the results are compared to the labels and the error is used to iteratively update the network with use of the \emph{backpropagation algorithm} \cite{machineLearningMitchell}, therefore improving the performance of the network in the next step.
+To train the network, a pre-labeled set of training images is passed through it, the results are compared to the labels and the error is used to iteratively update the network with use of the \emph{backpropagation algorithm} \cite{machineLearningMitchell}, therefore improving the performance of the network in the next step.
 
 A big challenge in training these kinds of networks is getting a sufficient amount of labeled training data. 
 Today a lot of publicly available, high quality datasets exist for download. 

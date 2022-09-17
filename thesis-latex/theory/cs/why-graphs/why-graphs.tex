@@ -6,7 +6,7 @@ By leaving this structure in the way it already is stored in, properties like th
 Network elements like \emph{convolutions} (\autoref{sec:architectures-convolution}) can use this preserved information to their advantage. 
 The utilization of such kind of information is called an \emph{implicit bias} and discussed in-depth in \autoref{sec:biases}.
 
-The canonical representation of images in memory is also the reason, why \emph{graphics} processing units (GPUs), are highly optimized to run calculation on tensors.
+The canonical representation of images in memory is also the reason, why \emph{graphics processing units} (GPUs), are highly optimized to run calculation on tensors.
 Because of their hardware design, operations like matrix multiplication or tensor addition can be carried out highly parallelized and efficient.
 
 The hardware was originally designed to render graphics to the computer screen. 
@@ -15,13 +15,13 @@ If a computational problem can be reduced to solving a matrix calculation, it ca
 
 Sadly not all data is generally representable in tensor form. 
 
-A common data structure, in that many nodes exist which have relations defined between them, is called a \emph{graph}.
+A common data structure - in that many nodes exist which have relations defined between them - is called a \emph{graph}.
 Examples for graph data are social media friendship relations or street data inside a navigational system.
 As graphs are quite versatile however, a lot of things can be represented with them.
 
 The novel concept is, to represent the lattice structures from \autoref{sec:theory-latticepatterns} as a graph and then apply neural network architectures, that are specifically designed to deal with that kind of data.
 
-A big advantage is, that as graphs are more versatile as the strict tensor representation, the tensor data of an image can \emph{also} be represented as a graph. 
+A big advantage is, that as graphs are more versatile than the strict tensor representation, the tensor data of an image can \emph{also} be represented as a graph. 
 A square picture can for example be represented as a graph, if every pixel is treated as its own node. 
 By connecting the neighboring pixels with edges, the problem can be transferred into a graph representation, without losing the information about the proximity of pixels in relation to each other.
 

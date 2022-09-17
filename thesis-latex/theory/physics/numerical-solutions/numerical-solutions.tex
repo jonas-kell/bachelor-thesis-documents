@@ -16,12 +16,12 @@ This corresponds to a linear lattice in 1D. Let the Hamiltonian be the one in \a
     \hamiltonian = \sigma^z_1\sigma^z_2 + \sigma^z_2\sigma^z_3
 \end{equation}
 
-This hamiltonian is anti-ferromagnetic ($J = +1$). It should be easily seen, that the Energy $E$ in \autoref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so trying this by one self is advised for someone without prior quantum mechanical experience.
+This hamiltonian is anti-ferromagnetic ($J = +1$). It should be easy to see, that the Energy $E$ in \autoref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so trying this by one self is advised for someone without prior quantum mechanical experience.
 The ground state therefore will be a \emph{superposition} consisting of equal parts $\ket{\up, \down, \up}$ and $\ket{\down, \up, \down}$ (\autoref{eq:solutionSimpleExample}). The factor $\frac{1}{\sqrt[]{2}}$ instead of the seemingly more obvious $\frac{1}{2}$ makes the wavefunction be \emph{normalized}. If it wasn't for the square root, \autoref{eq:base-orthonormal} would not be satisfied. This way it is satisfied, which can be tested.
 
 \begin{equation}
     \label{eq:solutionSimpleExample}
-    \Psi_\mathrm{gnd} = \frac{1}{\sqrt[]{2}} \cdot \ket{\up, \down, \up} +  \frac{1}{\sqrt[]{2}} \cdot \ket{\down, \up, \down}
+    \ket{\Psi_\mathrm{gnd}} = \frac{1}{\sqrt[]{2}} \cdot \ket{\up, \down, \up} +  \frac{1}{\sqrt[]{2}} \cdot \ket{\down, \up, \down}
 \end{equation}
 
 The second example, visualized in \autoref{fig:simpleThreeLatticeIsing}, image b), however is not so simple. The corresponding hamiltonian can be seen in \autoref{eq:hamiltonianExampleB}.
@@ -158,9 +158,9 @@ It is now clear, that the smallest eigenvalue of the matrix \emph{is} the ground
 
 Like mentioned, the complexity of the problem does not lie in terms of how to compute this value, but in how to compute it in reasonable time.
 If $L$ is the size of the lattice, it is obvious, that the canonical base contains $2^L$ states ($L$ sites, each can be \up or \down).
-Therefore the matrix whose eigenvalues are required has $2^{L+1}$ entries, of which $2^L \cdot m$ are non-zero ($m$ being constant and dependent on the form of the hamiltonian, as well as the number of neighbors to one site in the lattice). 
+Therefore the matrix whose eigenvalues are required has $2^{2\cdot L}$ entries, of which $2^L \cdot m$ are non-zero ($m$ being constant and dependent on the form of the hamiltonian, as well as the number of neighbors to one site in the lattice). 
 
-So even \emph{if} a algorithm was found, to compute the eigenvalues of such a matrix in linear time, the time complexity for solving the problem would still scale in $\mathcal{O} (2^L)$ with the number of lattice sites.
+So even \emph{if} a algorithm was found, to compute the eigenvalues of such a matrix in linear time (in comparison to the number of non-zero entries in the matrix), the time complexity for solving the problem would still scale in $\mathcal{O} (2^L)$ with the number of lattice sites $L$.
 
 To compute macroscopic crystals, the number of lattice sites would have to be in the same range of magnitude as \emph{Avogadros constant} ($N_\mathrm{A} \approx \SI{6.022E23}{\per\mol}$). Current hardware can not go reasonably into the range of hundreds. 
 

@@ -1,27 +1,28 @@
-As a human it is often complicated to jump into an unfamiliar task and learn everything necessary to solve it at once.
+For a human it is often complicated to jump into an unfamiliar task and learn everything necessary to solve it at once.
 The same is true for neural networks. 
 Different strategies have been devised to combat this difficulty. 
 None of them is applied in the experiments section of this thesis. 
 However it may be fruitful to look into their application in further research. 
 
-One method is to \emph{distill} knowledge from one network to the other. 
+One method is to \emph{distill} knowledge from one network to into an other. 
 For that strategy, first a large and expensive network could be trained.
 Then a smaller network is trained with the task to replicate the behavior of the complex network. 
 This method among other things is discussed as a complementary measure in \cite{mobileNetPaper}.
 The idea is, that by forcing the information into less weights, a higher level of abstraction and problem extrapolation can be achieved, and pure memorization of the solutions is less likely.
 
 An \glqq online\grqq{} approach to this method are \emph{teacher-pupil} methods. 
-By training multiple networks in parallel and motivating them to outperform each other, a better performance can be achieved. This is an important point in \cite{dinoPaper}.
+By training multiple networks in parallel and motivating them to outperform each other, a better performance overall can be achieved. This is an important point in \cite{dinoPaper}.
 
 Finally, very large performance gains can be won from the employment of \emph{pre-training}.
-This method resembles the human learning strategy to first acquiring general knowledge about a problem by segmenting it into basic blocks and practicing on them.
+This method resembles the human learning strategy to first acquire general knowledge about a problem by segmenting it into basic blocks and practicing on them.
 Then learning to refine the general knowledge into one that solves a specific task.
 
 Pre-training in \emph{language processing} is a key aspect of the research in \cite{bertPaper}.
 A neural network could for example be trained to reconstruct a sentence, of which one word has been masked out.
 Generating labeled training data for such cases is basically trivial. 
 Therefore the neural network can learn a lot about word proximity and basic sentence structures.
-Because it is a highly labor intensive process to acquire texts with verified and suited translations alongside them, a network with pre-trained knowledge of sentence structure and linguistic mannerisms can extract knowledge from this limited data more efficiently and quickly.
+Because it is a highly labor intensive process to acquire texts with verified and suited translations alongside them, there will always be a shortage of such data.
+A network with pre-trained knowledge of sentence structure and linguistic mannerisms can extract knowledge from this limited dataset more efficiently and quickly.
 The process of adapting a pre-trained network to a desired task is called \emph{fine-tuning}.
 
 The datasets in pre-training are generally larger and easier to generate. 
