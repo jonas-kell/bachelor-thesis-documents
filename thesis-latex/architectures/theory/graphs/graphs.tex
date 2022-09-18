@@ -136,7 +136,7 @@ and \autoref{eq:weighted-adjacency-matrix} it should become clear that for an im
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{./architectures/theory/graphs/convolution-comparison.pdf}}
     \caption{Schematic representation that shows the parallels between a depthwise convolution (only one channel shown) of a $3\times 3$ Kernel over a patched image and the corresponding graph. Not involved nodes as well as edges are omitted from the graph on the right side. Both representations show only a subset of the whole situation, as only the calculation for the convolution of node $e$ is shown. The calculations for the other nodes are preformed analogously, but shifted to another center patch. When comparing to \autoref{eq:weighted-adjacency-matrix}, $w_0=0.9$, $w_1=0.2$ and $w_2=0$, but with the proper adjacency matrices.
-    The color scheme is the same as in the \nameref{appendix:lattice-visualisation}.}
+    The color scheme for neighbor visualization is the same as in the \nameref{appendix:lattice-visualisation}.}
     \label{fig:transition-convolution-graph}
 \end{figure}
 
@@ -179,4 +179,29 @@ Before passing the masked values through the softmax function, all zero values n
 By doing that, it is ensured their softmax evaluates to 0 and the corresponding connection is therefore masked out completely.
 The element wise multiplication and replacement with $-\infty$ happens on line 161 of the attention algorithm implementation in jax style (appendix, \ref{appendix:attention}).
 
-% TODO- how to patch for graphs? -> methods nn and nnn 
+\paragraph{Graph patching} can be achieved in multiple different ways.
+In order to get the input configuration into a state that is processable by transformers, the input shape needs to have the dimension $n \times e$, with the number of lattice sites $n$ and the embed dimension $e$.
+To achieve this, a lattice encoding of shape $n \times x$ is generated from the randomly sampled spin state $s_\mathrm{input} \in \{0,1\}^n$.
+$x$ depends on the chosen \emph{embed\_mode} strategy (\emph{duplicate\_spread}, \emph{duplicate\_nn} or \emph{duplicate\_nnn}), as well as the lattice shape. 
+An example for the different strategies is displayed in \autoref{fig:graph-patching}.
+
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{./architectures/theory/graphs/patching.pdf}}
+    \caption{Assembling of the transformed inputs $s'$ of shape $n\times x$. $x$ depends on the embed\_mode strategy.
+                The shape further depends on the shape of the chosen lattice. 
+                In the example, a trigonal\_hexagonal lattice of size 1 is chosen.
+                The color scheme for neighbor visualization is the same as in the \nameref{appendix:lattice-visualisation}.}
+    \label{fig:graph-patching}
+\end{figure}
+
+To convert the intermediate state $s'$ into the final form, the values are newly assigned
+($1 \rightarrow 1,\quad 0\rightarrow -1,\quad (-) \rightarrow 0$). 
+To be easier for the network to differentiate, (0,1) is mapped to (-1,1) and previously unassigned vales are set to 0.
+
+To reshape the element of size $n \times x$ to the input $n\times e$, a fcl is used.
+This strategy is analogous to the patching algorithm for most vision transformers.
+
+The mapping pictured in \autoref{fig:graph-patching} can be performed quite efficient by using a helper matrix and applying one \emph{einsum} operation.  
+The details can be referenced in the code \cite{selfPhysics}.
+

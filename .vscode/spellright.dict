@@ -144,3 +144,5 @@ distributivity
 Uninvolved
 poolings
 softmax
+processable
+einsum
