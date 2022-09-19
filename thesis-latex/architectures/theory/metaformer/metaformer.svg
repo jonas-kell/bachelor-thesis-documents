@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.5388944"
-     inkscape:cx="-54.90955"
-     inkscape:cy="160.82975"
-     inkscape:window-width="1920"
-     inkscape:window-height="1002"
-     inkscape:window-x="0"
-     inkscape:window-y="160"
+     inkscape:zoom="2.7404404"
+     inkscape:cx="192.1224"
+     inkscape:cy="208.54312"
+     inkscape:window-width="2560"
+     inkscape:window-height="1362"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"><inkscape:grid
        type="xygrid"
@@ -154,36 +154,36 @@
        style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect2157-3-6);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
          x="-58.46492"
          y="80.109868"
-         id="tspan13557"><tspan
+         id="tspan1587"><tspan
            style="stroke:none"
-           id="tspan13555">Avg. Pooling
+           id="tspan1585">Avg. Pooling
 </tspan></tspan><tspan
          x="-33.744965"
          y="96.109868"
-         id="tspan13561"><tspan
+         id="tspan1591"><tspan
            style="stroke:none"
-           id="tspan13559">Head</tspan></tspan></text><text
+           id="tspan1589">Head</tspan></tspan></text><text
        xml:space="preserve"
        transform="matrix(0.28398867,0,0,0.28398867,1.0171538,-8.4076266)"
        id="text637"
        style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect639);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
          x="-34.264969"
          y="80.109868"
-         id="tspan13565"><tspan
+         id="tspan1595"><tspan
            style="stroke:none"
-           id="tspan13563">Input
+           id="tspan1593">Input
 </tspan></tspan><tspan
          x="-32.944962"
          y="96.109868"
-         id="tspan13569"><tspan
+         id="tspan1599"><tspan
            style="stroke:none"
-           id="tspan13567">Emb.
+           id="tspan1597">Emb.
 </tspan></tspan><tspan
          x="-66.625"
          y="112.10987"
-         id="tspan13573"><tspan
+         id="tspan1603"><tspan
            style="stroke:none"
-           id="tspan13571">
+           id="tspan1601">
 </tspan></tspan></text><text
        xml:space="preserve"
        transform="matrix(0.26296465,0,0,0.2842581,26.392453,-6.1736571)"
@@ -191,15 +191,15 @@
        style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect639-3);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
          x="-35.544983"
          y="80.109868"
-         id="tspan13577"><tspan
+         id="tspan1607"><tspan
            style="stroke:none"
-           id="tspan13575">Norm
+           id="tspan1605">Norm
 </tspan></tspan><tspan
          x="-16.625"
          y="96.109868"
-         id="tspan13581"><tspan
+         id="tspan1611"><tspan
            style="stroke:none"
-           id="tspan13579">
+           id="tspan1609">
 </tspan></tspan></text><text
        xml:space="preserve"
        transform="matrix(0.26296465,0,0,0.2842581,20.10709,-21.455839)"
@@ -207,30 +207,30 @@
        style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect639-3-5);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
          x="-1.9885406"
          y="80.109868"
-         id="tspan13585"><tspan
+         id="tspan1615"><tspan
            style="stroke:none"
-           id="tspan13583">Block × depth</tspan></tspan></text><text
+           id="tspan1613">Block × depth</tspan></tspan></text><text
        xml:space="preserve"
        transform="matrix(0.26296465,0,0,0.2842581,43.020383,-8.3531631)"
        id="text2155"
        style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect2157);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
          x="-36.936951"
          y="80.109868"
-         id="tspan13589"><tspan
+         id="tspan1619"><tspan
            style="stroke:none"
-           id="tspan13587">Token
+           id="tspan1617">Token
 </tspan></tspan><tspan
          x="-35.976974"
          y="96.109868"
-         id="tspan13593"><tspan
+         id="tspan1623"><tspan
            style="stroke:none"
-           id="tspan13591">Mixer
+           id="tspan1621">Mixer
 </tspan></tspan><tspan
          x="-66.625"
          y="112.10987"
-         id="tspan13597"><tspan
+         id="tspan1627"><tspan
            style="stroke:none"
-           id="tspan13595">
+           id="tspan1625">
 </tspan></tspan></text><text
        xml:space="preserve"
        style="font-size:4.54382px;line-height:0.48;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.606438;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"
@@ -250,17 +250,17 @@
          style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect639-3-9);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
            x="-22.352978"
            y="84.292298"
-           id="tspan13603"><tspan
-             style="font-weight:bold;font-size:21.3333px;-inkscape-font-specification:'Linux Libertine O Bold'"
-             id="tspan13599">+</tspan><tspan
+           id="tspan1633"><tspan
+             style="font-weight:bold;font-size:21.3333px;-inkscape-font-specification:'Linux Libertine O Bold';stroke:none"
+             id="tspan1629">+</tspan><tspan
              style="stroke:none"
-             id="tspan13601">
+             id="tspan1631">
 </tspan></tspan><tspan
            x="-16.625"
            y="101.44317"
-           id="tspan13607"><tspan
+           id="tspan1637"><tspan
              style="stroke:none"
-             id="tspan13605">
+             id="tspan1635">
 </tspan></tspan></text><circle
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.606438;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;stroke-opacity:1;paint-order:markers fill stroke"
          id="path3153"
@@ -329,15 +329,15 @@
        style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect6718);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
          x="-35.544983"
          y="80.109868"
-         id="tspan13611"><tspan
+         id="tspan1641"><tspan
            style="stroke:none"
-           id="tspan13609">Norm
+           id="tspan1639">Norm
 </tspan></tspan><tspan
          x="-16.625"
          y="96.109868"
-         id="tspan13615"><tspan
+         id="tspan1645"><tspan
            style="stroke:none"
-           id="tspan13613">
+           id="tspan1643">
 </tspan></tspan></text><text
        xml:space="preserve"
        transform="matrix(0.26296465,0,0,0.2842581,43.111433,13.79795)"
@@ -345,42 +345,38 @@
        style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect6720);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
          x="-44.112961"
          y="80.109868"
-         id="tspan13619"><tspan
+         id="tspan1649"><tspan
            style="stroke:none"
-           id="tspan13617">Channel
+           id="tspan1647">Channel
 </tspan></tspan><tspan
          x="-31.888977"
          y="96.109868"
-         id="tspan13623"><tspan
+         id="tspan1653"><tspan
            style="stroke:none"
-           id="tspan13621">MLP
+           id="tspan1651">MLP
 </tspan></tspan><tspan
          x="-66.625"
          y="112.10987"
-         id="tspan13627"><tspan
+         id="tspan1657"><tspan
            style="stroke:none"
-           id="tspan13625">
+           id="tspan1655">
 </tspan></tspan></text><g
        id="g6706"
        transform="matrix(0.72701843,0,0,0.72701843,24.403135,14.188828)"><text
          xml:space="preserve"
          transform="matrix(0.28398867,0,0,0.28398867,41.297497,9.2414019)"
          id="text6702"
-         style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect6722);display:inline;fill:#000000;fill-opacity:1;stroke:#aa0000;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
+         style="font-size:16px;line-height:1;font-family:'Linux Libertine O';-inkscape-font-specification:'Linux Libertine O';text-align:center;white-space:pre;shape-inside:url(#rect6722);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;paint-order:markers fill stroke"><tspan
            x="-22.352978"
            y="84.292298"
-           id="tspan13633"><tspan
-             style="font-weight:bold;font-size:21.3333px;-inkscape-font-specification:'Linux Libertine O Bold'"
-             id="tspan13629">+</tspan><tspan
-             style="stroke:none"
-             id="tspan13631">
-</tspan></tspan><tspan
+           id="tspan1661"><tspan
+   style="font-weight:bold;font-size:21.3333px;-inkscape-font-specification:'Linux Libertine O Bold'"
+   id="tspan1659">+</tspan>
+</tspan><tspan
            x="-16.625"
            y="101.44317"
-           id="tspan13637"><tspan
-             style="stroke:none"
-             id="tspan13635">
-</tspan></tspan></text><circle
+           id="tspan1663">
+</tspan></text><circle
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.606438;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.9;stroke-opacity:1;paint-order:markers fill stroke"
          id="circle6704"
          cx="36.641689"
@@ -397,7 +393,7 @@
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0" /><path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.283989px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 11.347467,37.758413 V 37.277787 27.534813"
+       d="m 11.347467,37.758413 v -10.2236"
        id="path6712"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
