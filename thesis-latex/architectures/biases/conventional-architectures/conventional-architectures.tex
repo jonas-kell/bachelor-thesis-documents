@@ -32,6 +32,7 @@ These would likely be very powerful for investigating the development of a quant
 As this thesis focuses on stationary problems, recurrency is not used.
 
 \paragraph{Residual connections} are used for a value in a calculation to be able to bypass a block completely.
+The metaformer architecture in \autoref{fig:metaformer-architecture} includes residual connections as an important part.
 They are motivated by the bias, that it is simpler to zero out an element in a machine learning architecture, than to learn the \emph{identity operation}. 
 So if the network recognizes a block does more harm than good in terms of getting the correct solution, it can easily be bypassed by zeroing the block's inputs and using the residual connection. 
 At the same time it is unlikely for the element to hurt, as basically each building block can be trained to learn the identity operation, but if a block is not needed it only generates training errors, no additional value \cite{deepResidualLearningForImageRecognition}.
