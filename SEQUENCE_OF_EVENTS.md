@@ -60,23 +60,23 @@
 
     -   [x] Full list of Metaformer-Architectures
         -   Attention Based
-            -   default (Vision-) Transformer **(VT)**
-            -   Graph (Vision-) Transformer NN **(GVT-NN)**
-            -   Graph (Vision-) Transformer NNN **(GVT-NNN)**
+            -   default (Vision-) Transformer **(TF)**
+            -   Graph (Vision-) Transformer NN **(GTF-NN)**
+            -   Graph (Vision-) Transformer NNN **(GTF-NNN)**
         -   Not Attention Based
             -   Poolformer **(PF)**
-            -   Graph Poolformer NN **(GP-NN)**
-            -   Graph Poolformer NNN **(GP-NN)**
+            -   Graph Poolformer NN **(GPF-NN)**
+            -   Graph Poolformer NNN **(GPF-NNN)**
             -   Convolution Architectures (Graph and non-graph variants should have identical outputs, but Graph is more versatile in practice and convolution more efficient)
-                -   Classical d(epthwise)Conformer **(CD)**
-                -   Symmetric d(epthwise)Conformer NN **(SD-NN)**
-                -   Symmetric d(epthwise)Conformer NNN **(SD-NNN)**
-                -   Symmetric Graph-d(epthwise)Conformer NN **(GSD-NN)**
-                -   Symmetric Graph-d(epthwise)Conformer NNN **(GSD-NNN)**
+                -   Classical d(epthwise)Conformer **(DCF)**
+                -   Symmetric d(epthwise)Conformer NN **(DCF-NN)**
+                -   Symmetric d(epthwise)Conformer NNN **(DCF-NNN)**
+                -   Symmetric Graph-d(epthwise)Conformer NN **(SDCF-NN)**
+                -   Symmetric Graph-d(epthwise)Conformer NNN **(SDCF-NNN)**
         -   Not comparable architecture (Has non-transformer-architecture computing capabilities)
             -   Conformer **(CF)**
-            -   Symmetric Conformer NN **(SC-NN)** (not implemented)
-            -   Symmetric Conformer NNN **(SC-NNN)** (not implemented)
+            -   Symmetric Conformer NN **(SCF-NN)** (not implemented)
+            -   Symmetric Conformer NNN **(SCF-NNN)** (not implemented)
 
 -   [x] test training on the image data
     -   IMPORTANT: train everything the same way, do not produce optimal results, but comparable results

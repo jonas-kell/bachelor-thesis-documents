@@ -156,3 +156,5 @@ SCF
 DCF
 SDCF
 symm
+epthwise
+resize
