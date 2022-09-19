@@ -168,7 +168,7 @@ The jax style implementation is printed in the appendix at \ref{appendix:graph-p
 
 
 \paragraph{Graph attention} is the metaformer token mixer requiring the least modifications.
-In \cite{swinTransformerPaper} the transformer attention is limited to non-uniform, local blocks, by only calculating parts of the outer multiplication in the dot product self attention algorithm. % TODO ref equation!!
+In \cite{swinTransformerPaper} the transformer attention is limited to non-uniform, local blocks, by only calculating parts of the outer multiplication in the scaled dot product attention algorithm. % TODO ref equation!!
 
 Here a more complex relationship of the patches is pictured. 
 The dimensionality of the outer product matrix and the adjacency matrix for the encoded graph match. % TODO see if name of matrix is M??
