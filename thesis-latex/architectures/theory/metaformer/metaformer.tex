@@ -74,3 +74,9 @@ Others vary in their storage or computational requirement.
 Even more specialized architectures can be attained, if hyperparameters like the embed dimension or the choice of token mixer is varied across the depth of the metaformer. 
 Starting with a poolformer of high embed dimension for the first blocks for feature extraction and then reducing the embed dimension to employ a high performance attention module for the final evaluation can result in higher performance than both of the models on their own \cite{metaformerPaper}. 
 Hybrid approaches are not discussed in this paper's experiments, but could be a target for further research.
+
+A further modification is shown in \autoref{fig:metaformer-architecture} for the last element.
+A \emph{averaging pooling} operator is used in conjunction with a \emph{mlp} to reshape the output to dimension necessary for the task. 
+In the original vision transformers, a \emph{classifier token} was used \cite{dinoPaper}, as this was motivated by the language processing origins of the transformer.
+Experiments (during the writing of this thesis) have shown, that the vision transformer performed better on our use cases, if the average pooling head was used, instead of the classifier token. 
+Therefore the average pooling head is included as a fixed component of the metaformer architecture in this thesis.
