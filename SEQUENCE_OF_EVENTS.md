@@ -21,7 +21,7 @@
 
 -   [x] Modify the structure of the Metaformer
 
-    -   [x] Ability to toggle downstream Graph element (after token mixer, before softmax/layernorm)
+    -   [x] Ability to toggle downstream Graph element (after token mixer, before softmax/layer-norm)
         -   look at the [Swin-Transformer](https://github.com/microsoft/Swin-Transformer) implementation for implementation details concerning the adjacency matrix
         -   [x] implement creation of Graph element filter matrix
         -   [x] use Graph element in the architecture
@@ -107,7 +107,7 @@
         -   [x] tensorboard logging
             -   [x] default sizes obvious for learning/training (Energy, variance)
             -   [x] log hyperparameters for better evaluation later on
-            -   [x] measure observables (magnetization in al directions)
+            -   [x] measure observables (magnetization in all directions)
             -   [x] quantum-fisher-information as a histogram
     -   [x] implement the metaformer models used/examined
         -   [x] adapter for jVMC predefined models
@@ -123,18 +123,18 @@
     -   [x] benchmark the effects of the graph structure being equal/different to the problem graph structure
     -   [x] numerical solution: implement a numerical solver for the looked-at problems
 
--   [ ] Physics-Theory
+-   [x] Physics-Theory
     -   [x] Learn to formulate the mathematical theory in a concise manner to be able to use it in the thesis. Maybe refresh on quantum mechanics notation
-    -   [ ] ratio of `J` to `h` (Ising-Modell-hamiltonian) in conjunction with the lattice structure dictates the 'critical point'. Search data where these have already been evaluated in the literature
-    -   [ ] Get familiar with the [Rydberg atom](https://en.wikipedia.org/wiki/Rydberg_atom)-> can be used as a motivation to provide real world applications of the underlying model
-    -   [ ] Explanation by Thilo Kopp about two Atoms and one Electron -> to be able to use it as a motivation for the model
+    -   [x] ratio of `J` to `h` (Ising-model-hamiltonian) in conjunction with the lattice structure dictates the 'critical point'. Search data where these have already been evaluated in the literature
+    -   [x] ~~Get familiar with the [Rydberg atom](https://en.wikipedia.org/wiki/Rydberg_atom)-> can be used as a motivation to provide real world applications of the underlying model~~
+    -   [x] ~~Explanation by Thilo Kopp about two Atoms and one Electron -> to be able to use it as a motivation for the model~~
 
 # Month 3
 
 -   [ ] Visualize the results
     -   [x] tensorboard logs
     -   [ ] nice and uniform graphs for the thesis itself
--   [ ] Extract real-world use cases for motivation
+-   [x] ~~Extract real-world use cases for motivation~~
 -   [ ] Write the thesis
     -   Computer Science Part:
         -   Description of the Problem
