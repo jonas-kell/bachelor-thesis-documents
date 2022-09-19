@@ -146,3 +146,13 @@ poolings
 softmax
 processable
 einsum
+multi
+sdp
+TF
+GVT
+GTF
+GPF
+SCF
+DCF
+SDCF
+symm
