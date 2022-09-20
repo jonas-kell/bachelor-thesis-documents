@@ -12,7 +12,7 @@ The general structure of the metaformer can be seen in \autoref{fig:metaformer-a
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{./architectures/theory/metaformer/metaformer.pdf}}
     \caption{Schematic representation of the \emph{metaformer} concept architecture, adapted to represent the models used in the thesis. 
-    The model starts with an input embedding block, that converts the input data into the shape required for the metaformer ($n\times e$). This is also the place where possible position encodings are added. 
+    The model starts with an input embedding block, that converts the input data into the shape required for the metaformer ($n\times e$) \cite{imageWorth16x16}. This is also the place where possible position encodings are added. 
     After that, the information is passed through \emph{depth} blocks sequentially. 
     A block consists of \emph{norm}, \emph{token mixer}, \emph{residual connection} (+), 
     \emph{norm}, \emph{channel mlp}, \emph{residual connection} (+).
