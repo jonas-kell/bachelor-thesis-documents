@@ -167,10 +167,10 @@ The jax style implementation is printed in the appendix at \ref{appendix:graph-p
 
 
 \paragraph{Graph attention} is the metaformer token mixer requiring the least modifications.
-In \cite{swinTransformerPaper} the transformer attention is limited to non-uniform, local blocks, by only calculating parts of the outer multiplication in the scaled dot product attention algorithm. % TODO ref equation!!
+In \cite{swinTransformerPaper} the transformer attention is limited to non-uniform, local blocks, by only calculating parts of the outer multiplication in the scaled dot product attention algorithm (\autoref{eq:attention-step-2}).
 
 Here a more complex relationship of the patches is pictured. 
-The dimensionality of the outer product matrix and the adjacency matrix for the encoded graph match. % TODO see if name of matrix is M??
+The dimensionality of the outer product matrix $M$ (from \autoref{eq:attention-step-2}) and the adjacency matrix for the encoded graph match.
 This is no coincidence, as the entry $M_{ij}$ corresponds to the attention from patch $i$ onto patch $j$, while $A_{ij}$ is a measure for how \glqq connected\grqq{} the patches are according to the graph structure.
 \emph{Graph attention} is therefore calculated as the element-wise multiplication of $M$ and $A$.
 Because of the element-wise multiplication, it is not sensible to use $\tilde{A}$, which is motivated by matrix multiplication.
