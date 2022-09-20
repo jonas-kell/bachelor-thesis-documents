@@ -129,8 +129,7 @@ For a \emph{depthwise convolution} in a conformer, $e$ 2D-convolutions (one for 
 It is now a simple step to transition to the graph version of that problem.
 For the \emph{graph conformer}, the intermediate state has the shape $b\times (h\cdot w) \times e = b\times n \times e$, where $h\cdot w = n$ is the number of nodes. 
 It is also the side length of the adjacency matrix $A$ for the corresponding graph. 
-Comparing % TODO equation ref for the depthwise symmetric convolution \autoref{eq:} 
-and \autoref{eq:weighted-adjacency-matrix} it should become clear that for an image, the depthwise symmetric convolution can be represented by the information in a adjacency matrix that is assembled from $A_\mathrm{self}$, $A_\mathrm{nn}$ and $A_\mathrm{nnn}$ if the correct weights $w_i$ are chosen. This is visualized in \autoref{fig:transition-convolution-graph}.
+Comparing \autoref{eq:how-to-compute-symm-conv} and \autoref{eq:weighted-adjacency-matrix} it should become clear that for an image, the depthwise symmetric convolution can be represented by the information in a adjacency matrix that is assembled from $A_\mathrm{self}$, $A_\mathrm{nn}$ and $A_\mathrm{nnn}$ if the correct weights $w_i$ are chosen. This is visualized in \autoref{fig:transition-convolution-graph}.
 
 \begin{figure}[htbp]
     \centering

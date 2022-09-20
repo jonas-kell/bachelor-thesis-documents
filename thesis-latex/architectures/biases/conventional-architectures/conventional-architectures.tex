@@ -14,13 +14,12 @@ That means, things close together relate more than things far apart.
 Something that in most cases is very true for images (if a dog's ears are detected, but far apart from each other, this most likely isn't a dog. If they are detected next to each other, this is a good indication for a dog).
 Also it doesn't matter, where things are located on the image (a dog in the left corner is a dog in the same way as one on the right).
 
-\paragraph{Symmetric convolutions} have the same biases as their generic counterparts. They however have the additional bias of \emph{only regarding the distance, not the direction}.
+\paragraph{Symmetric convolutions} have the same biases as their generic counterparts. They however have the additional bias of \emph{only regarding the distance, not the direction}, which implies a kind of \emph{rotational} symmetry.
 This helpful, if that data shows dependencies on the proximity of elements in relation to each other. 
 The Ising lattices, reviewed in this thesis, have this property. 
-If two spins interact or not is only dictated by how close they are.
-Not by the direction one is from the other.
+If two spins interact or not is only dictated by how close they are, not by the direction one is from the other.
 
-\paragraph{Depthwise separable convolutions} were introduced by research on how to efficiently reduce network size \cite{mobileNetPaper}.
+\paragraph{Depthwise (separable) convolutions} were introduced by research on how to efficiently reduce network size \cite{mobileNetPaper}.
 Their bias is, that interaction between values of one channel (for example one color channel in the case of rgb-images) can be computed independent and then only combined in a second step.
 This makes sense, as there is already quite a lot of information inside one color channel. 
 And as extracting the information per channel before comparing across channels saves a lot of computational resources, this is a logical step to take.
