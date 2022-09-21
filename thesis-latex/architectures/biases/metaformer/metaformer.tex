@@ -2,15 +2,15 @@
 This can for one be attributed to the \emph{attention} module. 
 However as the research in \cite{metaformerPaper} has shown, the overall structure is also important.
 
-\paragraph{The attention module} was originally motivated by natural language processing tasks \cite{attentionIsAllYouNeed}. The inductive bias should be reduced as much as possible, to allow every computation to attend to information everywhere with the necessary weights computed on the fly.
+\paragraph{The attention module} was originally motivated by natural language processing tasks \cite{attentionIsAllYouNeed}. The inductive bias should be reduced as much as possible, to allow every computation to attend to information everywhere in a sentence with the necessary weights computed on the fly.
 Because the module has a very small inductive bias built in, the transformer is a expensive architecture to train. 
 Because it requires the calculation of all interactions, a lot of computational expense is needed to acquire the results of one pass.
 Also because of the low inherent bias, a lot of data is needed to shape the calculation into something useful.
-The advantage on the other hand is, that if one succeeds in training a transformer, the interactions deemed important by the training process are probably ever so slightly more effective as the ones forced by string inductive biases like convolutional kernels. That visualized attention heatmaps behave very predicable and similar to convolution kernels is visualized in \cite{dinoPaper} and \cite{imageWorth16x16}.
+The advantage on the other hand is, that if one succeeds in training a transformer, the interactions deemed important by the training process are probably ever so slightly more effective as the ones forced by strict inductive biases like convolutional kernels. That visualized attention heatmaps behave very predicable and similar to convolution kernels is visualized in \cite{dinoPaper} and \cite{imageWorth16x16}.
 
 \paragraph{The general metaformer structure} was deemed more important than the attention module for the success of transformer as general computing backbones by \cite{metaformerPaper}.
-Separating the computation of local interactions inside tokens/patches from the \emph{mixing} of information between tokens/patches shows strong similarities to the separation applied to convolutions to turn them into depthwise convolutions \cite{mobileNetPaper}.
-Here the applied bias is, that it seems to be very effective to have only a small amount of tokens/patches interact with each other (this allows for powerful, but expensive elements like attention to be employed).
+Separating the computation of local interactions inside tokens/patches from the \emph{mixing} of information between tokens/patches, shows strong similarities to the separation applied to convolutions to turn them into depthwise convolutions \cite{mobileNetPaper}.
+Here the applied bias is, that it seems to be very effective to have only a small amount of tokens/patches interact with each other (this allows for powerful, but expensive operations like attention to be employed).
 While at the same time expanding the network to allow for dense calculations inside larger fully connected layers, without sacrificing on speed, because interactions are only possible inside one patch.
 Lastly the network is again shrunken behind the fcl to allow for the next inter-token computation and overall deeper networks.
 Residual connections are also employed to aid with the training of deep transformers.

@@ -22,7 +22,7 @@ A generalization of the task pipeline can be viewed in \autoref{fig:image-classi
     \label{fig:image-classification-general}
 \end{figure}
 
-The aforementioned trivial mapping of inputs to outputs is obviously not feasable in reality, as there would need to be $256^{224\cdot 224} \approx \SI[]{7e120835}[]{}$ possible cases. Most of which do not even make sense in terms of the predefined categories or even define a realistically possible image.
+The aforementioned trivial mapping of inputs to outputs is obviously not feasable in reality, as for a $224\times 224$ pixel 8-bit grayscale image there would need to be $256^{224\cdot 224} \approx \SI[]{7e120835}[]{}$ possible cases. Most of which do not even make sense in terms of the predefined categories or even define a realistically possible image.
 
 In order to solve the problem, the mapping function is \emph{approximated} with a neural network. 
 

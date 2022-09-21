@@ -33,7 +33,7 @@ That way, one can be confident, that the calculations will also work for data th
 As a graph with one node per pixel of an image would be quite large - even for low resolution images - larger chunks of the image, called a \emph{patch} (e.g. $16 \times 16$ pixel) can be treated as one unit. 
 With that method, localized interactions can be computed inside a patch, while mid to far range interactions can be computed between nodes/patches, while at the same time drastically cutting down the number of nodes in the graph.
 
-Patching has already been used extensively in \emph{vision transformer} architectures (\autoref{sec:architectures-attention}) \cite{dinoPaper} \cite{imageWorth16x16}. 
+Patching has already been used extensively in \emph{vision transformer} architectures (\autoref{sec:architectures-attention}) \cite{dinoPaper, imageWorth16x16}. 
 The graph-versions of these transformers are however relatively uncommon.
 
 % SOURCE: \cite{bertPaper}

@@ -23,7 +23,8 @@ The general structure of the metaformer can be seen in \autoref{fig:metaformer-a
 
 It is important to understand, that the \emph{token mixer} is not a predefined element, but a location where multiple different blocks can be inserted. 
 The job of the block is to exchange information between the $n$ tokens. 
-While the job of the processing the information inside a token's embedding (of size $e$) is performed by the \emph{channel mlp}.
+While the job of processing the information inside a token's embedding (of size $e$) is performed by the \emph{channel mlp}.
+The \emph{norm} block is typically a \emph{layer norm}, that is introduced to keep the magnitude of the weights inside a reasonable range.
 
 The name of the metaformer results from the name of the used token mixer.
 A overview is given in \autoref{table:metaformer-names}
@@ -64,7 +65,7 @@ A overview is given in \autoref{table:metaformer-names}
 \end{table}
 
 The table contains an overview of all the metaformer variants that are examined in this thesis.
-However other combinations are possible. \emph{SCF-NN} and \emph{SCF-NNN} are not implemented in the accompanying code \cite{selfPhysics}\cite{selfComputerScience}.
+However other combinations are possible. \emph{SCF-NN} and \emph{SCF-NNN} are not implemented in the accompanying code \cite{selfPhysics, selfComputerScience}.
 
 How the graph-equivalent modules \emph{graph (depthwise) convolution}, \emph{graph pooling} and \emph{graph masked attention} can be constructed, is described in \autoref{sec:architectures-graphs}.
 
@@ -76,7 +77,7 @@ Starting with a poolformer of high embed dimension for the first blocks for feat
 Hybrid approaches are not discussed in this paper's experiments, but could be a target for further research.
 
 A further modification is shown in \autoref{fig:metaformer-architecture} for the last element.
-A \emph{averaging pooling} operator is used in conjunction with a \emph{mlp} to reshape the output to dimension necessary for the task. 
+An \emph{average pooling} operator is used in conjunction with a \emph{MLP} to reshape the output to dimension necessary for the task. 
 In the original vision transformers, a \emph{classifier token} was used \cite{dinoPaper}, as this was motivated by the language processing origins of the transformer.
 Experiments (during the writing of this thesis) have shown, that the vision transformer performed better on our use cases, if the average pooling head was used, instead of the classifier token. 
 Therefore the average pooling head is included as a fixed component of the metaformer architecture in this thesis.

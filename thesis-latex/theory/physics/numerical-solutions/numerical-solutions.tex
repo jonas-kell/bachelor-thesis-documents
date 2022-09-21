@@ -16,7 +16,7 @@ This corresponds to a linear lattice in 1D. Let the Hamiltonian be the one in \a
     \hamiltonian = \sigma^z_1\sigma^z_2 + \sigma^z_2\sigma^z_3
 \end{equation}
 
-This hamiltonian is anti-ferromagnetic ($J = +1$). It should be easy to see, that the Energy $E$ in \autoref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so trying this by one self is advised for someone without prior quantum mechanical experience.
+This hamiltonian is anti-ferromagnetic ($J = +1$). It should be easy to see, that the Energy $E$ in \autoref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so validating this yourself is advised for someone without prior quantum mechanical experience.
 The ground state therefore will be a \emph{superposition} consisting of equal parts $\ket{\up, \down, \up}$ and $\ket{\down, \up, \down}$ (\autoref{eq:solutionSimpleExample}). The factor $\frac{1}{\sqrt[]{2}}$ instead of the seemingly more obvious $\frac{1}{2}$ makes the wavefunction be \emph{normalized}. If it wasn't for the square root, \autoref{eq:base-orthonormal} would not be satisfied. This way it is satisfied, which can be tested.
 
 \begin{equation}
@@ -80,7 +80,7 @@ In \autoref{eq:matrixElement} an example calculation of $\bra{2}\hamiltonian\ket
 
 Placing them inside a matrix at the corresponding location yields the matrix representation for $\bra{m}\hamiltonian\ket{n}$ that can be seen in \autoref{eq:matrix-hamiltonian}.
 Because of \autoref{eq:base-factors}, each wavefunction can be written in terms of the chosen base. This is used in \autoref{eq:matrix-hamiltonian-vector}. By representing the wavefunction as a column vector, filled with the scaling factors, the transformation is complete. 
-The calculation of the hamiltonian \hamiltonian acting on a wavefunction $\Psi$ like in \autoref{eq:schroedinger-general} can now analogously be computed by performing the matrix multiplication $\bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec}$
+The calculation of the hamiltonian \hamiltonian acting on a wavefunction $\Psi$ like in \autoref{eq:schroedinger-general} can now be computed analogously by performing the matrix multiplication $\bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec}$.
 
 \begin{equation}
     \label{eq:matrix-hamiltonian}

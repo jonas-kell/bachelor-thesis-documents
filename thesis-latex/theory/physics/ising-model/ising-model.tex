@@ -4,9 +4,9 @@ The model describes multiple \emph{spins} that are locked in place.
 A spin is a very special kind of angular momentum that is inherent to quantum mechanical particles.
 It helps to imagine the spin as a tiny magnet, that is locked in place, but can freely rotate to react to to external/neighboring  magnetic fields. This is a very harsh oversimplification, but enough for our purposes.
 
-The state of the \emph{many body wavefunction} can solely be described by the direction that each of the spins is pointing into. In this simplified case, only \emph{spin-$\frac{1}{2}$} particles are used. That means each spin at each position can only either be pointing \emph{up} \up or \emph{down} \down (in relation to the z-axis).
+The state of the \emph{many body wavefunction} can solely be described by the direction that each of the spins is pointing in. In this simplified case, only \emph{spin-$\frac{1}{2}$} particles are used. That means each spin at each position can only either be pointing \emph{up} \up or \emph{down} \down (in relation to the z-axis).
 
-That means, that a system with $n=3$ spins (in arbitrary, but fixed position) can be represented like \autoref{eq:spin-ising}. $\vec{s}_m$ is the direction of the spin vector, that can (in this case) be simplified to the z-axis contribution $s^z_m$ of the vector. The values con only be $\frac{1}{2}$ (\up) or $-\frac{1}{2}$ (\down).
+That means, that a system with $n=3$ spins (in arbitrary, but fixed position) can be represented like in \autoref{eq:spin-ising}. $\vec{s}_m$ is the direction of the spin vector, that can (in this case) be simplified to the z-axis contribution $s^z_m$ of the vector. The values con only be $\frac{1}{2}$ (\up) or $-\frac{1}{2}$ (\down).
 In this case the spins at the positions 1 and 2 point up, the one at 3 points down.
 
 \begin{equation}
@@ -35,7 +35,7 @@ With the introduction of a transverse field and a more complex lattice structure
 
 In order to be able to use the hamiltonian, a few rules about the interaction of the used operators and the wavefunction will be introduced. They represent only a small subset of the mathematics and focus only on the bare minimum needed to understand the problem as someone that is unfamiliar with quantum mechanics. 
 
-The spin operators can be written in terms of the \emph{Pauli spin matrices} \cite{schwablQM}. This is only mentioned, because it reflects the implementation in the code. Note that in the code, the $\frac{1}{2}$ factors in \autoref{eq:pauli-rules} are omitted for simplification. $i$ stands for the complex unit.
+The spin operators can be written in terms of the \emph{Pauli spin matrices} \cite{schwablQM}. This is only mentioned, because it reflects the implementation in the code. Note that in the code, the $\frac{1}{2}$ factors in \autoref{eq:pauli-rules} are omitted for simplification. $i$ stands for the imaginary unit.
 
 \begin{equation}
     \label{eq:pauli-rules}

@@ -6,14 +6,14 @@ Because of that, neural networks are \emph{trained} to get them into a working s
 The algorithm that accomplishes an update of the weights, that nudges the network \emph{towards} the desired solution, is called \emph{backpropagation} \cite{machineLearningMitchell}.
 It is based on the chain rule of differentiation and uses the severity of changes a parameter inflicted on a (intermediate) result, to update the parameter in a way, that steers said result towards the desired one. 
 
-As mentioned, for one run, the structure is typically unchanged. 
+As mentioned, for one run the structure is typically unchanged. 
 The general shape of the network and many turning knobs on the update process can be controlled to allow for a more efficient representation and weight update.
 The controlling variables are called \emph{hyperparameters}.
 The most important hyperparameters in the later experiments will be the \emph{optimizer} (\emph{stochastic gradient descent} and \emph{adamw} \cite{adamwOptimizer} are compared), the \emph{loss function} (\emph{cross entropy loss} is used), and the \emph{batch size}. 
 Additionally, the \emph{learning rate}, \emph{weight decay}, \emph{dampening} and \emph{momentum} can be set to modify the behavior of the optimizer.
 
 Different optimizers change the updating behavior of the network. 
-The loss function defines a measure on how far or close the computed solution is in comparison the the known solution.
+The loss function defines a measure on how far or close the computed solution is to the known solution.
 The learning rate defines the step size that gets taken towards the target in one iteration.
 Choosing its value too small results in slow convergence, choosing a value too big can result in overshooting and subsequently also lowering the speed of convergence.
 Dampening and momentum are generally used to combat either of these effects.

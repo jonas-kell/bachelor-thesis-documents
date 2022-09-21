@@ -5,6 +5,7 @@ They do however not get treated uniformly, but scaled with (learnable) weights b
 The weights are stored as entries in the kernel. 
 The operation is equivalent to a the discrete mathematical 2D-convolution, however due to convention the kernel is flipped before the calculation in most mathematical definitions \cite{multidimConv} and is not flipped in most machine learning frameworks.
 This has to be taken into account for non-symmetric kernels.
+
 As for pooling, the sides are padded with zeros, if the input size is supposed to match to output size. 
 An example convolution (un-padded) is calculated in \autoref{eq:convolution}, including the sample calculation for on of the values.
 
@@ -30,10 +31,10 @@ An example convolution (un-padded) is calculated in \autoref{eq:convolution}, in
     \end{split}
 \end{equation}
 
-\paragraph{Full convolutions} are the kind of convolutions, for that the kernels \emph{channel} dimension $c$ matches the channel dimension of the input values.
-Images - that are one of the primary targets for convolutions - typically have not only a width and a height, but also a channel dimension (typically color channels, like rgb).
-Because of that, images are typically stored as 3D-tensors ($c \times h \times w$).
-A 3D-convolution with a ($c \times o \times k_h \times k_w$) kernel, produces an output of shape ($o \times h \times w$) (with appropriate padding, that is always assumed from this point onward).
+\paragraph{Full convolutions} are the kind of convolutions, for that the kernel's \emph{channel} dimension $c$ matches the channel dimension of the input values.
+Images - that are one of the primary targets for convolutions - typically have not only a width and a height, but also a channel dimension (e.g. color channels, like rgb).
+Because of that, images are most of the time stored as 3D-tensors ($c \times h \times w$).
+A 3D-convolution with a ($c \times o \times k_h \times k_w$) kernel, produces an output of shape ($o \times h \times w$) (with appropriate padding, which is always assumed from this point onward).
 The dimension $o$ can be seen as the number of kernels, that get independently applied and later stacked.
 The leftmost case in \autoref{fig:comparison-depthwise-convolution} shows such a convolution with $h = w=8,\, k_h =k_w = 3,\, c = 3 \mathrm{\,and\,} o=1$.
 
@@ -41,9 +42,10 @@ The leftmost case in \autoref{fig:comparison-depthwise-convolution} shows such a
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{./architectures/theory/convolutions/depthwise.pdf}}
     \caption{This figure show the differences between a \emph{normal convolution} (left), a \emph{depthwise convolution}  (center) and a \emph{depthwise separable convolution} (right).
-    The normal convolution has a 3D-kernel. The depthwise convolution splits this into multiple 2D-kernels.
+    The normal convolution has a 3D-kernel. 
+    The depthwise convolution splits it into multiple 2D-kernels.
     The depthwise separable convolution works basically in the same way as the depthwise, but at the end a 1D-kernel (1$\times$1-convolution) is used to combine the channels.
-     Original image from \cite{separableConvolutions}, but modified and almost completely redrawn.}
+     Original images from \cite{separableConvolutions}, but modified and almost completely redrawn.}
     \label{fig:comparison-depthwise-convolution}
 \end{figure}
 
@@ -56,7 +58,7 @@ This seems like a disadvantage, but in reality is exact what will be needed for 
 
 \paragraph{Depthwise separable convolutions} are the logical continuation to depthwise convolutions and were made popular in image processing neural networks with the introduction of the \emph{MobileNets} \cite{mobileNetPaper}.
 They get rid of two limitations of the depthwise convolutions: the number of output channels can be chosen freely and the information exchange is not limited to the channels in isolation.
-This is done by following up the ($1\times 1 \times k_h \times k_w$) convolutions with ($c \times o \times 1 \times 1$) convolution, that brings the number of output channels $o$ up to any desired number ($o =1$ on the right side of \autoref{fig:comparison-depthwise-convolution}).
+This is done by following up the ($1\times 1 \times k_h \times k_w$) convolutions with a ($c \times o \times 1 \times 1$) convolution, that brings the number of output channels $o$ up to any desired number ($o =1$ on the right side of \autoref{fig:comparison-depthwise-convolution}).
 The advantage is the reduction of the kernel size. This makes for easier computation and smaller model storage footprints. 
 The weight count is compared in \autoref{table:weight-count-convolutions}.
 
@@ -138,4 +140,4 @@ The calculation is shown in \autoref{eq:how-to-compute-symm-conv}.
 \end{equation}
 
 
-The implementation of the symmetric (depthwise) convolution for images can be found at \cite{selfComputerScience}, \filepath{/models/helpers/SymmConv2d.py}.
+The implementation of the symmetric (depthwise) convolution for images can be found at \cite{selfComputerScience} \filepath{/models/helpers/SymmConv2d.py}.

@@ -12,14 +12,14 @@ In practice a so called \emph{neural quantum state} (NQS) is used.
 This basically is nothing but a neural network, taken from established machine learning tasks \cite{restrictedBoltzmanMachines}.
 The function is parametrized by $M$ variables $\theta_i \in \mathbb{R}, 0\leq i < M$ and takes a spin configuration as an input.
 A spin configuration for $N$ lattice sites can be described by $\sigma_j \in \left\{\up, \down\right\}, 0\leq j < N$.
-The function will be written like \autoref{eq:parametrized-wavefunction}.
+The function will be written like in \autoref{eq:parametrized-wavefunction}.
 
 \begin{equation}
     \label{eq:parametrized-wavefunction}
     \ket{\Psi_{\theta_0, ..., \theta_{M-1}}(\sigma_0, ..., \sigma_{N-1})} \equiv \ket{\Psi_\theta}
 \end{equation}
 
-In order to compute a helpful representation, the identities \autoref{eq:completeness-of-base} and \autoref{eq:wave-function-probability} are necessary \cite{schwablQM}. \autoref{eq:completeness-of-base} applies to \emph{complete orthonormal} bases only.
+In order to compute a helpful representation, the identities \autoref{eq:completeness-of-base} and \autoref{eq:wave-function-probability} are necessary \cite{schwablQM}. \hspace{-0.13cm}$\phantom{\Psi}^\ast$ represents the \emph{complex conjugation} operation. \autoref{eq:completeness-of-base} applies to \emph{complete orthonormal} bases only.
 
 \begin{equation}
     \label{eq:completeness-of-base}
@@ -77,7 +77,7 @@ In the derivation, the \emph{local estimator} (\autoref{eq:local-estimator}) is 
 \end{equation}
 
 The final result in \autoref{eq:derivation-local-estimator} has the form of a \emph{probability distribution} over $s$.
-So the calculation of a expectation value can be re-formulated as the calculation of the expectation value of $s$ of the local estimator.
+So the calculation of a quantum mechanical expectation value can be re-formulated as the calculation of the statistical expectation value of $s$ of the local estimator's values.
 
 This alone is not helpful, because $\ket{s}$ is still exponentially large in regards to the problem size.
 But this shortcoming can be resolved with the introduction of \emph{Monte Carlo} sampling.
@@ -91,7 +91,7 @@ By randomly sampling a large, but manageable number $N_\mathrm{MC}$ of states $s
     \frac{1}{N_\mathrm{MC}} \sum\limits_{n=1}^{N_\mathrm{MC}} \operator_\mathrm{loc}^\theta(s_{(n)})
 \end{equation}
 
-Therefore the energy of a system can be estimated with \autoref{eq:energy-optimization}. All the terms can efficiently be computed, using methods from \fullref{sec:theory-numericalsolution}.
+Therefore the energy of a system can be estimated with \autoref{eq:energy-optimization}. All the terms can be efficiently computed, using methods from \fullref{sec:theory-numericalsolution}.
 
 \begin{equation}
     \label{eq:energy-optimization}
@@ -106,7 +106,7 @@ As it is known, that the ground state energy $E_0$ is the smallest energy, the g
     \item Start with a randomly initialized NQS
     \item Estimate its energy with \autoref{eq:energy-optimization} and MC-sampled states
     \item Calculate the neural network error, assuming $E(\theta)$ should be smaller (formula in \cite{jVMCPaper})
-    \item Propagate the error back into the network
+    \item Propagate the error back into the network, updating it to improve its performance
     \item Repeat at 2. with the updated NQS
 \end{enumerate}
 

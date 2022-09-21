@@ -3,7 +3,7 @@ Every building block inside a sophisticated neural network contributes to the ar
 \paragraph{Fully connected Layers} have a relatively weak bias, because all inputs relate to all outputs independently \cite{relationalInductiveBiasesAndGraphNetworks}. 
 The motivation is to construct a block with relatively high flexibility.
 It is barely restricted on the sort of data it can process and can therefore easily be used alongside other computational elements.
-In conjunction with a non-linear element (like ReLU) the architecture resembles the structure of the human brain. 
+In conjunction with a non-linear element (like ReLU), the architecture resembles the structure of the human brain. 
 This motivates the assumption, that the element can perform useful computations.
 In the field of NQS, the \emph{restricted Boltzmann machine} is often employed.
 The RBM basically consists of fully connected layers and can be motivated to be very well suited to model the statistical interactions of many body quantum mechanics \cite{restrictedBoltzmanMachines}. 
@@ -26,7 +26,7 @@ And as extracting the information per channel before comparing across channels s
 Also it should in most cases be possible to recognize e.g. a dogs shape only from one color channel. 
 Therefore checking for a shape in all channels separately and then comparing seems easier than forcefully training to assemble shapes across channels.
 
-\paragraph{Recurrent layers} used a lot in translation tasks and video analysis, because of their \emph{time invariance} \cite{relationalInductiveBiasesAndGraphNetworks}. 
+\paragraph{Recurrent layers} are used a lot in translation tasks and video analysis, because of their \emph{time invariance} \cite{relationalInductiveBiasesAndGraphNetworks}. 
 These would likely be very powerful for investigating the development of a quantum system over time. 
 As this thesis focuses on stationary problems, recurrency is not used.
 
@@ -35,7 +35,7 @@ The metaformer architecture in \autoref{fig:metaformer-architecture} includes re
 They are motivated by the bias, that it is simpler to zero out an element in a machine learning architecture, than to learn the \emph{identity operation}. 
 So if the network recognizes a block does more harm than good in terms of getting the correct solution, it can easily be bypassed by zeroing the block's inputs and using the residual connection. 
 At the same time it is unlikely for the element to hurt, as basically each building block can be trained to learn the identity operation, but if a block is not needed it only generates training errors, no additional value \cite{deepResidualLearningForImageRecognition}.
-As this element is very likely to be useful in deep networks like transformers, all the transformer architectures in the performed experiments use residual connections.
+As this element is very likely to be useful in deep networks like metaformers, all the architectures in the performed experiments use residual connections.
 
 \paragraph{Pooling operators} have many similarities to convolutions. They however have the added bias, that the relation does not even depend on the position of a value inside the kernels influence. 
 It solely depends on the relative values. 

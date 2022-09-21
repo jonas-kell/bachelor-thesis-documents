@@ -143,7 +143,7 @@ The intermediate state for one element in the batch has the shape $n \times e$.
 That means the shape is $n \times 1$ if only one channel is calculated.
 Conveniently, the matrix multiplication of $(n\times n) \cdot (n\times 1)$ is not only possible, but it also gives the correct output dimension of $(n\times 1)$ and the exact same calculation is performed as in a regular symmetric convolution.
 
-When trying to perform the depthwise convolution for a input dimension of $e$, $3 \cdot e$ weights are used ($w_0$,$w_1$ and $w_2$ for each channel, while there are $e$ channels).
+When trying to perform the depthwise convolution for an input dimension of $e$, $3 \cdot e$ weights are used ($w_0$,$w_1$ and $w_2$ for each channel, while there are $e$ channels).
 This can be evaluated by assembling the adjacency matrix that represents the symmetric convolution from each of the $e$ channels from the matrices $A_\mathrm{self}$, $A_\mathrm{nn}$ and $A_\mathrm{nnn}$ in conjunction with the corresponding three weights.
 It is however more efficient to perform the matrix multiplication for each of the three different adjacency matrices only once and spread the result $e$ times. 
 Then scaling the results with the weights and finally adding.
@@ -153,8 +153,8 @@ This is shown in \autoref{eq:matrix-calculation-distributivity}, assuming the in
 \begin{equation}
     \label{eq:matrix-calculation-distributivity}
     \begin{split}
-        v^{(t+1)}_{b=i, e=j} &= \left(\left(w_{0, j} \cdot A_\mathrm{self} + w_{1, j} \cdot A_\mathrm{nn} + w_{2, j} \cdot A_\mathrm{nnn}\right) \cdot v^{(t)}_{b=i}\right)_{e=j}\\
-        &= w_{0, j} \cdot \left(A_\mathrm{self}\cdot v^{(t)}_{b=i}\right) + w_{1, j} \cdot \left(A_\mathrm{nn}\cdot v^{(t)}_{b=i}\right) + w_{2, j} \cdot \left(A_\mathrm{nnn}\cdot v^{(t)}_{b=i}\right)
+        v^{(t+1)}_{b=i, e=j} &= \left[\left(w_{0, j} \cdot A_\mathrm{self} + w_{1, j} \cdot A_\mathrm{nn} + w_{2, j} \cdot A_\mathrm{nnn}\right) \cdot v^{(t)}_{b=i}\right]_{e=j}\\
+        &= \left[w_{0, j} \cdot \left(A_\mathrm{self}\cdot v^{(t)}_{b=i}\right) + w_{1, j} \cdot \left(A_\mathrm{nn}\cdot v^{(t)}_{b=i}\right) + w_{2, j} \cdot \left(A_\mathrm{nnn}\cdot v^{(t)}_{b=i}\right)\right]_{e=j}
     \end{split}
 \end{equation}
 

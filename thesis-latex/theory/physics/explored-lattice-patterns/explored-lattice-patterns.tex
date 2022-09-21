@@ -7,7 +7,7 @@ The implementation supports a 1D lattice (the default \textbf{linear} lattice/ch
 The same code was used to generate the referenced visualization printed in the \nameref{sec:appendix}.
 The construction of the hexagonal lattice types, makes use of the hexagonal coordinate systems defined in \cite[]{hexagonalGrids}.
 
-The numbers, that can be seen in the visualization denote the location-index of the memory, that is responsible for carrying the spin state at that lattice site in the later representation. As will become obvious in \fullref{sec:theory-graphs}, the structure of a lattice cannot always be represented directly analogous in memory. Therefore an alternative way of addressing lattice sites and their surroundings needs to be employed.
+The numbers, that can be seen in the visualization, denote the location-index of the memory, that is responsible for carrying the spin state at that lattice site in the later representation. As will become obvious in \fullref{sec:theory-graphs}, the structure of a lattice cannot always be represented directly analogous in memory. Therefore an alternative way of addressing lattice sites and their surroundings needs to be employed.
 In this case, the framework generates the set of \emph{nearest neighbor} (marked green in the visualization) and \emph{next-nearest neighbor} (marked yellow in the visualization) indices for a given lattice site (marked red in the visualization). These are used as structural inputs for later discussed \emph{graph} architectures.
 
 A quite important feature for the physical aspect of the calculation is the \emph{periodicity} of a lattice. 

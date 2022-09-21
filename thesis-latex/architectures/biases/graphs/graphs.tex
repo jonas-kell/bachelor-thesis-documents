@@ -7,20 +7,21 @@ This makes it possible to apply a vast pool of experience and knowledge about co
 \paragraph{Improving performance} of the architecture by introducing new biases.
 The \emph{shifted window vision transformer} (swin transformer) \cite{swinTransformerPaper} was able to improve the quality of vision transformers by introducing \emph{non-uniform} blocks that get assembled in a \emph{hierarchical} manner (combining smaller entities to form larger ones and repeating this to form increasingly larger structures).
 The swin transformer was not implemented as a graph transformer, because of the already tensor-like structure of images. 
-However the good performance of the irregularly merged patches might suggest, that using the powers of the graph networks to \emph{force} irregular interactions may be more efficient, than only hard-encoding a specific lattice structure into the architecture.
+However the good performance of the irregularly merged patches might suggest, that using the powers of the graph networks to \emph{force} irregular interactions may be more efficient, than merely hard-encoding a specific lattice structure into the architecture.
 Primarily the patch encoder for the lattice input would be a good candidate as a target for further research in that domain.
 
-\paragraph{Becoming encoding independent} as the location in memory and the location in the data structure do not have to be correlated. 
-When representing an image in a tensor, the locality information is stored \emph{implicitly} by the location of the values in relation to each other in memory. 
-For graph structures, this information is stored \emph{explicitly} in the graphs's edges.
+\paragraph{Becoming encoding independent}, as the location in memory and the location in the data structure do not have to be correlated. 
+When representing an image with a tensor, the locality information is stored \emph{implicitly} by the location of the values in relation to each other in memory. 
+For graph structures, this information is stored \emph{explicitly} in the graph's edges.
 Because of that, the data encoding can be changed and the performance of the graph network is not affected, while changing the positions where data is encoded to, breaks a convolutional filter.
 The \autoref{sec:experiments-resiliencylatticeencoding} examines this.\\
 
 A challenge that may present itself, is to what degree a dataset \emph{requires} being encoded as a graph.
-Because it is already proven, that for example image classification networks exist, that do not use the inductive biases of locality or translation. 
 
-It probably makes it harder for a neural network to encode a trigonal lattice as a linear array than as a purposefully built graph network with the lattice structure built in.
+It is already proven, that for example image classification networks exist, that do not use the inductive biases of locality or translation. 
+At the same time probably making it harder for a neural network to encode a trigonal lattice as a linear array than as a purposefully built graph network with the lattice structure built in.
 But as it will become evident in the experiments, it is definitely possible. 
+
 By taking a look at larger lattices, it is obvious they all have a huge degree of periodicity - which is good as that is what defines a lattice.
 But at the same time this raises a question: Surely, it is convenient to represent everything as a graph, because they can model most arbitrary relationships (in fact not all relationships \cite{relationalInductiveBiasesAndGraphNetworks}). 
 Though they also come with a significant performance overhead when implemented in the current hardware and the methods described in \autoref{sec:architectures-graphs}. 
