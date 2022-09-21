@@ -175,3 +175,7 @@ mlps
 additively
 metadata
 metaformers
+parallelization
+einops
+autograd
+XLA

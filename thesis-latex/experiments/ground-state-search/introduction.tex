@@ -1,5 +1,8 @@
-% TODO
+For the second set of experiments, a quantum mechanical \emph{ground state search} will be implemented and performed.
+The goal is to employ multiple metaformer architectures as a NQS and perform VMC (\autoref{sec:theory-neuralquantumstates}) to solve for the ground state.
+The speed of convergence and other metrics will be compared.
 
-% SOURCE: \cite{jaxGithub}
-% SOURCE: \cite{flaxGithub}
-% SOURCE: \cite{jVMCgithub}
+The code for replicating these experiments was also written in python and can likewise be found on GitHub \cite{selfPhysics}.
+The \emph{jax} framework is used to supply the necessary \emph{autograd} and \emph{XLA} functionality \cite{jaxGithub}.
+It is extended with the \emph{flax} \cite{flaxGithub} module for improved definitions of machine learning tasks and models.
+Finally, the \emph{jVMC} \cite{jVMCgithub} package supplies the base functions for the handling of quantum mechanical wavefunctions and performing optimizations with VMC.
