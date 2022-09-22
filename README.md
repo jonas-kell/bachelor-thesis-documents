@@ -29,6 +29,8 @@ pdflatex --shell-escape -synctex=1 -interaction=nonstopmode -file-line-error bac
 
 You need a working LaTeX-installation. (Best **texlive-full**, because lots of packages are used)
 
+The libertinus font family need to be available on the system. ([GitHub](https://github.com/alerque/libertinus))
+
 You need [Python](https://www.python.org/) (best is Python 3, use lower two commands) and [Minted](https://ctan.org/pkg/minted?lang=de)
 
 ```cmd
@@ -37,4 +39,14 @@ pip install Pygments
 
 python3 --version
 pip3 install Pygments
+```
+
+# Gnuplot
+
+The graphs in the experiments section are compiled with [gnuplot](http://www.gnuplot.info/).
+
+Compilation:
+
+```cmd
+gnuplot <filename>.gp
 ```
