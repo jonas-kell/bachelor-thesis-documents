@@ -57,9 +57,9 @@ Overfitting can be counteracted by setting so called \emph{dropout} connections/
 By randomly setting weights to zero, the model is always restricted to a subset of its weights and has to therefore develop a more robust internal representation. This reduces/delays the overfitting behavior.
 
 The goal however is to detect differences in the architectural design. 
-So being able to differentiate if a poolformer is inherently more robust to overfitting than a conformer or the other way around is important. 
+So being able to differentiate if a poolformer is inherently more robust to overfitting than a conformer or the other way around is important. Because of that the dropout always is set to zero.
 
-Therefore, all models were trained to the point of overfitting. 
+Subsequently, all models were trained to the point of overfitting. 
 If statements about the accuracy of a model are made, the highest value of the \emph{test accuracy} is presented.
 For \autoref{fig:comparison-recorded-values} this is at epoch 106.
 It can be noted, that this is also the point, at which the train loss starts to rise again.
