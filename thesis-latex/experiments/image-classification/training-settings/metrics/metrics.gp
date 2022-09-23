@@ -12,6 +12,9 @@ set ytics 10
 set mxtics 10
 set mytics 5
 
+# set xrange [0:50] 
+set yrange [0:115] 
+
 # legend
 set key Left                                                            # key text justify left
 set key left top                                                        # moves legend top left
@@ -19,20 +22,28 @@ set style line 999 dashtype 1 linewidth 1 linecolor rgb "#0000AA"       # legend
 set key box linestyle 999                                               # apply box style
 set key spacing 1                                                       # vertical spacing of entries                                                   
 
-# set xrange [0:50] 
-set yrange [0:115] 
+# colors 
+markerred="#AA0000"
+markergreen="#00AA00"
+markerblue="#0000AA"
+markeryellow="#EEBE00"
+linered="#FF9999"
+linegreen="#77FF77"
+lineblue="#9999FF"
+lineyellow="#F6D140"
 
+# plot
 set datafile separator ','
 plot \
-     NaN with points pt 5 lc rgb "#EEEE00" title " Loss (arbitrary scale)", \
-     NaN with points pt 5 lc rgb "#AA0000" title " Top 1 accuracy", \
-     NaN with points pt 5 lc rgb "#0000AA" title " Top 3 accuracy", \
-     NaN with points pt 5 lc rgb "#00AA00" title " Top 5 accuracy", \
-     "loss-train.csv" using ($2/197960*199):($3/9*100) notitle                           smooth unique pointsize 0.5 linecolor rgb "#FFFF22", \
-     "loss-test.csv" using 2:($3/9*100) notitle                                    pointtype 2 pointsize 0.6 linecolor rgb "#EEEE00", \
-     "accuracy-top5-train.csv" using ($2/197960*199):3 notitle                  smooth unique pointsize 0.5 linecolor rgb "#AAFFAA", \
-     "accuracy-top5-test.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb "#00AA00", \
-     "accuracy-top3-train.csv" using ($2/197960*199):3 notitle                  smooth unique pointsize 0.5 linecolor rgb "#AAAAFF", \
-     "accuracy-top3-test.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb "#0000AA", \
-     "accuracy-top1-train.csv" using ($2/197960*199):3 notitle                  smooth unique pointsize 0.5 linecolor rgb "#FFAAAA", \
-     "accuracy-top1-test.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb "#AA0000"
+     NaN with points pt 5 lc rgb markeryellow title " Loss (arbitrary scale)", \
+     NaN with points pt 5 lc rgb markerred title " Top 1 accuracy", \
+     NaN with points pt 5 lc rgb markerblue title " Top 3 accuracy", \
+     NaN with points pt 5 lc rgb markergreen title " Top 5 accuracy", \
+     "loss-train.csv" using ($2/197960*199):($3/9*100) notitle                           smooth unique pointsize 0.5 linecolor rgb lineyellow, \
+     "loss-test.csv" using 2:($3/9*100) notitle                                    pointtype 2 pointsize 0.6 linecolor rgb markeryellow, \
+     "accuracy-top5-train.csv" using ($2/197960*199):3 notitle                  smooth unique pointsize 0.5 linecolor rgb linegreen, \
+     "accuracy-top5-test.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb markergreen, \
+     "accuracy-top3-train.csv" using ($2/197960*199):3 notitle                  smooth unique pointsize 0.5 linecolor rgb lineblue, \
+     "accuracy-top3-test.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb markerblue, \
+     "accuracy-top1-train.csv" using ($2/197960*199):3 notitle                  smooth unique pointsize 0.5 linecolor rgb linered, \
+     "accuracy-top1-test.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb markerred
