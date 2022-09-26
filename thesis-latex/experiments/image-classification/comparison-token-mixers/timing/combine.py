@@ -124,6 +124,7 @@ for name in model_names:
 
         epoch_time_in_s = epoch_time_in_ms / 1000.0
 
+    # name, max_accuracy, epoch_with_max_accuracy, nr_parameters, time_per_epoch, time_until_max, time_per_param_factor, time_per_accuracy_factor, params_per_accuracy_factor
     print(
-        f"{model_names_translated[name]} & \\SI{{{nr_trainable_params[name]}}}{{}} & \\SI{{{epoch_time_in_s:.2f}}} & \\SI{{{(epoch_time_in_s/nr_trainable_params[name]*10e6):.2f}}} \\\\"
+        f"{model_names_translated[name]} & \\SI{{{top_accuracy[name]:.2f}}}{{\\percent}}  & \\SI{{{converged_epoch[name]}}}{{}} & \\SI{{{nr_trainable_params[name]}}}{{}} & \\SI{{{epoch_time_in_s:.2f}}}{{\\second}} & \\SI{{{(epoch_time_in_s*converged_epoch[name]/60/60):.2f}}}{{\\hour}} & \\SI{{{(epoch_time_in_s/nr_trainable_params[name] / 0.00007054):.2f}}}{{}} & \\SI{{{(epoch_time_in_s*converged_epoch[name]/top_accuracy[name]/472.57):.2f}}}{{}} & \\SI{{{(nr_trainable_params[name]/top_accuracy[name]/108057.15399610):.2f}}}{{}} \\\\"
     )

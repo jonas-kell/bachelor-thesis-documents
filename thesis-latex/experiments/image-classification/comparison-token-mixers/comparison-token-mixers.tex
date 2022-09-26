@@ -24,3 +24,47 @@ While this is a fixable flaw of the implementation, it clearly shows that the gr
 The comparison among the whole set of metaformers will emphasize how similar these two curves really are.
 
 This proves, that convolutions can directly be translated into a graph context and motivates their function on non-tensor-like data structures.
+
+\FloatBarrier
+\paragraph{The architectures are compared} against each other in the last section discussing the first experiment. 
+\autoref{table:overall-comparison-data} shows the one to one comparison of all implemented metaformer variations on the same task.
+The hyperparameters (optimizer, batch size, embed dimension, depth, etc.) were \emph{the exact same for all runs}. 
+
+
+
+\begin{table}[htbp]
+    \centering
+    \makebox[\textwidth][c]{
+        \begin{tabular}{l|llllllll} 
+            \toprule
+            name & $\mathrm{acc}_\mathrm{max}$ & $\mathrm{ep}_\mathrm{max}$ & \#params & $t$ / ep & $t_\mathrm{max}$ & $\frac{t}{\mathrm{param}}$ & $\frac{t_\mathrm{max}}{\mathrm{acc}}$ & $\frac{\mathrm{param}}{\mathrm{acc}}$ \\
+            \midrule 
+            TF (learned) & \SI{51.30}{\percent}  & \SI{62}{} & \SI{5543332}{} & \SI{391.01}{\second} & \SI{6.73}{\hour} & \SI{1.00}{} & \SI{1.00}{} & \SI{1.00}{} \\
+            TF (sinus) & \SI{51.03}{\percent}  & \SI{66}{} & \SI{5505700}{} & \SI{391.32}{\second} & \SI{7.17}{\hour} & \SI{1.01}{} & \SI{1.07}{} & \SI{1.00}{} \\
+            TF (none) & \SI{49.11}{\percent}  & \SI{63}{} & \SI{5505700}{} & \SI{391.22}{\second} & \SI{6.85}{\hour} & \SI{1.01}{} & \SI{1.06}{} & \SI{1.04}{} \\
+            GTF-NN (sinus) & \SI{49.38}{\percent}  & \SI{68}{} & \SI{5505736}{} & \SI{435.53}{\second} & \SI{8.23}{\hour} & \SI{1.12}{} & \SI{1.27}{} & \SI{1.03}{} \\
+            GTF-NN (learned) & \SI{50.01}{\percent}  & \SI{80}{} & \SI{5543368}{} & \SI{435.25}{\second} & \SI{9.67}{\hour} & \SI{1.11}{} & \SI{1.47}{} & \SI{1.03}{} \\
+            GTF-NN (none) & \SI{48.42}{\percent}  & \SI{80}{} & \SI{5505736}{} & \SI{435.73}{\second} & \SI{9.68}{\hour} & \SI{1.12}{} & \SI{1.52}{} & \SI{1.05}{} \\
+            GTF-NNN (sinus) & \SI{49.87}{\percent}  & \SI{70}{} & \SI{5505736}{} & \SI{435.47}{\second} & \SI{8.47}{\hour} & \SI{1.12}{} & \SI{1.29}{} & \SI{1.02}{} \\
+            GTF-NNN (learned) & \SI{51.58}{\percent}  & \SI{75}{} & \SI{5543368}{} & \SI{435.27}{\second} & \SI{9.07}{\hour} & \SI{1.11}{} & \SI{1.34}{} & \SI{0.99}{} \\
+            GTF-NNN (none) & \SI{50.38}{\percent}  & \SI{79}{} & \SI{5505736}{} & \SI{434.84}{\second} & \SI{9.54}{\hour} & \SI{1.12}{} & \SI{1.44}{} & \SI{1.01}{} \\
+            PF & \SI{46.39}{\percent}  & \SI{367}{} & \SI{3727012}{} & \SI{217.14}{\second} & \SI{22.14}{\hour} & \SI{0.83}{} & \SI{3.64}{} & \SI{0.74}{} \\
+            GPF-NN & \SI{43.26}{\percent}  & \SI{403}{} & \SI{3727012}{} & \SI{213.39}{\second} & \SI{23.89}{\hour} & \SI{0.81}{} & \SI{4.21}{} & \SI{0.80}{} \\
+            GPF-NNN & \SI{47.43}{\percent}  & \SI{432}{} & \SI{3727012}{} & \SI{213.40}{\second} & \SI{25.61}{\hour} & \SI{0.81}{} & \SI{4.11}{} & \SI{0.73}{} \\
+            DCF & \SI{46.13}{\percent}  & \SI{96}{} & \SI{3747748}{} & \SI{317.41}{\second} & \SI{8.46}{\hour} & \SI{1.20}{} & \SI{1.40}{} & \SI{0.75}{} \\
+            SDCF-NN & \SI{47.66}{\percent}  & \SI{210}{} & \SI{3731620}{} & \SI{319.98}{\second} & \SI{18.67}{\hour} & \SI{1.22}{} & \SI{2.98}{} & \SI{0.72}{} \\
+            SDCF-NNN & \SI{44.49}{\percent}  & \SI{260}{} & \SI{3733924}{} & \SI{319.72}{\second} & \SI{23.09}{\hour} & \SI{1.21}{} & \SI{3.95}{} & \SI{0.78}{} \\
+            SGDCF-NN & \SI{48.78}{\percent}  & \SI{237}{} & \SI{3731620}{} & \SI{250.64}{\second} & \SI{16.50}{\hour} & \SI{0.95}{} & \SI{2.58}{} & \SI{0.71}{} \\
+            SGDCF-NNN & \SI{44.39}{\percent}  & \SI{260}{} & \SI{3733924}{} & \SI{280.66}{\second} & \SI{20.27}{\hour} & \SI{1.07}{} & \SI{3.48}{} & \SI{0.78}{} \\
+            CF & \SI{50.50}{\percent}  & \SI{106}{} & \SI{7710628}{} & \SI{386.45}{\second} & \SI{11.38}{\hour} & \SI{0.71}{} & \SI{1.72}{} & \SI{1.41}{} \\
+            \bottomrule
+        \end{tabular}
+    }
+    \vspace{0.1cm}
+    \caption{Tabular representation of the performance data for different metaformers in the image classification task.
+            The columns from left to right are: maximum top-1-accuracy, epoch this max accuracy was reached, the number of trainable parameters, the time per epoch, the time until the maximum accuracy was reached, the calculation time per parameter factor, the time until the maximum accuracy was reached per maximum accuracy factor and the number of parameters per maximum accuracy factor.
+            The three factors are scaled so that \emph{TF (learned)} corresponds to \SI{1.00}{}. For everything but $\mathrm{acc}_\mathrm{max}$ lower is better. THe maximum accuracy and the corresponding epoch have been chosen manually to select values that take both the accuracy and the loss curves into account. Because of that, sometimes bigger accuracies are reached later than the ones listed in the table.
+            But they were excluded as lucky outliers, if the loss was already signaling overfitting.
+    }
+    \label{table:overall-comparison-data}
+\end{table}
