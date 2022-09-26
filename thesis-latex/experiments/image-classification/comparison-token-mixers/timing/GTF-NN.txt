@@ -1,0 +1,31 @@
+Using cuda device
+Train model
+Use additional parameter: model_name with type <class 'str'> with value GTF-NN
+Use additional parameter: max_epochs with type <class 'int'> with value 1
+Using the model: GTF-NN
+Epoch 0
+-------------------------------
+Acc: 1.6%, Acc_t3: 3.3%, Acc_t5: 5.6%, loss: 4.699680  [  6400/126640]   load_hdd: 14.827170ms, load_gpu: 7.488408ms, process: 517.652388ms
+Acc: 2.7%, Acc_t3: 6.3%, Acc_t5: 8.8%, loss: 4.562817  [ 12800/126640]   load_hdd: 1.015887ms, load_gpu: 6.016893ms, process: 505.418444ms
+Acc: 3.2%, Acc_t3: 7.9%, Acc_t5: 11.7%, loss: 4.529677  [ 19200/126640]   load_hdd: 1.640658ms, load_gpu: 6.191964ms, process: 505.248771ms
+Acc: 4.3%, Acc_t3: 9.3%, Acc_t5: 12.9%, loss: 4.497235  [ 25600/126640]   load_hdd: 0.103807ms, load_gpu: 6.009989ms, process: 505.212879ms
+Acc: 4.4%, Acc_t3: 9.0%, Acc_t5: 13.3%, loss: 4.477272  [ 32000/126640]   load_hdd: 0.803127ms, load_gpu: 6.015196ms, process: 505.222783ms
+Acc: 4.1%, Acc_t3: 9.4%, Acc_t5: 14.0%, loss: 4.454685  [ 38400/126640]   load_hdd: 0.328121ms, load_gpu: 6.114650ms, process: 505.926828ms
+Acc: 4.4%, Acc_t3: 10.7%, Acc_t5: 15.5%, loss: 4.434239  [ 44800/126640]   load_hdd: 0.824890ms, load_gpu: 6.341648ms, process: 505.461602ms
+Acc: 5.0%, Acc_t3: 10.3%, Acc_t5: 15.2%, loss: 4.407686  [ 51200/126640]   load_hdd: 1.043611ms, load_gpu: 6.217380ms, process: 505.271869ms
+Acc: 4.7%, Acc_t3: 10.9%, Acc_t5: 15.5%, loss: 4.398067  [ 57600/126640]   load_hdd: 0.975385ms, load_gpu: 6.224799ms, process: 505.256128ms
+Acc: 4.7%, Acc_t3: 10.6%, Acc_t5: 16.0%, loss: 4.382746  [ 64000/126640]   load_hdd: 0.166240ms, load_gpu: 6.011353ms, process: 505.266452ms
+Acc: 5.0%, Acc_t3: 10.8%, Acc_t5: 16.1%, loss: 4.383344  [ 70400/126640]   load_hdd: 0.757041ms, load_gpu: 6.255198ms, process: 505.253973ms
+Acc: 5.3%, Acc_t3: 12.1%, Acc_t5: 16.7%, loss: 4.354619  [ 76800/126640]   load_hdd: 1.233034ms, load_gpu: 6.235800ms, process: 505.221505ms
+Acc: 5.5%, Acc_t3: 12.2%, Acc_t5: 17.2%, loss: 4.347970  [ 83200/126640]   load_hdd: 0.330863ms, load_gpu: 6.461453ms, process: 505.360527ms
+Acc: 5.5%, Acc_t3: 11.6%, Acc_t5: 17.2%, loss: 4.338839  [ 89600/126640]   load_hdd: 0.337024ms, load_gpu: 6.722260ms, process: 505.462923ms
+Acc: 5.6%, Acc_t3: 12.2%, Acc_t5: 17.3%, loss: 4.348887  [ 96000/126640]   load_hdd: 0.621033ms, load_gpu: 6.141119ms, process: 505.262265ms
+Acc: 5.8%, Acc_t3: 12.5%, Acc_t5: 17.3%, loss: 4.332423  [102400/126640]   load_hdd: 0.782094ms, load_gpu: 6.266804ms, process: 505.553074ms
+Acc: 6.0%, Acc_t3: 13.3%, Acc_t5: 18.6%, loss: 4.302135  [108800/126640]   load_hdd: 1.510606ms, load_gpu: 6.349330ms, process: 505.255113ms
+Acc: 5.9%, Acc_t3: 12.8%, Acc_t5: 18.5%, loss: 4.315917  [115200/126640]   load_hdd: 1.038556ms, load_gpu: 6.415596ms, process: 505.491552ms
+Acc: 6.2%, Acc_t3: 13.4%, Acc_t5: 18.7%, loss: 4.288667  [121600/126640]   load_hdd: 1.452117ms, load_gpu: 6.147747ms, process: 505.492492ms
+Validation Phase: 
+ Acc: 6.4%, Acc_t3: 14.4%, Acc_t5: 19.7%, Avg loss: 4.297501 
+
+Saving: 
+Done!
