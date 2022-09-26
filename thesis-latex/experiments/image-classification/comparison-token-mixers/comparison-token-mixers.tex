@@ -29,7 +29,7 @@ This proves, that convolutions can directly be translated into a graph context a
 \paragraph{The architectures are compared} against each other in the last section discussing the first experiment. 
 \autoref{table:overall-comparison-data} shows the one to one comparison of all implemented metaformer variations on the same task.
 The hyperparameters (optimizer, batch size, embed dimension, depth, etc.) were \emph{the exact same for all runs}. 
-
+The complete course of the validation metrics for selected runs is printed in \autoref{fig:overall-comparison-data}.
 
 
 \begin{table}[htbp]
@@ -68,3 +68,16 @@ The hyperparameters (optimizer, batch size, embed dimension, depth, etc.) were \
     }
     \label{table:overall-comparison-data}
 \end{table}
+
+\begin{figure}[p]
+    \centering
+    \vspace{-1cm}
+    \makebox[1.04\textwidth][r]{
+        \includegraphics[width=\textheight,angle=90,origin=c]{./experiments/image-classification/comparison-token-mixers/overall-comp/overall-comp.pdf}
+        }
+    \caption{Graphic depiction of accuracy and loss of the metaformer architectures on the image classification task. 
+            For the transformer architectures, only the \emph{learned} pe is drawn, as the other encodings are already printed in \autoref{fig:positional-encoding-training}. 
+            This data is from the same runs as the data in \autoref{table:overall-comparison-data}.
+    }
+    \label{fig:overall-comparison-data}
+\end{figure}
