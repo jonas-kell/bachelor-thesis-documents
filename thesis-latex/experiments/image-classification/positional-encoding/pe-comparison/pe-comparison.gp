@@ -27,45 +27,97 @@ set datafile separator ','
 set multiplot layout 2,3 rowsfirst
 
 # axes and label
+set xrange [0:100] 
+set x2range [0:100] 
 set xlabel ""
-set ylabel "accuracy (%)"
 set xtics 25
-set ytics 10
-set mxtics 10
-set mytics 5
-# set xrange [0:50] 
-set yrange [0:60] 
+set mxtics 5
+set x2tics 25
+set mx2tics 5
+set format x ''
 
+set ylabel "accuracy (%)"
+set yrange [0:60] 
+set y2range [0:60] 
+set ytics 10
+set mytics 5
+set y2tics 10
+set my2tics 5
+set format y '%.f';
+set format y2 '';
+
+set tmargin at screen 0.95; set bmargin at screen 0.55
+set lmargin at screen 0.08; set rmargin at screen 0.35
+
+# plot 1,1
 set label 1 "TF" at graph 0.4,0.93
 plot \
      "accuracy-tf-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.6 linecolor rgb markergreen
+# end plot 1,1
 
-set ylabel ""
+unset ylabel
+set format y '  ';
+set format y2 '  ';
 
+set lmargin at screen 0.36; set rmargin at screen 0.62
+
+# ! plot 1,2
 set label 1 "GTF-NN" at graph 0.4,0.93
 plot \
      "accuracy-tf-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.6 linecolor rgb markergreen
+# ! end plot 1,2
 
+set format y '  ';
+set format y2 '%.f';
+
+set lmargin at screen 0.63; set rmargin at screen 0.90
+
+# plot 1,3
 set label 1 "GTF-NNN" at graph 0.4,0.93
 plot \
      "accuracy-tf-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.6 linecolor rgb markergreen
+# end plot 1,3
 
-set xlabel "number of epochs"
+set xlabel " "
 set ylabel "loss"
+set format x '%.f';
+set format x2 '';
+set format y '%.f';
+set format y2 '';
+
+set tmargin at screen 0.50; set bmargin at screen 0.13
+set lmargin at screen 0.08; set rmargin at screen 0.35
+
+# ! plot 2,1
 set label 1 "TF" at graph 0.4,0.93
 plot \
      "accuracy-tf-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.6 linecolor rgb markergreen
+# ! end plot 2,1
 
-set ylabel ""
+set xlabel "number of epochs"
+unset ylabel
+set format y '  ';
+set format y2 '  ';
 
+set lmargin at screen 0.36; set rmargin at screen 0.62
+
+# plot 2,2
 set label 1 "GTF-NNN" at graph 0.4,0.93
 plot \
      "accuracy-tf-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.6 linecolor rgb markergreen
+# end plot 2,2
 
+set xlabel " "
+set format y '  ';
+set format y2 '%.f';
+
+set lmargin at screen 0.63; set rmargin at screen 0.90
+
+# ! plot 2,3
 set label 1 "GTF-NNN" at graph 0.4,0.93
 plot \
      "accuracy-tf-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.6 linecolor rgb markergreen
-
+# ! end plot 2,3
 
     #  NaN with points pt 5 lc rgb markeryellow title " adamw", \
     #  NaN with points pt 5 lc rgb markerred title " sgd, momentum=0", \
