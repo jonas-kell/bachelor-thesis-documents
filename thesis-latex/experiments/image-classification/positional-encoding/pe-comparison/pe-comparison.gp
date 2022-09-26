@@ -1,7 +1,7 @@
 set terminal pdfcairo font "Libertinus Serif, 12pt" fontscale 0.68 size 16cm, 12cm       # sets output format, font and plotsize
 set samples 500                                                                         # sets count for the amount of sampled points
 
-
+# !! numbers of x axes need to be deleted manually
 set output "pe-comparison.pdf"          # name of the output pdf
 
 # legend
