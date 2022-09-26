@@ -42,6 +42,48 @@ nr_trainable_params = {
     "CF": 7710628,
 }
 
+top_accuracy = {
+    "TF": 51.30,
+    "TF-ALT": 51.03,
+    "TF-NO": 49.11,
+    "GTF-NN": 49.38,
+    "GTF-NN-ALT": 50.01,
+    "GTF-NN-NO": 48.42,
+    "GTF-NNN": 49.87,
+    "GTF-NNN-ALT": 51.58,
+    "GTF-NNN-NO": 50.38,
+    "PF": 46.39,
+    "GPF-NN": 43.26,
+    "GPF-NNN": 47.43,
+    "DCF": 46.13,
+    "SDCF-NN": 47.66,
+    "SDCF-NNN": 44.49,
+    "SGDCF-NN": 48.78,
+    "SGDCF-NNN": 44.39,
+    "CF": 50.50,
+}
+
+converged_epoch = {
+    "TF": 62,
+    "TF-ALT": 66,
+    "TF-NO": 63,
+    "GTF-NN": 68,
+    "GTF-NN-ALT": 80,
+    "GTF-NN-NO": 80,
+    "GTF-NNN": 70,
+    "GTF-NNN-ALT": 75,
+    "GTF-NNN-NO": 79,
+    "PF": 367,
+    "GPF-NN": 403,
+    "GPF-NNN": 432,
+    "DCF": 96,
+    "SDCF-NN": 210,
+    "SDCF-NNN": 260,
+    "SGDCF-NN": 237,
+    "SGDCF-NNN": 260,
+    "CF": 106,
+}
+
 model_names_translated = {
     "TF": "TF (learned)",
     "TF-ALT": "TF (sinus)",
