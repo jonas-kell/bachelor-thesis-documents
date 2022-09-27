@@ -189,3 +189,7 @@ outliers
 pe
 backpropagating
 poolformers
+SGDCF
+GDCF
+SymmDepthSepConv
+non-symmet-ric
