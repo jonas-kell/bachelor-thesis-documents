@@ -1,0 +1,38 @@
+As a closing argument to the first set of experiments, the efficiency of graph masked attention will be discussed.
+
+While the experimental results in \autoref{sec:experiments-tokenmixers} (especially \autoref{table:overall-comparison-data}) showed a performance lead for the attention based transformers, as stated this operation is still comparably expensive.
+The \emph{GTF} architecture had by far the longest training time per epoch of the examined models.
+This is because of the inherent cost of the \emph{attention} operation that scales $\propto \mathcal{O}(n^2)$ with the number of nodes (in case of images, the number of patches) $n$, onto which the costs for masking the not required attention connections are added (also $\propto \mathcal{O}(n^2)$).
+
+This doesn't have to be the case though, it merely is a result of the chosen computational algorithm: 
+\begin{enumerate}
+    \setlength\itemsep{-0.5em}
+    \item calculate \emph{all} interactions from every node with every node
+    \item mask and scale only the interactions belonging to 
+        \begin{itemize}
+            \setlength\itemsep{-0.5em}
+            \item the node itself
+            \item the nearest neighbors
+            \item the next nearest neighbors
+        \end{itemize}
+    \item add all scaled interactions
+    \item replace all zeros with $-\infty$ to make them vanish in the softmax
+\end{enumerate}
+
+Looking at this again, it is clear a great number of computations is wasted. 
+Every entry of the outer product that is no self, nn- or nnn-interaction \emph{will} get overwritten with $-\infty$.
+Also all entries that contain $-\infty$ get passed through softmax, \emph{even though} is is clear beforehand that they will not contribute anything.
+
+Each node has (depending on the chosen interaction paradigm) only a constant number $c$ of nodes it is going to interact with.
+For large Graphs, this $c << n$. 
+With that in mind, the calculation really should have the complexity $\mathcal{O}(c \cdot n) \rightarrow \mathcal{O}(n)$, because for each of the $n$ nodes, only $c$ interactions should have to be calculated and passed through the softmax.
+
+As the code in the implementation makes use of GPUs to accelerate the computation, it is still faster to calculate the unused connections and \glqq throw\grqq{} them away shortly after.
+Because this harnesses the GPUs, highly optimized implementation of operations like matrix multiplication.
+
+But through implementing the linear time calculation efficiently and compiling it to the GPU instructionset, a massive speedup could be achieved. 
+This would bring in the benefits of the attention operation, but get rid of the $\mathcal{O}(n^2)$ complexity problem.
+While not having the full attention at ones disposal, the graph masked attention still is absolutely competitive for some use cases (\autoref{table:overall-comparison-data}).
+
+An even greater speedup could be achieved by implementing the described algorithm directly in hardware.
+While the current demand for graph attention calculation may not yet be high enough to justify this, future developments could easily make investing in this technology worthwhile.
