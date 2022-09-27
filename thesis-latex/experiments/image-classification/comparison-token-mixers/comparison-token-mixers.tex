@@ -31,6 +31,9 @@ This proves, that convolutions can directly be translated into a graph context a
 The hyperparameters (optimizer, batch size, embed dimension, depth, etc.) were \emph{the exact same for all runs}. 
 The complete course of the validation metrics for selected runs is printed in \autoref{fig:overall-comparison-data}.
 
+As it is impossible to discuss all the collected data in depth, only the most interesting observations will be emphasized.
+Several trends can be noticed across the whole metaformer lineup. 
+
 
 \begin{table}[htbp]
     \centering
@@ -42,11 +45,11 @@ The complete course of the validation metrics for selected runs is printed in \a
             TF (learned) & \SI{51.30}{\percent}  & \SI{62}{} & \SI{5543332}{} & \SI{391.01}{\second} & \SI{6.73}{\hour} & \SI{1.00}{} & \SI{1.00}{} & \SI{1.00}{} \\
             TF (sinus) & \SI{51.03}{\percent}  & \SI{66}{} & \SI{5505700}{} & \SI{391.32}{\second} & \SI{7.17}{\hour} & \SI{1.01}{} & \SI{1.07}{} & \SI{1.00}{} \\
             TF (none) & \SI{49.11}{\percent}  & \SI{63}{} & \SI{5505700}{} & \SI{391.22}{\second} & \SI{6.85}{\hour} & \SI{1.01}{} & \SI{1.06}{} & \SI{1.04}{} \\
-            GTF-NN (sinus) & \SI{49.38}{\percent}  & \SI{68}{} & \SI{5505736}{} & \SI{435.53}{\second} & \SI{8.23}{\hour} & \SI{1.12}{} & \SI{1.27}{} & \SI{1.03}{} \\
             GTF-NN (learned) & \SI{50.01}{\percent}  & \SI{80}{} & \SI{5543368}{} & \SI{435.25}{\second} & \SI{9.67}{\hour} & \SI{1.11}{} & \SI{1.47}{} & \SI{1.03}{} \\
+            GTF-NN (sinus) & \SI{49.38}{\percent}  & \SI{68}{} & \SI{5505736}{} & \SI{435.53}{\second} & \SI{8.23}{\hour} & \SI{1.12}{} & \SI{1.27}{} & \SI{1.03}{} \\
             GTF-NN (none) & \SI{48.42}{\percent}  & \SI{80}{} & \SI{5505736}{} & \SI{435.73}{\second} & \SI{9.68}{\hour} & \SI{1.12}{} & \SI{1.52}{} & \SI{1.05}{} \\
-            GTF-NNN (sinus) & \SI{49.87}{\percent}  & \SI{70}{} & \SI{5505736}{} & \SI{435.47}{\second} & \SI{8.47}{\hour} & \SI{1.12}{} & \SI{1.29}{} & \SI{1.02}{} \\
             GTF-NNN (learned) & \SI{51.58}{\percent}  & \SI{75}{} & \SI{5543368}{} & \SI{435.27}{\second} & \SI{9.07}{\hour} & \SI{1.11}{} & \SI{1.34}{} & \SI{0.99}{} \\
+            GTF-NNN (sinus) & \SI{49.87}{\percent}  & \SI{70}{} & \SI{5505736}{} & \SI{435.47}{\second} & \SI{8.47}{\hour} & \SI{1.12}{} & \SI{1.29}{} & \SI{1.02}{} \\
             GTF-NNN (none) & \SI{50.38}{\percent}  & \SI{79}{} & \SI{5505736}{} & \SI{434.84}{\second} & \SI{9.54}{\hour} & \SI{1.12}{} & \SI{1.44}{} & \SI{1.01}{} \\
             PF & \SI{46.39}{\percent}  & \SI{367}{} & \SI{3727012}{} & \SI{217.14}{\second} & \SI{22.14}{\hour} & \SI{0.83}{} & \SI{3.64}{} & \SI{0.74}{} \\
             GPF-NN & \SI{43.26}{\percent}  & \SI{403}{} & \SI{3727012}{} & \SI{213.39}{\second} & \SI{23.89}{\hour} & \SI{0.81}{} & \SI{4.21}{} & \SI{0.80}{} \\
@@ -81,3 +84,52 @@ The complete course of the validation metrics for selected runs is printed in \a
     }
     \label{fig:overall-comparison-data}
 \end{figure}
+
+\paragraph{The attention based transformers} for the start score the highest overall accuracy. 
+The graph-masked attention falling only slightly behind the full transformer in the case of the nn-limited attention and even pulling ahead in some of the positional encodings in the case of the nnn-limited interaction.
+All the models are basically identical in terms of required parameters, only the learned pe requiring a noticeable different amount of weights as already discussed in \autoref{sec:experiments-positionalencoding}. 
+The weights inside the graph masks are basically negligible.
+
+What is definitely not negligible is the overhead in computational time. 
+The graph variants require both more epochs to achieve maximum accuracy, as well as the epochs itself taking longer to be calculated.
+Both is sensible, as the masking requires extra calculations and the zeroing of interactions creates a \emph{choke point} for the backpropagating information (this will become even more pronounced in the later architectures). 
+Still it is clear, that masking attention does not hurt the performance as much as one could expect (the defining characteristic of the attention module being the \emph{global} interaction range, that is here taken away).
+
+As the nn-graph-attention takes both longer to train and achieves less accuracy than the nnn-graph-attention, using the later only brings advantages for the image classification task.
+That the nnn variant even outperforms the full transformer in terms of raw accuracy can probably be attributed to the relatively small model size and un-optimized training procedure.
+As a perfectly trained full transformer should be able to replicate a graph transformer, this shows that while in theory the later is inferior, in practice for small models or imperfect training procedures it can definitely be beneficial to force the inductive bias of \emph{locality} upon the model.
+
+A so far unmentioned detail could furthermore vastly improve the graph-transformers. 
+This will be discussed as a closing argument in the \nameref{sec:conclusion}.
+
+\paragraph{The convolution based conformers} continue all the described trends.
+They require less trainable weights (around \SI[]{33}[]{\percent} less) than the transformers.
+Their maximum accuracy is slightly worse than the transformers', and they require longer to reach peak accuracy.
+Though as soon as they are fully trained, they can both be evaluated quicker and have a overall smaller footprint due to the smaller weight count.
+This shows, that for our small size of network, shaping a model around a hard coded inductive bias takes more effort, but can pay of in terms of efficiency.
+
+Interestingly, when comparing the symmetric and non-symmetric variants, the non-symmet\-ric one converges \emph{significantly} faster in training (by a factor of \SIrange[]{2.1}{2.7}{}). 
+This can again be attributed to the strict choke point of only two weights for SDCF-NN in comparison to the nine inside the DCF kernel.
+
+It is however very interesting to see, that the conformer architecture is the only kind of metaformer where the nn-convolution performed both better than the nnn variant and the full variant.
+And it does so by a very significant margin of \SI[]{4.2}[]{\percent}.
+This shows that it is clearly worthwhile to experiment with different interaction schemes, when employing graph networks.
+
+As previously discussed, the traditional convolution and graph convolution variations are equivalent on tensor data.
+The models clearly show this, especially when comparing the course of the curves in \autoref{fig:overall-comparison-data}.
+Unexpected on the other hand is the significantly worse performance of the traditional variant in terms of computational speed (\SIrange{13}{27}{\percent} longer time per epoch).
+This may seem counter intuitive, but can be explained when looking at the implementation. 
+As all the models use the same underlying framework, the internal representation is always stored as $b \times (n=w\cdot h) \times e$, with the batch dimension $b$, the number of patches $n$, the width and height in patches $w$ and $h$ and the embed dimension $e$. 
+When a traditional convolution should get applied, this needs to be reshaped to correspond to $b \times e \times w \times h$ and reversed after the convolution operation. 
+This step creates an unnecessary overhead, that could be left out, if only traditional convolutions were needed.
+
+\paragraph{The pooling based poolformers} sit at the opposite end of the overall trends.
+They require the least amount of parameters and - because of the very loose coupling of the pooling operation - the by far longest time to train.
+A fully trained poolformer though provides both the best parameters per accuracy efficiency, as well as the lowest evaluation time.
+PF and GPF-NNN being practically identical, which was expected on tensor data.
+
+The overall accuracy is definitely lower, than that of a transformer, but because of the significant efficiency advantage, the poolformer's performance is still definitely competitive.
+
+\paragraph{The full conformer} is listed in the lineup, but it - as already discussed - can not be considered a \emph{strict} metaformer.
+The performance is relatively high and the speed of convergence is average. 
+Though the extremely large parameter count (more than \SI[]{106}[]{\percent} \emph{more} than a depthwise conformer) drives the point why depthwise separable convolutions are so desirable in the metaformer framework and beyond.
