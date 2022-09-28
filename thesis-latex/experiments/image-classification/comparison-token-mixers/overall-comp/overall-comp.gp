@@ -46,7 +46,7 @@ pfnnn="#053f05"
 
 dcf="#6868ff"
 dcfnn="#2525c1"
-dcfnnn="#161657image.png"
+dcfnnn="#161657"
 
 gdcfnn="#a207a5"
 gdcfnnn="#671069"
