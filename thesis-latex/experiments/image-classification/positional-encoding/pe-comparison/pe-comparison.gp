@@ -50,7 +50,7 @@ set tmargin at screen 0.95; set bmargin at screen 0.55
 set lmargin at screen 0.08; set rmargin at screen 0.35
 
 # plot 1,1
-set label 1 "TF" at graph 0.4,0.93
+set label 1 "TF" at graph 0.45,0.93
 plot \
      NaN with points pt 5 pointsize 0.6 lc rgb markerred title " Learned", \
      NaN with points pt 5 pointsize 0.6 lc rgb markerblue title " Sinusoidal", \
@@ -69,7 +69,7 @@ set format y2 '  ';
 set lmargin at screen 0.36; set rmargin at screen 0.62
 
 # ! plot 1,2
-set label 1 "GTF-NN" at graph 0.4,0.93
+set label 1 "GTF-NN" at graph 0.34,0.93
 plot \
      "accuracy-gtf_nn-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markergreen, \
      "accuracy-gtf_nn-learned.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markerred, \
@@ -82,7 +82,7 @@ set format y2 '%.f';
 set lmargin at screen 0.63; set rmargin at screen 0.90
 
 # plot 1,3
-set label 1 "GTF-NNN" at graph 0.4,0.93
+set label 1 "GTF-NNN" at graph 0.32,0.93
 plot \
      "accuracy-gtf_nnn-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markergreen, \
      "accuracy-gtf_nnn-learned.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markerred, \
@@ -107,7 +107,7 @@ set y2tics 0.5
 set my2tics 5
 
 # ! plot 2,1
-set label 1 "TF" at graph 0.4,0.93
+set label 1 "TF" at graph 0.45,0.93
 plot \
      "loss-tf-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markergreen, \
      "loss-tf-learned.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markerred, \
@@ -122,7 +122,7 @@ set format y2 '  ';
 set lmargin at screen 0.36; set rmargin at screen 0.62
 
 # plot 2,2
-set label 1 "GTF-NN" at graph 0.4,0.93
+set label 1 "GTF-NN" at graph 0.34,0.93
 plot \
      "loss-gtf_nn-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markergreen, \
      "loss-gtf_nn-learned.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markerred, \
@@ -136,7 +136,7 @@ set format y2 '%.1f';
 set lmargin at screen 0.63; set rmargin at screen 0.90
 
 # ! plot 2,3
-set label 1 "GTF-NNN" at graph 0.4,0.93
+set label 1 "GTF-NNN" at graph 0.32,0.93
 plot \
      "loss-gtf_nnn-no.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markergreen, \
      "loss-gtf_nnn-learned.csv" using 2:3 notitle                  pointtype 16 pointsize 0.4 linecolor rgb markerred, \
