@@ -7,17 +7,17 @@ Furthermore these networks were extended to be able to efficiently work on probl
 
 The \emph{inductive biases} of different neural network building blocks were presented as a motivation for why the current machine learning calculations operate the way they do.
 
-Solving the \emph{image classification} problem for small networks, proved that the envisioned \emph{graph masked attention} was in fact working as expected and possesses the capability to outperform the full transformer by a whole complexity class if implemented properly.
+Solving the \emph{image classification} problem with small networks, proved that the envisioned \emph{graph masked attention} was in fact working as expected and possesses the capability to outperform the full transformer by a whole complexity class if implemented properly.
 At the same time, the equivalent operations to \emph{convolutions} and \emph{pooling} were introduced and tested for graph representations.
 
 A \emph{ground state search} implementation was modified to support a range of different \emph{2-dimensional lattices}.
-The search was performed with an established \emph{CNN} architecture and validated with the \emph{numerical solution} for a problem with a small number of lattice sites.
+The search was first performed with an established \emph{CNN} architecture and validated with the \emph{numerical solution} for a problem with a small number of lattice sites.
 
 Finally the graph metaformers were used as the \emph{NQS} for the $VMC$ ground state search.
 There it could be shown, that the graph architectures can easily be used as a sufficient parameterization for solving the computational search.
 And while the graph metaformers were sadly slower in solving the problem compared to the established CNN, the experiments showed them offering a very high degree of customizability due to their structure, good precision and built in resiliency against changes to the graph encoding.
 
-The hope is, to further demonstrate their general performance benefits in representing highly complicated wavefunctions, closer to the \emph{critical point} of quantum mechanical systems.  % TODO check if fits after finishing last section
-And while not all variations of the metaformer will be applicable to visited computational tasks, already the thesis' small scale experiments have shown the concept to be successful.
+The hope is, to further demonstrate their general performance benefits in representing highly complicated wavefunctions, closer to the \emph{phase transition} of quantum mechanical systems.
+And while not all variations of the metaformer will be applicable to discussed computational tasks, already the thesis' small scale experiments have shown the concept to be successful.
 
-Thus, the field of \emph{graph metaformers} and their application in \emph{quantum mechanical computational problems} offers many possibilities for further research, as the vast number of applications sadly surpasses the scope of only one bachelors thesis.
+Thus, the field of \emph{graph metaformers} and their application in \emph{quantum mechanical computational problems} offers many possibilities for further research, as the vast number of applications sadly surpasses the scope of only one bachelor thesis.
