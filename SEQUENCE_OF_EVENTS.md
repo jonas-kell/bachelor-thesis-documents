@@ -131,11 +131,11 @@
 
 # Month 3
 
--   [ ] Visualize the results
+-   [x] Visualize the results
     -   [x] tensorboard logs
-    -   [ ] nice and uniform graphs for the thesis itself
+    -   [x] nice and uniform graphs for the thesis itself
 -   [x] ~~Extract real-world use cases for motivation~~
--   [ ] Write the thesis
+-   [x] Write the thesis
     -   Computer Science Part:
         -   Description of the Problem
         -   Description and Motivation for the used Architecture
