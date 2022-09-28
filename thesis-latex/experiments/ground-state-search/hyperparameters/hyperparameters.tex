@@ -1,1 +1,20 @@
-% TODO
+Like mentioned, \autoref{fig:hyperparameter-matrix} compares not only different choices for the network ansatz, but also different hyperparameter combinations.
+In general, the behavior of a GPF-NNN on a trigonal\_square lattice is observed.
+
+Many different correlations could be extracted when discussing the graph.
+But the obtained relations could not be guaranteed to generalize to different lattice shapes or different Ising parameters.
+Because of that, a detailed analysis of the figure would not be very helpful.
+
+Therefore only two very clear trends will be mentioned:
+
+First, it can be observed that all combinations of \emph{ansatz}, \emph{depth} and \emph{embed dimension} converge to the same energy (they also have their variance converging in the same order of magnitude, but that data is not pictured in the thesis).
+This underlines the robustness of the metaformer architecture.
+As all combinations seemingly are a valid parameterization of the wavefunction, it is possible to select the one with the most appropriate performance behavior for the task.
+
+Second, the shallow networks (depth of one, in \autoref{fig:hyperparameter-matrix} red and green) seem to perform best in this task.
+In image classification tasks, the general rule was established, that while deeper networks are generally harder to train, they perform usually better if successfully trained.
+A only one block deep metaformer on the other hand can probably be described as the opposite of a \emph{deep network}.
+While the good performance of shallow networks can have multiple reasons, a likely one is the problem's overall hardness.
+In this thesis it was hinted as multiple times, that the presented lattices are not \emph{irregular} enough to justify really deep networks.
+More \glqq complicated\grqq{} lattice structures or Ising problems might be required to take full advantage of the metaformer's strengths. 
+The last section will pick up this thought.
