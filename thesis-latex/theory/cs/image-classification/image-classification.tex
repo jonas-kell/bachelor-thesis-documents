@@ -32,7 +32,7 @@ A big challenge in training these kinds of networks is getting a sufficient amou
 Today a lot of publicly available, high quality datasets exist for download. 
 In this case, the \emph{CIFAR-10} \cite{cifarDataset} dataset was used for the first steps in the methods. 
 A subset of \emph{100 classes} from the \emph{ImageNet} \cite{imagenetDataset} dataset was used in the experiments that were used to evaluate the general functionality of the explored network architectures.
-The subset of chosen classes can be viewed at \cite{selfComputerScience} \filepath{/managing\_imagenet\_data/used\_synsets.txt}.
+The subset of chosen classes can be viewed at \filepath{\cite{selfComputerScience}}{/managing\_imagenet\_data/used\_synsets.txt}.
 
 In the task, the \emph{accuracy} describes the percentage of validation images whose label was guessed correctly by the network. It is not allowed to use the validation images during training. That way, the network only would need to memorize a tiny amount of images to perform good on the test. This is undesirable behavior, as the general idea is to teach the network to be able to classify previously unseen images in the right way. The \emph{training accuracy} is the analogous value, but calculated for the training images (that \emph{are} used during training. Because of that, this accuracy is often way higher).
 The \emph{top-3-accuracy} is the percentage of validation images, for that the correct label was among the top three highest valued choices of the network. The same is true analogously for the \emph{top-5-accuracy}.

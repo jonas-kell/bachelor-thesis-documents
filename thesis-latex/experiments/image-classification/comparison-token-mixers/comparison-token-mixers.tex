@@ -16,9 +16,16 @@ This thesis was validated experimentally and is visualized in \autoref{fig:graph
 The data clearly shows, that the implementations of SDCF-NNN and SGDCF-NNN behave exactly identical, even though they compute the path interactions with different operations, as they are mathematically identical.
 
 It is natural to expect, that SDCF-NN and SGDCF-NN behave likewise, but slight differences in the data of these two be observed.
-This is because of the pseudo random number generator used in PyTorch.
-The implementation of the graph-convolution (\emph{GraphMaskConvolution} in \cite{selfComputerScience} \filepath{/models/metaformer.py}) and the conventional-convolution (\emph{SymmDepthSepConv2d} in \cite{selfComputerScience} \filepath{/models/helpers/SymmConv2d.py}) query the random number generator a different number of times, because the graph implementation always allocates ($3 \cdot \mathrm{channels}$) weights and the conventional implementation only allocates ($2 \cdot \mathrm{channels}$) weights for nn interactions and ($3 \cdot \mathrm{channels}$) for nnn.
-This causes the random number generator to drift apart and produces a propagating difference in the calculations \emph{only} for nn and not for nnn.
+This is because of the different ways, the pseudo random number generator of PyTorch is used:
+\begin{sloppypar} % I hate to have to use this hack, but line-broken file paths look more ugly and are on top unreadable
+    The implementation of the graph-convolution \phantom{asdasdasdasdasdasdasdasdasdasdasdasdasd}
+        \makebox{(\texttt{GraphMaskConvolution} in \filepath{\cite{selfComputerScience}}{/models/metaformer.py})}
+    and the conventional-convolution 
+        \makebox{(\texttt{SymmDepthSepConv2d} in \filepath{\cite{selfComputerScience}}{/models/helpers/SymmConv2d.py})}
+        \phantom{aa}
+        query the random number generator a different number of times, because the graph implementation always allocates ($3 \cdot \mathrm{channels}$) weights and the conventional implementation only allocates ($2 \cdot \mathrm{channels}$) weights for nn interactions and ($3 \cdot \mathrm{channels}$) for nnn.
+        This causes the random number generator to drift apart and produces a propagating difference in the calculations \emph{only} for nn and not for nnn.
+\end{sloppypar}
 
 While this is a fixable flaw of the implementation, it clearly shows that the graph and non-graph implementations are behaving similar, even if the starting conditions are non-equivalent.
 The comparison among the whole set of metaformers will emphasize how similar these two curves really are.
