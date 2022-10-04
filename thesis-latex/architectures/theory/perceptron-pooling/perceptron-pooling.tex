@@ -20,7 +20,7 @@ A schematic view is given in \autoref{fig:perceptron}.
 
 The output gets calculated like $o = \mathrm{ReLU} \left(\sum\limits_{i=1}^{n} x_i\cdot w_i + b\right)$.
 Calculating multiple perceptrons with different weights in parallel for the same input values $x$ is called a fully connected layer (fcl).
-The formula for a the elements in a fcl is show in \autoref{eq:fcl},
+The formula for the elements in a fcl is show in \autoref{eq:fcl},
 
 \begin{equation}
     \label{eq:fcl} 
@@ -33,6 +33,7 @@ which is equivalent to a matrix-vector-multiplication. Therefore the fcl can be 
 \paragraph{The pooling operator} is basically a function that selects a new value based on values in a specific range around the target position.
 The rules can range from taking the \emph{minimal} value, to the \emph{maximum} value or the \emph{average}.
 In this thesis, all pooling operations are average pooling.
+
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=0.6\textwidth]{./architectures/theory/perceptron-pooling/pooling.pdf}}
@@ -43,5 +44,6 @@ In this thesis, all pooling operations are average pooling.
     }
     \label{fig:pooling}
 \end{figure}
+
 \autoref{fig:pooling} shows an example of an 2$\times$2-average-pooling operation.
 Where the dimension of input and output need to stay the same, the border of the input is padded with zero values (no padding in this example).

@@ -3,7 +3,7 @@ Like in pooling, values get aggregated from inside a specific region of influenc
 This region is called the \emph{kernel}.
 They do however not get treated uniformly, but scaled with (learnable) weights before being summed up.
 The weights are stored as entries in the kernel. 
-The operation is equivalent to a the discrete mathematical 2D-convolution, however due to convention the kernel is flipped before the calculation in most mathematical definitions \cite{multidimConv} and is not flipped in most machine learning frameworks.
+The operation is equivalent to the discrete mathematical 2D-convolution, however due to convention the kernel is flipped before the calculation in most mathematical definitions \cite{multidimConv} and is not flipped in most machine learning frameworks.
 This has to be taken into account for non-symmetric kernels.
 
 As for pooling, the sides are padded with zeros, if the input size is supposed to match to output size. 
