@@ -3,19 +3,16 @@ In \autoref{fig:image-classification-general} an image is transformed into a neu
 A highly useful property of images is, that they can directly be encoded into \emph{tensors} depending on their format (e.g. a $224\times224$ matrix for a grayscale image or a $3\times224\times224$ tensor for an image with three color channels).
 
 By leaving this structure in the way it already is stored in, properties like the pixel-proximity relation is conserved (while reordering into one column obviously does not preserve this information in the same way).
-Network elements like \emph{convolutions} (\autoref{sec:architectures-convolution}) can use this preserved information to their advantage. 
-The utilization of such kind of information is called an \emph{implicit bias} and discussed in-depth in \autoref{sec:biases}.
+Network elements like \emph{convolutions} (\autoref{sec:architectures-convolution}) can take advantage of this preserved information. 
+The utilization of such kind of information is called an \emph{implicit bias} and discussed in detail in \autoref{sec:biases}.
 
-The canonical representation of images in memory is also the reason, why \emph{graphics processing units} (GPUs), are highly optimized to run calculation on tensors.
-Because of their hardware design, operations like matrix multiplication or tensor addition can be carried out highly parallelized and efficient.
-
+The canonical representation of images in memory is also the reason, why GPUs (\emph{graphics} processing units) are highly optimized to run calculation on tensors.
+Because of their hardware design, operations like matrix multiplication or tensor addition can be carried out highly parallelized and efficiently.
 The hardware was originally designed to render graphics to the computer screen. 
 It is however no longer used exclusively for that.
 If a computational problem can be reduced to solving a matrix calculation, it can easily be carried out by a GPU.
 
-Sadly not all data is generally representable in tensor form. 
-
-A common data structure - in that many nodes exist which have relations defined between them - is called a \emph{graph}.
+But not all data is generally representable in tensor form. A common data structure - in that many nodes exist which have relations defined between them - is called a \emph{graph}.
 Examples for graph data are social media friendship relations or street data inside a navigational system.
 As graphs are quite versatile however, a lot of things can be represented with them.
 
