@@ -18,12 +18,12 @@ for h in filenames:
         lines = file.readlines()
         numbers = []
         for line in lines:
-            result = re.findall(r"(\d+\.?\d*)", line)
+            result = re.findall(r"(\d+\.?\d*(e-\d+)?)", line)
 
             if len(result) != 3:
-                break
+                continue
 
-            numbers.append(float(result[2]))
+            numbers.append(float(result[2][0]))
 
         if len(numbers) > start_step:
 
