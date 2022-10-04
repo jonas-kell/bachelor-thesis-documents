@@ -22,9 +22,24 @@ The general structure of the metaformer can be seen in \autoref{fig:metaformer-a
 \end{figure}
 
 It is important to understand, that the \emph{token mixer} is not a predefined element, but a location where multiple different blocks can be inserted. 
-The job of the block is to exchange information between the $n$ tokens. 
+This can be seen in \autoref{fig:token-mixer-lineup} for a lineup of some special token mixers. 
+
+The job of the token mixer is to exchange information between the $n$ tokens. 
 While the job of processing the information inside a token's embedding (of size $e$) is performed by the \emph{channel mlp}.
 The \emph{norm} block is typically a \emph{layer norm}, that is introduced to keep the magnitude of the weights inside a reasonable range.
+
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=0.7\textwidth]{./architectures/theory/metaformer/token-mixer-lineup.pdf}}
+    \caption{Different possible instances of the metaformer architecture presented in \autoref{fig:metaformer-architecture}.
+        All structural elements are equivalent to the respective ones in that figure. 
+        Only for the placeholder \emph{token mixer}, an \emph{attention-}, \emph{convolution-} and \emph{pooling-}module were inserted, to respectively generate a \emph{transformer}, \emph{conformer} and \emph{poolformer}.
+        As different types of convolutions can be defined, the shown models are still technically \emph{classes} of models, but the figure should be enough to convey the concept of token mixer swapping.
+        It is important to understand, that the different models' \emph{only difference} is the token mixer they are using.
+        The graph versions of the operations are discussed in \autoref{sec:architectures-graphs}.
+    }
+    \label{fig:token-mixer-lineup}
+\end{figure}
 
 The name of the metaformer results from the name of the used token mixer.
 A overview is given in \autoref{table:metaformer-names}
