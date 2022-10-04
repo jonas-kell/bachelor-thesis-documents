@@ -27,7 +27,7 @@ In contrary, hyperparameters were left \emph{deliberately} static, to allow for 
 One more important parameter is the batch size. 
 By processing more than one training example at a time, a more stable and efficient update process can be achieved.
 However the batch size is limited by the available memory. 
-As most of the calculations are performed on a GPU, the video memory is important. 
+As most of the calculations are performed on a GPU (\emph{graphics} processing unit), the video memory is important. 
 The calculations were either performed on a \emph{NVIDIA GeForce GTX 1070} with \SI[]{8}[]{GB} of video memory or a \emph{NVIDIA TITAN Xp} with \SI[]{12}[]{GB}. 
 Both cards are mid to low range in performance and video memory, in comparison to the most up to date cards. 
 Therefore often the batch size and number of iterations had to be set lower than may be desirable for an optimal result. Though it speaks in favor of the applied methods, that good results could be achieved without top-tier hardware.
