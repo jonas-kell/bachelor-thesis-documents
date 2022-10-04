@@ -1,22 +1,22 @@
-With the combined knowledge of the two last sections, the ground state (and the ground state energy) can be calculated. It will become evident, that the calculation is really simple to do and program. Sadly it won't be feasable to compute sufficiently large lattices, because of the exponential nature of the problem.
+With the combined knowledge of the two last sections, the ground state (and the ground state energy) can be calculated. On the one hand it will become evident, that the calculation is really simple to do and program. On the other hand it will be shown that it is not feasable to compute sufficiently large lattices, because of the exponential nature of the problem.
 
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=0.9\textwidth]{./theory/physics/numerical-solutions/simple_case.pdf}}
     \vspace{-1cm}
-    \caption{A representation of two simple latices. The spins are fixed at the point of the numbered locations. All sites have the same distance $d$ from each other. Note, that a spin up \up is directed parallel to the z-axis. That means in this case it would point out of the paper in the direction of the viewer.}
+    \caption{A representation of two simple latices. The spins are fixed at the point of the numbered locations. All sites have the same distance $d$ from their neighbors. Note, that a spin up \up is directed parallel to the z-axis. That means in this case it would point out of the paper in the direction of the viewer.}
     \label{fig:simpleThreeLatticeIsing}
 \end{figure}
 
-In the beginning one trivial example will be discussed. The lattice is visualized in \autoref{fig:simpleThreeLatticeIsing}, image a).
-This corresponds to a linear lattice in 1D. Let the Hamiltonian be the one in \autoref{eq:hamiltonianExampleA}.
+In the beginning one trivial example will be discussed. The lattice is visualized in \autoref{fig:simpleThreeLatticeIsing}a.
+This corresponds to a linear lattice in 1D. Let the hamiltonian be the one in \autoref{eq:hamiltonianExampleA}.
 
 \begin{equation}
     \label{eq:hamiltonianExampleA}
     \hamiltonian = \sigma^z_1\sigma^z_2 + \sigma^z_2\sigma^z_3
 \end{equation}
 
-This hamiltonian is anti-ferromagnetic ($J = +1$). It should be easy to see, that the Energy $E$ in \autoref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so validating this yourself is advised for someone without prior quantum mechanical experience.
+This hamiltonian is anti-ferromagnetic ($J = +1$), therefore the energy $E$ in \autoref{eq:schroedinger-general} becomes minimal (largest magnitude with negative sign) when the spins always point into the opposite direction as their neighbors: $\ket{\up, \down, \up}$ or $\ket{\down, \up, \down}$. This is quite a crucial step, so validating this yourself is advised for someone without prior quantum mechanical experience.
 The ground state therefore will be a \emph{superposition} consisting of equal parts $\ket{\up, \down, \up}$ and $\ket{\down, \up, \down}$ (\autoref{eq:solutionSimpleExample}). The factor $\frac{1}{\sqrt[]{2}}$ instead of the seemingly more obvious $\frac{1}{2}$ makes the wavefunction be \emph{normalized}. If it wasn't for the square root, \autoref{eq:base-orthonormal} would not be satisfied. This way it is satisfied, which can be tested.
 
 \begin{equation}
@@ -24,7 +24,7 @@ The ground state therefore will be a \emph{superposition} consisting of equal pa
     \ket{\Psi_\mathrm{gnd}} = \frac{1}{\sqrt[]{2}} \cdot \ket{\up, \down, \up} +  \frac{1}{\sqrt[]{2}} \cdot \ket{\down, \up, \down}
 \end{equation}
 
-The second example, visualized in \autoref{fig:simpleThreeLatticeIsing}, image b), however is not so simple. The corresponding hamiltonian can be seen in \autoref{eq:hamiltonianExampleB}.
+The second example, visualized in \autoref{fig:simpleThreeLatticeIsing}b, however is not as simple. The corresponding hamiltonian can be seen in \autoref{eq:hamiltonianExampleB}.
 \begin{equation}
     \label{eq:hamiltonianExampleB}
     \hamiltonian = \sigma^z_1\sigma^z_2 +\sigma^z_2\sigma^z_3 +\sigma^z_1\sigma^z_3
@@ -33,7 +33,7 @@ It has one more interaction than the previous one. Even though it also is anti-s
 
 Already this minimal problem has a complex superposition of eight base states as a ground state. The introduction of the transverse field will only make this more complex. Therefore a systematic way of finding the solution will be presented.
 
-For this purpose, the example from \autoref{fig:simpleThreeLatticeIsing}, image b) will be used once more, but this time with the hamiltonian in \autoref{eq:hamiltonianExampleTransverse}.
+For this purpose, the example from \autoref{fig:simpleThreeLatticeIsing}b will be used once more, but this time with the hamiltonian in \autoref{eq:hamiltonianExampleTransverse}.
 \begin{equation}
     \label{eq:hamiltonianExampleTransverse}
     \hamiltonian = J\cdot \sigma^z_1\sigma^z_2 +J\cdot\sigma^z_2\sigma^z_3 +J\cdot\sigma^z_1\sigma^z_3
@@ -80,7 +80,7 @@ In \autoref{eq:matrixElement} an example calculation of $\bra{2}\hamiltonian\ket
 
 Placing them inside a matrix at the corresponding location yields the matrix representation for $\bra{m}\hamiltonian\ket{n}$ that can be seen in \autoref{eq:matrix-hamiltonian}.
 Because of \autoref{eq:base-factors}, each wavefunction can be written in terms of the chosen base. This is used in \autoref{eq:matrix-hamiltonian-vector}. By representing the wavefunction as a column vector, filled with the scaling factors, the transformation is complete. 
-The calculation of the hamiltonian \hamiltonian acting on a wavefunction $\Psi$ like in \autoref{eq:schroedinger-general} can now be computed analogously by performing the matrix multiplication $\bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec}$.
+The calculation of the hamiltonian \hamiltonian acting on a wavefunction $\Psi$ as in \autoref{eq:schroedinger-general} can now be computed analogously by performing the matrix multiplication $\bra{m}\hamiltonian\ket{n} \cdot \Psi_\mathrm{vec}$.
 
 \begin{equation}
     \label{eq:matrix-hamiltonian}
@@ -156,7 +156,7 @@ This representation is quite useful, because now the problem of finding the eige
 A problem, that is already solved by a lot of algorithms and software \cite{scipyeigsh}.
 It is now clear, that the smallest eigenvalue of the matrix \emph{is} the ground state energy and the corresponding eigenvector \emph{is} a representation for the ground state wavefunction.
 
-Like mentioned, the complexity of the problem does not lie in terms of how to compute this value, but in how to compute it in reasonable time.
+As mentioned, the complexity of the problem does not lie in terms of how to compute this value, but in how to compute it in reasonable time.
 If $L$ is the size of the lattice, it is obvious, that the canonical base contains $2^L$ states ($L$ sites, each can be \up or \down).
 Therefore the matrix whose eigenvalues are required has $2^{2\cdot L}$ entries, of which $2^L \cdot m$ are non-zero ($m$ being constant and dependent on the form of the hamiltonian, as well as the number of neighbors to one site in the lattice). 
 

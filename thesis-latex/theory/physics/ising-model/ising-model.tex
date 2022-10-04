@@ -1,4 +1,4 @@
-In this thesis, a special case of quantum system will be discussed. 
+In this thesis, a special case of quantum system will be discussed:
 The \emph{Ising model}.
 The model describes multiple \emph{spins} that are locked in place. 
 A spin is a very special kind of angular momentum that is inherent to quantum mechanical particles.
@@ -6,8 +6,8 @@ It helps to imagine the spin as a tiny magnet, that is locked in place, but can 
 
 The state of the \emph{many body wavefunction} can solely be described by the direction that each of the spins is pointing in. In this simplified case, only \emph{spin-$\frac{1}{2}$} particles are used. That means each spin at each position can only either be pointing \emph{up} \up or \emph{down} \down (in relation to the z-axis).
 
-That means, that a system with $n=3$ spins (in arbitrary, but fixed position) can be represented like in \autoref{eq:spin-ising}. $\vec{s}_m$ is the direction of the spin vector, that can (in this case) be simplified to the z-axis contribution $s^z_m$ of the vector. The values con only be $\frac{1}{2}$ (\up) or $-\frac{1}{2}$ (\down).
-In this case the spins at the positions 1 and 2 point up, the one at 3 points down.
+That means, that a system with $n=3$ spins (in arbitrary, but fixed position) can be represented like in \autoref{eq:spin-ising}. $\vec{s}_m$ is the direction of the spin vector, that can (in this case) be simplified to the z-axis contribution $s^z_m$ of the vector. The values can only be $\frac{1}{2}$ (\up) or $-\frac{1}{2}$ (\down).
+In the given example the spins at the positions 1 and 2 point up, the one at 3 points down.
 
 \begin{equation}
     \label{eq:spin-ising}
@@ -15,6 +15,7 @@ In this case the spins at the positions 1 and 2 point up, the one at 3 points do
 \end{equation}
 
 The hamiltonian for the system is defined in \autoref{eq:hamiltonian-ising}. $J_{i, j}$ is the \emph{coupling constant} between the lattice sites $i$ and $j$. $h_i$ is a measure for the external magnetic field (in x-direction) at the lattice site $i$. Often the terms each get multiplied with $-1$ (sing flip of $J$ and $h$) as per convention. This was not done in this case in order for the equation to reflect the code. The $\hat{s}^a_i$ are \emph{operators}, that measure the $s^a_i$ number of the wavefunction (possibly altering its state in the process).
+$a$ in this case denotes the direction: $a \in \left\{x,y,z\right\}$.
 
 \begin{equation}
     \label{eq:hamiltonian-ising}
@@ -31,11 +32,11 @@ The hamiltonian for the system is defined in \autoref{eq:hamiltonian-ising}. $J_
 In this form, a $J < 0$ leads to so-called \emph{ferromagnetic} interaction. With a $J > 0$ the interaction is called \emph{anti-ferromagnetic}. When $h \neq 0$, the model is called \emph{transverse field Ising model} \cite{isingBook}.
 
 The model was first solved for a 1D chain by Ernst Ising in 1924 \cite{isingFerromagnetismn}. He solved the ferromagnetic case without a transverse field (however with an additional field parallel to the z-direction). His solution was analytically derived, but already not trivial to come up with.
-With the introduction of a transverse field and a more complex lattice structure than a linear chain, an analytic solution to even the most simplified hamiltonian (\autoref{eq:hamiltonian-ising-nn}) doesn't exist.
+With the introduction of a transverse field and a more complex lattice structure than a linear chain, an analytic solution to even the most simplified hamiltonian (\autoref{eq:hamiltonian-ising-nn}) does not exist.
 
 In order to be able to use the hamiltonian, a few rules about the interaction of the used operators and the wavefunction will be introduced. They represent only a small subset of the mathematics and focus only on the bare minimum needed to understand the problem as someone that is unfamiliar with quantum mechanics. 
 
-The spin operators can be written in terms of the \emph{Pauli spin matrices} \cite{schwablQM}. This is only mentioned, because it reflects the implementation in the code. Note that in the code, the $\frac{1}{2}$ factors in \autoref{eq:pauli-rules} are omitted for simplification. $i$ stands for the imaginary unit.
+The spin operators can be written in terms of the \emph{Pauli spin matrices} ($\sigma^a, a \in \left\{x,y,z\right\}$ in \autoref{eq:pauli-rules}) \cite{schwablQM}. This is only mentioned, because it reflects the implementation in the code. Note that in the code, the $\frac{1}{2}$ factors in \autoref{eq:pauli-rules} are omitted for simplification. $i$ stands for the imaginary unit.
 
 \begin{equation}
     \label{eq:pauli-rules}

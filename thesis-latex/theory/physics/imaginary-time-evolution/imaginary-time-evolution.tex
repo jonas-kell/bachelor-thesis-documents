@@ -2,12 +2,12 @@ Many different iterative methods are being employed to calculate the desired phy
 In this section, a mathematical idea will be discussed, that has several applications.
 The method is employed in the \emph{diffusion Monte Carlo} method (DMC) \cite{quantumMonteCarloSimulationsOfSolids}, a second application of Monte Carlo sampling in comparison to VMC.
 
-This section is about more advanced quantum mechanical principles and is hard to understand without prior experiences. It can though be skipped without sacrificing on the possibility to understand the later parts of the thesis, because it is only supplemental.
+This section is about more advanced quantum mechanical principles and requires prior experiences. It is of supplemental nature and can therefore be skipped without sacrificing on the possibility to understand subsequent parts of the thesis.
 
 The method is described in \cite{imaginarySchroedingerEquation}.
 
 \autoref{eq:schroedinger-general} can be generalized to be no longer time independent. 
-\autoref{eq:schroedinger-td} is called the \emph{time-dependent schrödinger equation}. $\hbar$ is the \emph{reduced Planck constant}, $t$ is the time.
+\autoref{eq:schroedinger-td} is called the \emph{time-dependent Schrödinger equation}. $\hbar$ is the \emph{reduced Planck constant}, $t$ is the time.
 
 \begin{equation}
     \label{eq:schroedinger-td}
@@ -22,7 +22,7 @@ For a time-independent hamiltonian, the time dependent wavefunction can be obtai
         \ket{\Psi(t)} = e^{-i\hamiltonian t / \hbar} \ket{\Psi(0)}
 \end{equation}
 
-That \autoref{eq:timeEvolutionWavefunction} is a solution to \autoref{eq:schroedinger-td} can easily be verified like in \autoref{eq:validationTimeEvolution} (notice that the hamiltonian is time-independent).
+That \autoref{eq:timeEvolutionWavefunction} is a solution to \autoref{eq:schroedinger-td} can be verified like in \autoref{eq:validationTimeEvolution} (notice that the hamiltonian is time-independent).
 
 \begin{equation}
     \label{eq:validationTimeEvolution}
@@ -47,7 +47,7 @@ That \autoref{eq:timeEvolutionWavefunction} is a solution to \autoref{eq:schroed
     \end{split}
 \end{equation}
 
-In \autoref{eq:rewriteTimeEvolutionWavefuntion}, a operator gets applied from inside an exponent. This can be explained with the possibility to express the $e$-function in terms of its \emph{Taylor series} \cite{schwablQM}. This is important to understand the transition from \hamiltonian to $E_n$ in the exponent. For the transformation, the function is written as its Taylor series, the operator gets applied and then the Taylor series is reversed into the function. Remember that $\bra{n}\ket{\Psi(0)}$ is simply a complex number.
+In \autoref{eq:rewriteTimeEvolutionWavefuntion}, an operator gets applied from inside an exponent. This can be explained with the possibility to express the $e$-function in terms of its \emph{Taylor series} \cite{schwablQM}. This is important to understand the transition from \hamiltonian to $E_n$ in the exponent. For the transformation, the function is written as its Taylor series, the operator gets applied and then the Taylor series is reversed into the function. Remember that $\bra{n}\ket{\Psi(0)}$ is simply a complex number.
 
 The method is called \emph{imaginary} time evolution, because of the step in \autoref{eq:complexTimeVariableChange}.
 
@@ -56,7 +56,7 @@ The method is called \emph{imaginary} time evolution, because of the step in \au
     \tau = i\cdot t
 \end{equation}
 
-By switching variables like in \autoref{eq:complexTimeVariableChange} to $\tau$ (a \glqq imaginary\grqq{} time) in \autoref{eq:rewriteTimeEvolutionWavefuntion}, the representation shown in \autoref{eq:complexTimeExponential} can be won.
+An \glqq imaginary\grqq{} time $\tau$ can be obtained by equation \autoref{eq:complexTimeVariableChange}. Switching variables in \autoref{eq:rewriteTimeEvolutionWavefuntion} leads to the representation shown in \autoref{eq:complexTimeExponential}.
 
 \begin{equation}
     \label{eq:complexTimeExponential}

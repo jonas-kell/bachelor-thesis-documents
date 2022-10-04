@@ -1,12 +1,12 @@
-As a direct numerical approach is not sufficient, more advanced methods needed to be developed. 
+As a direct numerical approach was not sufficient, more advanced methods needed to be developed. 
 \emph{Iterative} approaches have shown to be quite effective. 
 In these kind of methods, the goal is not to compute a full solution directly, but to start with a random solution and perform iterative updates to it. 
 If a good update strategy is chosen, the solution may converge towards the desired solution.
 
 Because of the iterative nature, it is not necessary to do a complete computation at once. 
-As learned in \fullref{sec:theory-numericalsolution}, the memory requirement for storing a complete hamiltonian matrix representation is also exponential.
+As learned in \autoref{sec:theory-numericalsolution}, the memory requirement for storing a complete hamiltonian matrix representation is also exponential.
 So even with unlimited time, a numerical calculation could be impossible because of limited available memory. 
-The iterative methods get around this, by being able to chose a data structure with much higher information density than the full hamiltonian (For example if only the ground state is wanted, it is unnecessary to store anything but information regarding it. The hamiltonian though encodes a lot of \glqq unnecessary\grqq{} information about other states). This structure can then be iteratively refined.
+The iterative methods get around this, by being able to chose a data structure with much higher information density than the full hamiltonian. For example if only the ground state is wanted, it is unnecessary to store anything but information regarding it. The hamiltonian though encodes a lot of \glqq unnecessary\grqq{} information about other states. This structure can then be iteratively refined.
 
 In practice a so called \emph{neural quantum state} (NQS) is used. 
 This basically is nothing but a neural network, taken from established machine learning tasks \cite{restrictedBoltzmanMachines}.
@@ -19,7 +19,7 @@ The function will be written like in \autoref{eq:parametrized-wavefunction}.
     \ket{\Psi_{\theta_0, ..., \theta_{M-1}}(\sigma_0, ..., \sigma_{N-1})} \equiv \ket{\Psi_\theta}
 \end{equation}
 
-In order to compute a helpful representation, the identities \autoref{eq:completeness-of-base} and \autoref{eq:wave-function-probability} are necessary \cite{schwablQM}. \hspace{-0.13cm}$\phantom{\Psi}^\ast$ represents the \emph{complex conjugation} operation. \autoref{eq:completeness-of-base} applies to \emph{complete orthonormal} bases only.
+In order to compute a helpful representation, the identities in \autoref{eq:completeness-of-base} and \autoref{eq:wave-function-probability} are necessary \cite{schwablQM}. \hspace{-0.13cm}$\phantom{\Psi}^\ast$ represents the \emph{complex conjugation} operation. \autoref{eq:completeness-of-base} applies to \emph{complete orthonormal} bases only.
 
 \begin{equation}
     \label{eq:completeness-of-base}
@@ -34,7 +34,7 @@ In order to compute a helpful representation, the identities \autoref{eq:complet
 The following method is described in \cite{jVMCPaper}.
 
 To calculate the \emph{expectation value} of a quantum mechanical operator \operator for the wavefunction $\ket{\Psi}$, the expression 
-$\frac{\bra{\Psi}\operator\ket{\Psi}}{\bra{\Psi}\ket{\Psi}}$ is used \cite{schwablQM}. The denominator assures, that the calculation is correct for \emph{non-normalized} wavefunctions (as the NQS is initialized randomly it very likely isn't normalized). 
+$\frac{\bra{\Psi}\operator\ket{\Psi}}{\bra{\Psi}\ket{\Psi}}$ is used \cite{schwablQM}. The denominator assures, that the calculation is correct for \emph{non-normalized} wavefunctions (as the NQS is initialized randomly it very likely is not normalized). 
 
 Applying this to the problem at hand, the target is to measure the observable corresponding to \operator in the parametrized neural quantum state $\ket{\Psi_\theta}$.
 
@@ -79,7 +79,7 @@ In the derivation, the \emph{local estimator} (\autoref{eq:local-estimator}) is 
 The final result in \autoref{eq:derivation-local-estimator} has the form of a \emph{probability distribution} over $s$.
 So the calculation of a quantum mechanical expectation value can be re-formulated as the calculation of the statistical expectation value of $s$ of the local estimator's values.
 
-This alone is not helpful, because $\ket{s}$ is still exponentially large in regards to the problem size.
+On its own, this is not helpful, because the size of the vector space of $\ket{s}$ is still exponentially large in regards to the problem size.
 But this shortcoming can be resolved with the introduction of \emph{Monte Carlo} sampling.
 The \emph{probability density} can be estimated, by looking at only a subset of possible $\ket{s}$.
 
