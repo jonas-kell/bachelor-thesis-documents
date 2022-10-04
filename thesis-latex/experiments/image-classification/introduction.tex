@@ -1,5 +1,5 @@
 The first set of experiments will be on the image classification task.
-The goal will be to compare the architectural advantages and drawbacks between multiple different kinds of metaformers.
+The goal is to compare the architectural advantages and drawbacks between multiple different kinds of metaformers.
 
 Training was be performed on a subset of 100 classes from the \emph{ImageNet} dataset \cite{imagenetDataset} ($\approx \SI{126000}{}$ images).
 The accompanying code to replicate these experiments can be found on GitHub \cite{selfComputerScience}.
@@ -7,11 +7,12 @@ The accompanying code to replicate these experiments can be found on GitHub \cit
 The neural networks, as well as the training and evaluation code were written in python.
 The \emph{PyTorch} \cite{pytorchGithub} machine learning framework was used as a measure to efficiently define neural networks and lever the computational capabilities of parallelization via GPUs.
 
-The main metaformer model was originally based on the vision transformer found in an implementation of \emph{DINO} \cite{dinoGithub}, was however heavily modified. 
+The main metaformer model was originally based on the vision transformer found in an implementation of \emph{DINO} \cite{dinoGithub} and modified strongly.  
 A comparison between the stock DINO model and the modified version will be also performed.
-This however is not supposed to be a direct discrediting of any of the models, as their main purposes do not exactly align.
+This however is not supposed to be a direct discrediting of any of the models, as their main purposes do not align exactly.
 Therefore one or the other may excel in specific tasks.
 Also a comparison against a pre-implemented \emph{poolformer} \cite{poolformerGithub} will be performed.
 
-The \emph{einops} package \cite{einopsGithub} is heavily used. It provides tensor operations, configurable with the \emph{Einstein notation} and simplifies the notation and subsequently readability.
+The \emph{einops} package \cite{einopsGithub} is used multiple times.
+It provides tensor operations, configurable with the \emph{Einstein notation} and simplifies the notation and subsequently readability.
 Lastly, the implementation of the \emph{positional encoding} is provided by \cite{positionalEncodingGithub}.

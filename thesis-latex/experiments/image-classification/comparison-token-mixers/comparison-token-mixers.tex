@@ -1,6 +1,6 @@
-In \autoref{sec:architectures-graphs} it was established, that for tensor-like data, \emph{convolutions} and \emph{graph-convolutions} are exactly the same thing, only calculated differently.
+In \autoref{sec:architectures-graphs} it was established, that for tensor-like data, \emph{convolutions} and \emph{graph-convolutions} are exactly the same, only calculated differently.
 
-This thesis was validated experimentally and is visualized in \autoref{fig:graph-convolution-works}.
+This thesis was validated experimentally and the results are visualized in \autoref{fig:graph-convolution-works}.
 
 \begin{figure}[htbp]
     \centering
@@ -13,9 +13,9 @@ This thesis was validated experimentally and is visualized in \autoref{fig:graph
     \label{fig:graph-convolution-works}
 \end{figure}
 
-The data clearly shows, that the implementations of SDCF-NNN and SGDCF-NNN behave exactly identical, even though they compute the path interactions with different operations, as they are mathematically identical.
+The data shows, that the implementations of SDCF-NNN and SGDCF-NNN behave exactly identical, even though they compute the path interactions with different operations, as they are mathematically identical.
 
-It is natural to expect, that SDCF-NN and SGDCF-NN behave likewise, but slight differences in the data of these two be observed.
+One can expect, that SDCF-NN and SGDCF-NN behave likewise, but slight differences in the data of these two be observed.
 This is because of the different ways, the pseudo random number generator of PyTorch is used:
 \begin{sloppypar} % I hate to have to use this hack, but line-broken file paths look more ugly and are on top unreadable
     The implementation of the graph-convolution \phantom{asdasdasdasdasdasdasdasdasdasdasdasdasd}
@@ -30,12 +30,12 @@ This is because of the different ways, the pseudo random number generator of PyT
 While this is a fixable flaw of the implementation, it clearly shows that the graph and non-graph implementations are behaving similar, even if the starting conditions are non-equivalent.
 The comparison among the whole set of metaformers will emphasize how similar these two curves really are.
 
-This proves, that convolutions can directly be translated into a graph context and motivates their function on non-tensor-like data structures.
+This proves, that convolutions can directly be translated into a graph context and motivates their function on non-tensor-like data structures.\\
 
 \FloatBarrier
-\paragraph{The architectures are compared} against each other in the last section discussing the first experiment. 
+The architectures are compared against each other in the last section discussing the first experiment. 
 \autoref{table:overall-comparison-data} shows the one to one comparison of all implemented metaformer variations on the same task.
-The hyperparameters (optimizer, batch size, embed dimension, depth, etc.) were \emph{the exact same for all runs}. 
+The hyperparameters (optimizer, batch size, embed dimension, depth, etc.) were \emph{exactly the same for all runs}. 
 The complete course of the validation metrics for selected runs is printed in \autoref{fig:overall-comparison-data}.
 
 As it is impossible to discuss all the collected data in depth, only the most interesting observations will be emphasized.
@@ -73,7 +73,7 @@ Several trends can be noticed across the whole metaformer lineup.
     \vspace{0.1cm}
     \caption{Tabular representation of the performance data for different metaformers in the image classification task.
             The columns from left to right are: maximum top-1-accuracy, epoch this max accuracy was reached, the number of trainable parameters, the time per epoch, the time until the maximum accuracy was reached, the calculation time per parameter factor, the time until the maximum accuracy was reached per maximum accuracy factor and the number of parameters per maximum accuracy factor.
-            The three factors are scaled so that \emph{TF (learned)} corresponds to \SI{1.00}{}. For everything but $\mathrm{acc}_\mathrm{max}$ lower is better. THe maximum accuracy and the corresponding epoch have been chosen manually to select values that take both the accuracy and the loss curves into account. Because of that, sometimes bigger accuracies are reached later than the ones listed in the table.
+            The three factors are scaled so that \emph{TF (learned)} corresponds to \SI{1.00}{}. For everything but $\mathrm{acc}_\mathrm{max}$ lower is better. The maximum accuracy and the corresponding epoch have been chosen manually to select values that take both the accuracy and the loss curves into account. Because of that, sometimes bigger accuracies are reached later than the ones listed in the table.
             But they were excluded as lucky outliers, if the loss was already signaling overfitting.
     }
     \label{table:overall-comparison-data}
@@ -93,18 +93,18 @@ Several trends can be noticed across the whole metaformer lineup.
 \end{figure}
 
 \paragraph{The attention based transformers} for the start score the highest overall accuracy. 
-The graph-masked attention falling only slightly behind the full transformer in the case of the nn-limited attention and even pulling ahead in some of the positional encodings in the case of the nnn-limited interaction.
-All the models are basically identical in terms of required parameters, only the learned pe requiring a noticeable different amount of weights as already discussed in \autoref{sec:experiments-positionalencoding}. 
+The graph-masked attention falls only slightly behind the full transformer in the case of the nn-limited attention and even pulls ahead in some of the positional encodings in the case of the nnn-limited interaction.
+All the models are basically identical in terms of required parameters, only the learned pe requires a noticeable different amount of weights as already discussed in \autoref{sec:experiments-positionalencoding}. 
 The weights inside the graph masks are basically negligible.
 
-What is definitely not negligible is the overhead in computational time. 
+Contrary large discrepancies occur in the overhead in computational time.
 The graph variants require both more epochs to achieve maximum accuracy, as well as the epochs itself taking longer to be calculated.
 Both is sensible, as the masking requires extra calculations and the zeroing of interactions creates a \emph{choke point} for the backpropagating information (this will become even more pronounced in the later architectures). 
 Still it is clear, that masking attention does not hurt the performance as much as one could expect (the defining characteristic of the attention module being the \emph{global} interaction range, that is here taken away).
 
-As the nn-graph-attention takes both longer to train and achieves less accuracy than the nnn-graph-attention, using the later only brings advantages for the image classification task.
+As the nn-graph-attention takes both longer to train and achieves less accuracy than the nnn-graph-attention, using the latter only brings advantages for the image classification task.
 That the nnn variant even outperforms the full transformer in terms of raw accuracy can probably be attributed to the relatively small model size and un-optimized training procedure.
-As a perfectly trained full transformer should be able to replicate a graph transformer, this shows that while in theory the later is inferior, in practice for small models or imperfect training procedures it can definitely be beneficial to force the inductive bias of \emph{locality} upon the model.
+As a perfectly trained full transformer should be able to replicate a graph transformer, this shows that while in theory the latter is inferior, in practice for small models or imperfect training procedures it can definitely be beneficial to force the inductive bias of \emph{locality} upon the model.
 
 A so far unmentioned detail could furthermore vastly improve the graph-transformers. 
 This will be discussed in \autoref{sec:experiments-efficiency-graphs}.
@@ -118,8 +118,7 @@ This shows, that for our small size of network, shaping a model around a hard co
 Interestingly, when comparing the symmetric and non-symmetric variants, the non-symmet\-ric one converges \emph{significantly} faster in training (by a factor of \SIrange[]{2.1}{2.7}{}). 
 This can again be attributed to the strict choke point of only two weights for SDCF-NN in comparison to the nine inside the DCF kernel.
 
-It is however very interesting to see, that the conformer architecture is the only kind of metaformer where the nn-convolution performed both better than the nnn variant and the full variant.
-And it does so by a very significant margin of \SI[]{4.2}[]{\percent}.
+It is however very interesting to see, that the conformer architecture is the only kind of metaformer where the nn-convolution performed better than the nnn variant and the full variant, by a very significant margin of \SI[]{4.2}[]{\percent}.
 This shows that it is clearly worthwhile to experiment with different interaction schemes, when employing graph networks.
 
 As previously discussed, the traditional convolution and graph convolution variations are equivalent on tensor data.
