@@ -8,7 +8,7 @@ The work for my Bachelors-Thesis is split into multiple repositories (links for 
 
 # Pre-compiled Document
 
-The precompiled version of the thesis is available [Here](./Investigation%20of%20transformer%20architectures%20for%20geometrical%20graph%20structures%20-%20Bachelor%20Thesis%20Jonas%20Kell.pdf)
+The precompiled version of the thesis is available [HERE](./Investigation%20of%20transformer%20architectures%20for%20geometrical%20graph%20structures%20-%20Bachelor%20Thesis%20Jonas%20Kell.pdf).
 
 # Submodules
 
