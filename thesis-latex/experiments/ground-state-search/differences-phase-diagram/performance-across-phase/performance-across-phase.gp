@@ -11,7 +11,7 @@ set style line 999 dashtype 1 linewidth 1 linecolor rgb "#0000AA"       # legend
 set key box linestyle 999                                               # apply box style
 set key spacing 1                                                       # vertical spacing of entries
 set key maxrows 2
-set key font ",11"
+set key font ",10"
 
 # colors 
 markerred="#AA0000"
@@ -46,12 +46,12 @@ set lmargin at screen 0.10; set rmargin at screen 0.94
 
 # plot 1,1
 plot \
-     NaN with points pt 5 pointsize 0.6 lc rgb linegreen     title " h=1.8, CNN", \
-     NaN with points pt 5 pointsize 0.6 lc rgb markergreen   title " h=1.8, SGDCF-NNN", \
-     NaN with points pt 5 pointsize 0.6 lc rgb linered       title " h=2.6, CNN", \
-     NaN with points pt 5 pointsize 0.6 lc rgb markerred     title " h=2.6, SGDCF-NNN", \
-     NaN with points pt 5 pointsize 0.6 lc rgb lineblue      title " h=3.4, CNN", \
-     NaN with points pt 5 pointsize 0.6 lc rgb markerblue    title " h=3.4, SGDCF-NNN", \
+     NaN with points pt 5 pointsize 0.6 lc rgb linegreen     title "𝜆=1.8, CNN", \
+     NaN with points pt 5 pointsize 0.6 lc rgb markergreen   title "𝜆=1.8, SGDCF-NNN", \
+     NaN with points pt 5 pointsize 0.6 lc rgb linered       title "𝜆=2.6, CNN", \
+     NaN with points pt 5 pointsize 0.6 lc rgb markerred     title "𝜆=2.6, SGDCF-NNN", \
+     NaN with points pt 5 pointsize 0.6 lc rgb lineblue      title "𝜆=3.4, CNN", \
+     NaN with points pt 5 pointsize 0.6 lc rgb markerblue    title "𝜆=3.4, SGDCF-NNN", \
      "energy-CNN-1.8.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb linegreen, \
      "energy-CNN-2.6.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb linered, \
      "energy-CNN-3.4.csv" using 2:3 notitle                           pointtype 16 pointsize 0.6 linecolor rgb lineblue, \
@@ -90,7 +90,7 @@ set format y '10^{%L}';
 set format y2 '   ';
 
 # ! plot 2,1
-set label 1 "h=1.8" at graph 0.45,0.93
+set label 1 "𝜆=1.8" at graph 0.45,0.93
 plot \
      "variance-CNN-1.8.csv" using 2:3 notitle                   pointtype 16 pointsize 0.4 linecolor rgb linegreen, \
      "variance-SGDCF_NNN-1.8.csv" using 2:3 notitle             pointtype 16 pointsize 0.4 linecolor rgb markergreen
@@ -105,7 +105,7 @@ set format y2 '   ';
 set lmargin at screen 0.38; set rmargin at screen 0.66
 
 # plot 2,2
-set label 1 "h=2.6" at graph 0.45,0.93
+set label 1 "𝜆=2.6" at graph 0.45,0.93
 plot \
      "variance-CNN-2.6.csv" using 2:3 notitle                   pointtype 16 pointsize 0.4 linecolor rgb linered, \
      "variance-SGDCF_NNN-2.6.csv" using 2:3 notitle             pointtype 16 pointsize 0.4 linecolor rgb markerred
@@ -118,7 +118,7 @@ set format y2 '10^{%L}';
 set lmargin at screen 0.67; set rmargin at screen 0.94
 
 # ! plot 2,3
-set label 1 "h=3.4" at graph 0.45,0.93
+set label 1 "𝜆=3.4" at graph 0.45,0.93
 plot \
      "variance-CNN-3.4.csv" using 2:3 notitle                   pointtype 16 pointsize 0.4 linecolor rgb lineblue, \
      "variance-SGDCF_NNN-3.4.csv" using 2:3 notitle             pointtype 16 pointsize 0.4 linecolor rgb markerblue

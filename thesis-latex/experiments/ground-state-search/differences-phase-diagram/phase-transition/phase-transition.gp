@@ -23,7 +23,7 @@ set xtics 0.2
 set mxtics 4
 set xlabel "Ising Parameter h"
 
-set ylabel "avg. variance"
+set ylabel "min. variance (averaged)"
 set yrange [0.00000000001:2] 
 set format y "10^{%L}";
 set logscale y 10
