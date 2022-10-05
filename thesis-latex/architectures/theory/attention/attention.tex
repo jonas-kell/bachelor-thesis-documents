@@ -20,7 +20,7 @@ The algorithm starts with step 1, presented in \autoref{eq:attention-step-1}.
 The input $x$ is used to calculate the queries $Q$, the keys $K$ and the values $V$, by matrix multiplying with the respective learnable weights $W^q, W^k$ and $W^v$.
 
 Step 2 (\autoref{eq:attention-step-2}) is calculating the matrix $QK^\mathrm{T}$, by evaluation the \glqq outer product\grqq{} between $Q$ and $K$ (outer product in regards to the number of patches $n$).
-As for big problem sets, $n$ can get quite large ($e$ is a fixed hyperparameter), this step is quite likely to be relatively expensive, as it has a complexity of $\mathcal{O}(n^2)$.
+As for big problem sets, $n$ can get quite large ($e$ is a fixed hyperparameter), this step is quite likely to be comparably expensive, as it has a complexity of $\mathcal{O}(n^2)$.
 Especially for images, as $n$ doesn't describe the side length of a picture, but $n \propto h \cdot w$.
 $QK^\mathrm{T}$ is a very important matrix, because it is a measure for the \glqq overlap\grqq{} of every key with every query. 
 This is the core concept of the attention mechanism. 

@@ -6,8 +6,8 @@ The weights are stored as entries in the kernel.
 The operation is equivalent to the discrete mathematical 2D-convolution, however due to convention the kernel is flipped before the calculation in most mathematical definitions \cite{multidimConv} and is not flipped in most machine learning frameworks.
 This has to be taken into account for non-symmetric kernels.
 
-As for pooling, the sides are padded with zeros, if the input size is supposed to match to output size. 
-An example convolution (un-padded) is calculated in \autoref{eq:convolution}, including the sample calculation for on of the values.
+The same as for pooling, the sides are padded with zeros if the input size is supposed to match to output size. 
+An example convolution (un-padded) is calculated in \autoref{eq:convolution}, including the sample calculation for one of the values.
 
 \begin{equation}
     \label{eq:convolution}
@@ -41,7 +41,7 @@ The leftmost case in \autoref{fig:comparison-depthwise-convolution} shows such a
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{./architectures/theory/convolutions/depthwise.pdf}}
-    \caption{This figure show the differences between a \emph{full convolution} (left), a \emph{depthwise convolution}  (center) and a \emph{depthwise separable convolution} (right).
+    \caption{This figure shows the differences between a \emph{full convolution} (left), a \emph{depthwise convolution}  (center) and a \emph{depthwise separable convolution} (right).
     The full convolution has a 3D-kernel. 
     The depthwise convolution splits it into multiple 2D-kernels.
     The depthwise separable convolution works basically in the same way as the depthwise, but at the end a 1D-kernel (1$\times$1-convolution) is used to combine the channels.
@@ -54,7 +54,7 @@ They employ an independent ($1\times 1 \times k_h \times k_w$) kernel for each c
 The output channel count $o$ can only be a whole number multiple of the input channel count (one in the figure, but it is easy to use for example two filters per channel).
 Other groupings of channels are possible \cite{channelNets}.
 By itself, this model computes no interaction across input channels. 
-This seems like a disadvantage, but in reality is exact what will be needed for the construction of \emph{strict convolution based metaformer} (see \autoref{sec:architectures-metaformer}).
+This seems like a disadvantage, but in reality is exact what will be needed for the construction of a \emph{strict convolution based metaformer} (see \autoref{sec:architectures-metaformer}).
 
 \paragraph{Depthwise separable convolutions} are the logical continuation to depthwise convolutions and were made popular in image processing neural networks with the introduction of the \emph{MobileNets} \cite{mobileNetPaper}.
 They get rid of two limitations of the depthwise convolutions: the number of output channels can be chosen freely and the information exchange is not limited to the channels in isolation.
@@ -91,7 +91,7 @@ The weight count is compared in \autoref{table:weight-count-convolutions}.
 
 \paragraph{Symmetric convolutions} are a further extension to the convolution concept. 
 They employ \emph{shared weights} in the kernel.
-That means not every kernel element need to be stored separately.
+That means not every kernel entry needs to be stored separately.
 An example for a typical $3\times 3$ symmetric kernel is shown in \autoref{eq:symmetric-convolution}. 
 
 \begin{equation}
@@ -104,7 +104,7 @@ An example for a typical $3\times 3$ symmetric kernel is shown in \autoref{eq:sy
 \end{equation}
 
 This $3\times 3$ kernel only needs three weights to be stored. 
-While implementing the forward pass for such kernels is trivial, it is not quite obvious how to achieve an efficient calculation of the error gradient needed for the backpropagation to work.
+While implementing the forward pass for such kernels is trivial, it is not quite obvious how to achieve an efficient calculation of the error gradient needed for the backpropagation.
 Implementations of symmetric cases exists \cite{symmetricConvolutionImplementation}, but not in the same format as \autoref{eq:symmetric-convolution}.
 The error values from convolutions also get computed through a convolution operation \cite{backpropagationInConvolutions}. 
 The machine learning frameworks probably perform convolution backpropagation way more efficient, than it was possible to implement the mathematics to propagate the correct error term into the shared weights by hand.

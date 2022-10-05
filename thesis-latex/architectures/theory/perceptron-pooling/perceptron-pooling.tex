@@ -1,9 +1,9 @@
-In the most basic sense, all neural network operators need to be able to take a set of numbers in and perform calculations on them, then provide an output.
+In the most basic sense, all neural network operators need to be able to take in a set of numbers and perform calculations on them, then provide an output.
 The shape can change from input to output, depending on the operator.
 Some operators, like the \emph{perceptron} (or its conceptual successors, the \emph{fcl} and \emph{MLP}) have trainable weights that get updated like described in \autoref{sec:theory-neuralnetworktraining}.
 Others, like the \emph{pooling operator} transform the data according to static rules, without trainable parameters.
 A neural network can't be trained, if it doesn't contain operators with adjustable weights.
-However operators like pooling are very efficient in supporting trainable operators (as will shown later).
+However operators like pooling are very efficient in supporting trainable operators (as will be shown later).
 
 \paragraph{The perceptron} is the most basic building block of all neural network architectures.
 A schematic view is given in \autoref{fig:perceptron}.

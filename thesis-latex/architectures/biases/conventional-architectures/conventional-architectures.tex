@@ -20,7 +20,7 @@ The Ising lattices, reviewed in this thesis, have this property.
 If two spins interact or not is only dictated by how close they are, not by the direction one is from the other.
 
 \paragraph{Depthwise (separable) convolutions} were introduced by research on how to efficiently reduce network size \cite{mobileNetPaper}.
-Their bias is, that interaction between values of one channel (for example one color channel in the case of rgb-images) can be computed independent and then only combined in a second step.
+Their bias is that interaction between values of one channel (for example one color channel in the case of rgb-images) can be computed independent and then combined in a second step.
 This makes sense, as there is already quite a lot of information inside one color channel. 
 And as extracting the information per channel before comparing across channels saves a lot of computational resources, this is a logical step to take.
 Also it should in most cases be possible to recognize e.g. a dogs shape only from one color channel. 
@@ -35,7 +35,7 @@ The metaformer architecture in \autoref{fig:metaformer-architecture} includes re
 They are motivated by the bias, that it is simpler to zero out an element in a machine learning architecture, than to learn the \emph{identity operation}. 
 So if the network recognizes a block does more harm than good in terms of getting the correct solution, it can easily be bypassed by zeroing the block's inputs and using the residual connection. 
 At the same time it is unlikely for the element to hurt, as basically each building block can be trained to learn the identity operation, but if a block is not needed it only generates training errors, no additional value \cite{deepResidualLearningForImageRecognition}.
-As this element is very likely to be useful in deep networks like metaformers, all the architectures in the performed experiments use residual connections.
+As this element is very likely to be useful in deep networks like metaformers, all the metaformer based architectures in the performed experiments use residual connections.
 
 \paragraph{Pooling operators} have many similarities to convolutions. They however have the added bias, that the relation does not even depend on the position of a value inside the kernels influence. 
 It solely depends on the relative values. 
