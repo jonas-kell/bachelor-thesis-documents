@@ -23,9 +23,9 @@ for filename in filenames:
         index = 0
         numbers = []
         for line in lines:
-            result = re.findall(r"(\d+\.\d+)", line)
+            result = re.findall(r"(\d+\.?\d*(e-\d+)?)", line)
 
-            number = float(result[1])
+            number = float(result[2][0])
             numbers.append(number)
 
             index += 1
