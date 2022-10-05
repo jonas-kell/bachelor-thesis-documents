@@ -1,7 +1,7 @@
 In \autoref{fig:simpleThreeLatticeIsing} two examples of lattice-shapes were already introduced.
 In the research leading to this thesis, a selection of lattices was chosen.
 The implementation supports a 1D lattice (the default \textbf{linear} lattice/chain  (\autoref{fig:appendix-linear-lattices})) and five different 2D lattices 
-(\textbf{cubic} (\autoref{fig:appendix-cubic-lattices}), \textbf{hexagonal} (\autoref{fig:appendix-hexagonal-lattices}), \textbf{trigonal\_square} (\autoref{fig:appendix-trigonal_square-lattices}), \textbf{trigonal\_hexagonal} (\autoref{fig:appendix-trigonal_hexagonal-lattices}) and \textbf{trigonal\_diamond} (\autoref{fig:appendix-trigonal_diamond-lattices})).
+(\textbf{square} (\autoref{fig:appendix-square-lattices}), \textbf{hexagonal} (\autoref{fig:appendix-hexagonal-lattices}), \textbf{trigonal\_square} (\autoref{fig:appendix-trigonal_square-lattices}), \textbf{trigonal\_hexagonal} (\autoref{fig:appendix-trigonal_hexagonal-lattices}) and \textbf{trigonal\_diamond} (\autoref{fig:appendix-trigonal_diamond-lattices})).
 
 \filepath{\cite{selfPhysics}}{/structures/visualize.py} allows for an interactive visualization of the lattice structure.
 The same code was used to generate the referenced visualization printed in the \nameref{sec:appendix}.
@@ -19,7 +19,7 @@ It is responsible for defining neighbors for lattice sites close to the edges of
 The \nameref{appendix:lattice-visualisation} in the appendix shows this, by providing the information whether the pictured lattice is periodic or not.
 
 The way in that the lattices are tiled should become clear from the visualization.
-It is noteworthy, that the \textbf{cubic}, \textbf{trigonal\_square} and \textbf{trigonal\_diamond} lattices have repetition along two axes, while the \textbf{hexagonal} and \textbf{trigonal\_hexagonal} have three. 
+It is noteworthy, that the \textbf{square}, \textbf{trigonal\_square} and \textbf{trigonal\_diamond} lattices have repetition along two axes, while the \textbf{hexagonal} and \textbf{trigonal\_hexagonal} have three. 
 The assumption is that the \textbf{trigonal\_hexagonal} and \textbf{trigonal\_square}/\textbf{trigonal\_diamond} lattices show the same behavior in non-periodic mode (as they all three represent a trigonal lattice), while differences manifest in periodic inspection.
 
 Last, there is a setting to \emph{randomly swap} lattice positions. 
@@ -54,7 +54,7 @@ General data about the lattices is provided in \autoref{table:lattice-informatio
         Lattice name & \#nn & \#nnn &$L$(1)&$L$(2)&$L$(3)&$L$(4)&$L$(5)&$L$(6)&$L$(7)\\  
         \midrule 
         linear & 2 & 2 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
-        cubic & 4 & 4 & 4 & 9 & 16 & 25 & 36 & 49 & 64\\
+        square & 4 & 4 & 4 & 9 & 16 & 25 & 36 & 49 & 64\\
         trigonal\_square & 6 & 6 & 4 & 16 & 36 & 64 & 100 & 144 & 196\\
         trigonal\_diamond & 6 & 6 & 4 & 9 & 16 & 25 & 36 & 49 & 64\\
         trigonal\_hexagonal & 6 & 6 & 7 & 19 & 37 & 61 & 91 & 127 & 169\\
