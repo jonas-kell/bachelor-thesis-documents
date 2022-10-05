@@ -69,12 +69,16 @@ set logscale y 10
 unset ylabel
 set yrange [0.00003:10] 
 set format y "";
+set ytics 10
+set mytics 10
 set ytics log
 
 set y2label "Var(E)/L"
 set logscale y2 10
 set y2range [0.00003:10] 
 set format y2 "10^{%L}";
+set ytics 10
+set mytics 10
 set y2tics log
 
 # !! the csv files with the averaged data need to be compiled with the "average.py" python script before rendering the pdf

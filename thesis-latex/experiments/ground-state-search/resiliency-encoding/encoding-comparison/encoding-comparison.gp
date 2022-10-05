@@ -45,6 +45,8 @@ set logscale y2 10
 set y2label "Var(E)/L"
 set y2range [0.0001:] 
 set format y2 "10^{%L}";
+set y2tics 10
+set my2tics 10
 set y2tics log
 
 # plot 1,1
