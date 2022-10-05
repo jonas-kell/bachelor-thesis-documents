@@ -8,10 +8,8 @@ The neural networks, as well as the training and evaluation code were written in
 The \emph{PyTorch} \cite{pytorchGithub} machine learning framework was used as a measure to efficiently define neural networks and lever the computational capabilities of parallelization via GPUs.
 
 The main metaformer model was originally based on the vision transformer found in an implementation of \emph{DINO} \cite{dinoGithub} and modified strongly.  
-A comparison between the stock DINO model and the modified version will be also performed.
-This however is not supposed to be a direct discrediting of any of the models, as their main purposes do not align exactly.
-Therefore one or the other may excel in specific tasks.
-Also a comparison against a pre-implemented \emph{poolformer} \cite{poolformerGithub} will be performed.
+The code base provides a DINO implementation with as little modifications as possible to compare to own models.
+Also the code for comparing against a pre-implemented \emph{poolformer} \cite{poolformerGithub} is provided.
 
 The \emph{einops} package \cite{einopsGithub} is used in multiple locations.
 It provides tensor operations, configurable with the \emph{Einstein notation} and simplifies the notation and subsequently readability.

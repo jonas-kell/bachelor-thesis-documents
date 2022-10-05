@@ -7,7 +7,7 @@ Therefore an informed pre-selection of likely interesting runs had to be chosen 
 Helpful in this manner were the previous experiences by other researchers. 
 The metaformer's hyperparameters \emph{image size}, \emph{number of heads}, \emph{patch size}, \emph{embed dimension}, \emph{depth} and \emph{mlp ratio} have been chosen as the same values, the \emph{DINO tiny} model was implemented in \cite{dinoGithub}. As the transformer in the DINO paper \cite{dinoPaper} was a structural template for this metaformer, selecting the smallest model from their lineup made it possible to perform as many comparisons as possible with limited resources.
 
-In order to understand what is measured a full overview of the recorded parameters is presented in \autoref{fig:comparison-recorded-values}.
+In order to understand what is measured, a full overview of the recorded parameters is presented in \autoref{fig:comparison-recorded-values}.
 
 \begin{figure}[htbp]
     \centering
@@ -21,7 +21,7 @@ In order to understand what is measured a full overview of the recorded paramete
     \label{fig:comparison-recorded-values}
 \end{figure}
 
-All the runs share a few key similarities. Because of that that full data for one run is only shown once. 
+All the runs share a few key similarities. Because of that, the full data for one run is only shown once. 
 Later figures will leave out most of the metrics, because they are almost completely redundant.
 
 The model training always follows the same default structure: The accuracy starts low and the loss starts at a high value.
@@ -72,7 +72,7 @@ Calculations then often were aborted to save resources.
     \label{fig:optimizer}
 \end{figure}
 
-\autoref{fig:optimizer} shows a subset of the experiments performed to chose an appropriate \emph{optimizer} and learning rate.
+\autoref{fig:optimizer} shows a subset of the experiments performed to choose an appropriate \emph{optimizer} and learning rate.
 It can be easily seen, that the choice of optimization algorithm influences the speed of convergence, as well as the maximum performance of the networks.
 The \emph{adamw} \cite{adamwOptimizer} optimizer performed best in both of these metrics.
 The established \emph{stochastic gradient descent} update algorithm scored a between \SIrange[]{10}{15}{\percent} worse test accuracy, as well as a two to four times slower rate of convergence in relation to the number of epochs.

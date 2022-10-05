@@ -31,7 +31,7 @@ The graph pictured in \autoref{fig:five-node-graph-example} is described by the 
 In the adjacency matrix, the element $A_{ij}$ is set to $1$, if the graph has an edge between the nodes with index $i$ and $j$. 
 All $A_{ii}$ here are set to $0$, because generally nodes do not need to be \glqq connected\grqq{} to themselves.
 
-As the graphs inside the neural networks however describe the flow of information, it is quite sensible to assume that the information from one node in one step should be somehow be taken into account when generating the information for the next step.
+As the graphs inside the neural networks however describe the flow of information, it is quite sensible to assume that the information from one node in one step should somehow be taken into account when generating the information for the next step.
 Because of that, it is useful to define multiple adjacency matrices, each with a different purpose.
 
 In \autoref{eq:adjacency-matrix-split}, the adjacency matrices for \emph{self-reference}, \emph{nearest-neighbor-reference} and \emph{next-nearest-neighbor-reference} are shown, referring to the graph in \autoref{fig:five-node-graph-example}. By chance almost every node happens to be a nnn for every node. Only $1$ and $2$ do not have this property. 
@@ -122,7 +122,7 @@ $\tilde{A}$ can then be calculated according to \autoref{eq:a-tilde}.
     \end{matrix}\right)
 \end{equation}
 
-It was previously stated, that this thesis is supposed to experiment on a unification of the \emph{metaformer} \cite{metaformerPaper} and \emph{graph networks}.
+It was previously stated, that this thesis is supposed to experiment on an unification of the \emph{metaformer} \cite{metaformerPaper} and \emph{graph networks}.
 The question therefore is, how the concept of the adjacency matrix is supposed to be applied to the metaformer framework.\\
 
 \paragraph{Graph convolutions} can be implemented with the knowledge of how to generate the adjacency matrix.
@@ -131,12 +131,12 @@ For a \emph{depthwise convolution} in a conformer, $e$ 2D-convolutions (one for 
 It is now a simple step to transition to the graph version of that problem.
 For the \emph{graph conformer}, the intermediate state has the shape $b\times (h\cdot w) \times e = b\times n \times e$, where $h\cdot w = n$ is the number of nodes. 
 It is also the side length of the adjacency matrix $A$ for the corresponding graph. 
-Comparing \autoref{eq:how-to-compute-symm-conv} and \autoref{eq:weighted-adjacency-matrix} it should become clear that for an image, the depthwise symmetric convolution can be represented by the information in a adjacency matrix that is assembled from $A_\mathrm{self}$, $A_\mathrm{nn}$ and $A_\mathrm{nnn}$ if the correct weights $w_i$ are chosen. This is visualized in \autoref{fig:transition-convolution-graph}.
+Comparing \autoref{eq:how-to-compute-symm-conv} and \autoref{eq:weighted-adjacency-matrix} it should become clear that for an image, the depthwise symmetric convolution can be represented by the information in an adjacency matrix that is assembled from $A_\mathrm{self}$, $A_\mathrm{nn}$ and $A_\mathrm{nnn}$ if the correct weights $w_i$ are chosen. This is visualized in \autoref{fig:transition-convolution-graph}.
 
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{./architectures/theory/graphs/convolution-comparison.pdf}}
-    \caption{Schematic representation that shows the parallels between a depthwise convolution (only one channel shown) of a $3\times 3$ Kernel over a patched image and the corresponding graph. Not involved nodes as well as edges are omitted from the graph on the right side. Both representations show only a subset of the whole situation, as only the calculation for the convolution of node $e$ is shown. The calculations for the other nodes are preformed analogously, but shifted to another center patch. When comparing to \autoref{eq:weighted-adjacency-matrix}, $w_0=0.9$, $w_1=0.2$ and $w_2=0$, but with the proper adjacency matrices.
+    \caption{Schematic representation that shows the parallels between a depthwise convolution (only one channel shown) of a $3\times 3$ Kernel over a patched image and the corresponding graph. Not involved nodes as well as edges are omitted from the graph on the right side. Both representations show only a subset of the whole situation, as only the calculation for the convolution of node $e$ is shown. The calculations for the other nodes are performed analogously, but shifted to another center patch. When comparing to \autoref{eq:weighted-adjacency-matrix}, $w_0=0.9$, $w_1=0.2$ and $w_2=0$, but with the proper adjacency matrices.
     The color scheme for neighbor visualization is the same as in the \nameref{appendix:lattice-visualisation}.}
     \label{fig:transition-convolution-graph}
 \end{figure}
@@ -163,7 +163,7 @@ This is shown in \autoref{eq:matrix-calculation-distributivity}, assuming the in
 The jax style implementation for this calculation can be seen in the appendix at \ref{appendix:graph-conformer}.
 
 \paragraph{Graph pooling} is basically implemented analogously to the graph convolution.
-However it utilized the averaging matrix $\tilde{A}$ (\autoref{eq:a-tilde}) instead, in order to simulate a \emph{average pooling} operation.
+However it utilizes the averaging matrix $\tilde{A}$ (\autoref{eq:a-tilde}) instead, in order to simulate an \emph{average pooling} operation.
 As pooling does not require different or trainable weights along the axis $e$, the matrix can be pre-computed and cached.
 The jax style implementation is printed in the appendix at \ref{appendix:graph-poolformer}.
 
@@ -177,12 +177,12 @@ This is no coincidence, as the entry $M_{ij}$ corresponds to the attention from 
 \emph{Graph attention} is therefore calculated as the element-wise multiplication of $M$ and $A$.
 Because of the element-wise multiplication, it is not sensible to use $\tilde{A}$, which is motivated by matrix multiplication.
 Before passing the masked values through the softmax function, all zero values need to get set to $-\infty$.
-By doing that, it is ensured their softmax evaluates to 0 and the corresponding connection is therefore masked out completely.
-The element wise multiplication and replacement with $-\infty$ happens on line 161 of the attention algorithm implementation in jax style (appendix, \ref{appendix:attention}).
+By doing that, it is ensured their contribution to the softmax evaluates to 0 and the corresponding connection is therefore masked out completely.
+The element wise multiplication and replacement with $-\infty$ happens on line 162 of the attention algorithm implementation in jax style (appendix, \ref{appendix:attention}).
 
 \paragraph{Graph patching} can be achieved in multiple different ways.
 In order to get the input configuration into a state that is processable by transformers, the input shape needs to have the dimension $n \times e$, with the number of lattice sites $n$ and the embed dimension $e$.
-To achieve this, a lattice encoding of shape $n \times x$ is generated from the randomly sampled spin state $s_\mathrm{input} \in \{0,1\}^n$.
+To achieve this, a state encoding of shape $n \times x$ is generated from the randomly sampled spin state $s_\mathrm{input} \in \{0,1\}^n$.
 $x$ depends on the chosen \emph{embed\_mode} strategy (\emph{duplicate\_spread}, \emph{duplicate\_nn} or \emph{duplicate\_nnn}), as well as the lattice shape. 
 An example for the different strategies is displayed in \autoref{fig:graph-patching}.
 
@@ -190,7 +190,7 @@ An example for the different strategies is displayed in \autoref{fig:graph-patch
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{./architectures/theory/graphs/patching.pdf}}
     \caption{Assembling of the transformed inputs $s'$ of shape $n\times x$. $x$ depends on the embed\_mode strategy.
-                The shape further depends on the shape of the chosen lattice. 
+                The intermediate step's shape further depends on the shape of the chosen lattice. 
                 In the example, a trigonal\_hexagonal lattice of size 1 is chosen.
                 The color scheme for neighbor visualization is the same as in the \nameref{appendix:lattice-visualisation}.}
     \label{fig:graph-patching}
@@ -201,7 +201,7 @@ To convert the intermediate state $s'$ into the final form, the values are newly
 To be easier for the network to differentiate, (0,1) is mapped to (-1,1) and previously unassigned vales are set to 0.
 
 To reshape the element of size $n \times x$ to the input $n\times e$, a fcl is used.
-This strategy is analogous to the patching algorithm for most vision transformers.
+This strategy is analogous to the patching algorithm of most vision transformers.
 
 The mapping pictured in \autoref{fig:graph-patching} can be performed quite efficiently by using a helper matrix and applying one \emph{einsum} operation.  
 The details can be referenced in the code \cite{selfPhysics}.

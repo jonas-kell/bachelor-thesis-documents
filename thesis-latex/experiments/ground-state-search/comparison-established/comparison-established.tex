@@ -11,7 +11,7 @@ For the comparison of metaformer models on the ground state search task, the num
 The performance of different NQS models is visualized in \autoref{fig:gss-architectures-comp}.
 
 From the number of trainable parameters listed in the image caption it should instantly become clear, that the networks applied as NQS are tiny in comparison to the ones used in image classification (\autoref{table:overall-comparison-data}, also consider these are based on \emph{DINO-tiny}, the smallest vision transformer in the DINO lineup \cite{dinoGithub}).
-This is generally not problematic, because the metaformer architecture is highly adjustable and can be tuned to such small sizes. One could only argue whether a metaformer with depth one even belongs to the metaformer class.
+This is generally not problematic, because the metaformer architecture is highly adjustable and can be tuned to such small sizes. One could only argue whether a metaformer with depth one still belongs to the metaformer class.
 
 \begin{figure}[htbp]
     \centering
@@ -25,7 +25,8 @@ This is generally not problematic, because the metaformer architecture is highly
         The poolformers have an embed-dimension of 7 ($\stackrel{\wedge}{=}$ 560 weights for \emph{GPF-NN} and 602 for \emph{GPF-NNN}).
         The conformers also have their embed dimension set to 7 ($\stackrel{\wedge}{=}$ 602 weights for \emph{SGDCF-NN} and 644 for \emph{SGDCF-NNN}).
         Finally the transformers are set to have an embed-dimension of 5 ($\stackrel{\wedge}{=}$ 530 weights for \emph{TF}, 566 weights for \emph{GTF-NN} and 596 weights for \emph{GTF-NN}). 
-        Important to notice are the different scales of the x-axes, the energy per site is only shown until step 200, because after that nothing of interest happens. The variance of the energy is shown until step 800.  
+        Important to notice are the different scales of the x-axes.
+        The energy per site is only shown until step 200, because after that nothing of interest happens, while the variance of the energy is shown until step 800.  
         The variance data is interpolated with a moving average in the logarithmic scale of width 35 steps.
     }
     \label{fig:gss-architectures-comp}
@@ -58,7 +59,7 @@ still the CNN's variance is overall lower.
 It can also be noted, that by step 800 all of the metaformers' variances are still on a clear downwards trend, so training them longer would probably result in a further increasing precision.
 Because of the rather big fluctuations of the CNN's variance it is harder to pinpoint the trend reliably.
 
-Only by carefully selecting the desired metrics, a suited network can be selected. 
+Only by carefully selecting the desired metrics, a suited network can be chosen. 
 While in the experiment, the TF network converged by far the slowest, it also showed the best precision (except for the CNN) after 800 steps. 
 So if fast convergence should be achieved, a different network must be used, than if maximum precision is required.
 

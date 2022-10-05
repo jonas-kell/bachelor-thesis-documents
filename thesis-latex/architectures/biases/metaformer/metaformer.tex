@@ -2,9 +2,9 @@
 This can for one be attributed to the \emph{attention} module. 
 However as the research in \cite{metaformerPaper} has shown, the overall structure is also important.
 
-\paragraph{The attention module} was originally motivated by natural language processing tasks \cite{attentionIsAllYouNeed}. The inductive bias should be reduced as much as possible, to allow every computation to attend to information everywhere in a sentence with the necessary weights computed on the fly.
+\paragraph{The attention module} was originally motivated by natural language processing tasks \cite{attentionIsAllYouNeed}. The inductive bias was reduced as much as possible, to allow every computation to attend to information everywhere in a sentence with the necessary weights computed on the fly.
 Because the module has a very small inductive bias built in, the transformer is an expensive architecture to train. 
-Because it requires the calculation of all interactions, a lot of computational expense is needed to acquire the results of one pass.
+As it requires the calculation of all interactions, a lot of computational expense is needed to acquire the results of one pass.
 Also because of the low inherent bias, a lot of data is needed to shape the calculation into something useful.
 The advantage on the other hand is, that if one succeeds in training a transformer, the interactions deemed important by the training process are probably ever so slightly more effective as the ones forced by strict inductive biases like convolutional kernels. That visualized attention heatmaps behave very predicable and similar to convolution kernels is visualized in \cite{dinoPaper} and \cite{imageWorth16x16}.
 
@@ -17,4 +17,4 @@ Residual connections are also employed to aid with the training of deep transfor
 
 \paragraph{Poolformer and conformer} \cite{metaformerPaper} combine the bias of \emph{locality}, \emph{translation} and \emph{positional independence} with the biases of the \emph{metaformer structure}.
 The idea is to combine both of the biases to create networks that may be slightly worse in performance than a pure transformer, but have a way smaller footprint because of the harsh bias restrictions. 
-It could even be possible, that these stronger restrictions force the model to find a more fundamental and therefore simpler to express representation in some applications.
+It could even be possible, that these stronger restrictions force the model to find a more fundamental and therefore better representation in some applications.

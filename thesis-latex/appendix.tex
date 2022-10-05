@@ -4,21 +4,18 @@
 %! needs to be first, because of format adapted to chapter title of appendix
 \input{appendix/lattice_visualization/lattice_visualization}
 
-% pdf as a additional information, can be nicely ref-ed ("\fullpage{anhang:test}") because of fake section that doesn't get shown in the table of contents
-% \includepdf[pagecommand={\section*{} \label{appendix:test}}]{appendix/test.pdf}
-
 % minted to properly import and style code. ! Needs python libraries
 \newpage
 \section{Scaled Dot Product Attention (jax)} \label{appendix:attention}
     \filepath{\cite{selfPhysics}}{/models/metaformer.py}
-    \inputminted[firstline=149, lastline=169]{python}{./../physics-code/models/metaformer.py}
+    \inputminted[firstline=149, lastline=170]{python}{./../physics-code/models/metaformer.py}
 
 \section{Graph Conformer Module (jax)} \label{appendix:graph-conformer}
     \filepath{\cite{selfPhysics}}{/models/metaformer.py}
-    \inputminted[firstline=242, lastline=284]{python}{./../physics-code/models/metaformer.py}
+    \inputminted[firstline=242, lastline=282]{python}{./../physics-code/models/metaformer.py}
 
 \newpage
 \section{Graph Poolformer Module (jax)} \label{appendix:graph-poolformer}
     \filepath{\cite{selfPhysics}}{/models/metaformer.py}
-    \inputminted[firstline=211, lastline=239]{python}{./../physics-code/models/metaformer.py}
+    \inputminted[firstline=212, lastline=239]{python}{./../physics-code/models/metaformer.py}
     

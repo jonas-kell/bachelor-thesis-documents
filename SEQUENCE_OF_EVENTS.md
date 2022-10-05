@@ -9,9 +9,9 @@
 
 # Month 1
 
--   [x] Get the ImageNet training data into a usable form
+-   [x] Get the ImageNet training data into an usable form
     -   [x] reduce from 1000 classes to 100 classes
-    -   [x] get formatted to be able to train a model in a efficient manner
+    -   [x] get formatted to be able to train a model in an efficient manner
     -   [x] Seeding and seed logging for training
     -   [x] add top 3/5 accuracy to results
 -   [x] implement a (vision-) transformer architecture after the [DINO](https://github.com/facebookresearch/dino) implementation (`vision_transformer.py`)

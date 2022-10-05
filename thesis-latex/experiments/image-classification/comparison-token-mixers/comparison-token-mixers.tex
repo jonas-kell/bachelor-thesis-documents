@@ -15,7 +15,7 @@ This thesis was validated experimentally and the results are visualized in \auto
 
 The data shows, that the implementations of SDCF-NNN and SGDCF-NNN behave exactly identical, even though they compute the path interactions with different operations, as they are mathematically identical.
 
-One can expect, that SDCF-NN and SGDCF-NN behave likewise, but slight differences in the data of these two be observed.
+One can expect, that SDCF-NN and SGDCF-NN behave likewise, but slight differences in the data of these two can be observed.
 This is because of the different ways, the pseudo random number generator of PyTorch is used:
 \begin{sloppypar} % I hate to have to use this hack, but line-broken file paths look more ugly and are on top unreadable
     The implementation of the graph-convolution \phantom{asdasdasdasdasdasdasdasdasdasdasdasdasd}
@@ -112,7 +112,7 @@ This will be discussed in \autoref{sec:experiments-efficiency-graphs}.
 \paragraph{The convolution based conformers} continue all the described trends.
 They require less trainable weights (around \SI[]{33}[]{\percent} less) than the transformers.
 Their maximum accuracy is slightly worse than the transformers', and they require longer to reach peak accuracy.
-Though as soon as they are fully trained, they can both be evaluated quicker and have a overall smaller footprint due to the smaller weight count.
+Though as soon as they are fully trained, they can both be evaluated quicker and have an overall smaller footprint due to the smaller weight count.
 This shows, that for our small size of network, shaping a model around a hard coded inductive bias takes more effort, but can pay of in terms of efficiency.
 
 Interestingly, when comparing the symmetric and non-symmetric variants, the non-symmet\-ric one converges \emph{significantly} faster in training (by a factor of \SIrange[]{2.1}{2.7}{}). 
@@ -132,9 +132,9 @@ This step creates an unnecessary overhead, that could be left out, if only tradi
 \paragraph{The pooling based poolformers} sit at the opposite end of the overall trends.
 They require the least amount of parameters and - because of the very loose coupling of the pooling operation - the by far longest time to train.
 A fully trained poolformer though provides both the best parameters per accuracy efficiency, as well as the lowest evaluation time.
-PF and GPF-NNN being practically identical, which was expected on tensor data.
+PF and GPF-NNN perform practically identical, which was expected on tensor data.
 
-The overall accuracy is definitely lower, than that of a transformer, but because of the significant efficiency advantage, the poolformer's performance is still definitely competitive.
+The overall accuracy is definitely lower than that of a transformer, but because of the significant efficiency advantage the poolformer's performance is still definitely competitive.
 
 \paragraph{The full conformer} is listed in the lineup, but it - as already discussed - can not be considered a \emph{strict} metaformer.
 The performance is relatively high and the speed of convergence is average. 

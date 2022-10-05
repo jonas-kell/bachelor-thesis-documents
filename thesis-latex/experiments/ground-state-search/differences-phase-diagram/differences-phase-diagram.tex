@@ -4,8 +4,8 @@ This could be the \emph{boiling point} of a fluid, at which the liquid turns int
 It could also be the approach to \emph{absolute zero}, that is commonly known to be responsible to induce unique behavior in quantum objects.
 Depending on the nature of the system, the approach to such a point could make the wavefunction simpler or more difficult to parameterize.
 
-Temperature is not the only parameter that could induce a transition, which is generally known as a \emph{phase transition}.
-In our case the \emph{strength of the transverse electromagnetic field} can also cause such a phase transition.
+Temperature is not the only parameter that could induce such a transition, which is generally known as a \emph{phase transition}.
+In our case the \emph{strength of the transverse electromagnetic field} can also cause a phase transition.
 
 The location of the transition is dictated by the ratio of the Ising parameters $J$ and $h$, $\lambda = \frac{h}{J}$, as well as the shape and dimensionality of the lattice.
 The experiments in the preceding sections all used a $\lambda = \frac{h=-0.7}{J=-1} = 0.7$.
@@ -58,13 +58,13 @@ This can be attributed to the conformer keeping its level of performance constan
 
 For even larger values of $\lambda$ - supposedly close to the \emph{critical point} of the phase transition - the CNN's accuracy collapses. 
 For $\lambda=$ \SI[]{3.4}[]{} (blue curves), the minimum variance of the CNN is approximately one order of magnitude worse than for $\lambda=$ \SI[]{1.8}[]{}.
-As the conformer is still performing without a noticeable dropoff in accuracy, it is at this stage able to surpass the CNN and parametrize the wavefunction in a better way than its adversary.
+As the conformer is still performing without a large dropoff in accuracy, it is at this stage able to surpass the CNN and parametrize the wavefunction in a better way than its adversary.
 
 Finally it is important to point out, that in all cases the conformer variance was still dropping at the end of the calculation, while the CNN's variance had clearly already converged.
 And even though the conformer had a smaller number of trainable parameters, it was able to outperform the established CNN for large enough $\lambda$ due to its strong consistency across the phase domain.
 
 None of the architectures is perfect, as both showed unstable calculations in the regions of $\lambda < 0$. 
-As e.g. all of the tested models quickly crashed due to \emph{NaN} errors for $\lambda = -3.6$, it is safe to say that not all problems can be solved by the metaformer framework.
-Though the experiments show that they provide a great deal of flexibility and resiliency against several difficulties posed by the computational problems.
+As e.g. all of the tested models quickly crashed due to \emph{NaN} errors for $\lambda = -3.6$, it is safe to say that not all problems can be solved by the presented ansatz.
+Though the experiments show that metaformers provide a great deal of flexibility and resiliency against several difficulties posed by the computational problems.
 
-Further exploration of metaformer concept inside the phase transition regions promises to provide an excellent opportunity for further research in this domain.
+Further exploration of the metaformer concept inside the phase transition region promises to provide an excellent opportunity for further research in this domain.

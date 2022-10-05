@@ -3,7 +3,7 @@ While with convolutions and pooling identical patches at different locations can
 Adding pe resolves this issue.
 
 The question arises, whether the \emph{masked} attention, that uses the graph information to confine the transformer to only its local neighborhood, also requires pe or not. 
-Additionally it needs to be discussed if efficient training requires pe, what type works best.
+Additionally if efficient training requires pe, it needs to be discussed what type works best.
 
 \begin{figure}[htbp]
     \centering
@@ -37,7 +37,7 @@ This makes sense, as by design the number of attention targets is intentionally 
 Sinusoidal pe and learned pe perform very similar, with sinusoidal pe converging ever so slightly faster than learned.
 It should be noted though, that the sample size is too limited to draw definite conclusions from this tiny difference.
 
-In the GTF-NNN, the learned pe outperforms the sinusoidal one, taking about 5 epochs longer to converge, but accomplishing an about \SI[]{2}{\percent} higher accuracy.
+For the GTF-NNN the learned pe outperforms the sinusoidal one, taking about 5 epochs longer to converge, but accomplishing an about \SI[]{2}{\percent} higher accuracy.
 
 To summarize, pe can definitely improve the performance of an attention based neural network. 
 The correlation can hold true not only for normal attention as already know \cite{attentionIsAllYouNeed, imageWorth16x16}, but also for the attention mechanism with graph-limited influence, as the calculations demonstrate.

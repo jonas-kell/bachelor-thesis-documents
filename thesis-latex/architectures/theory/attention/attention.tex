@@ -31,7 +31,7 @@ The steps 3 and 4 (\autoref{eq:attention-step-3-4}) are \emph{scaling} the value
 This is to get \emph{interaction probabilities} out of the previously calculated quantities.
 
 The last step 5 is listed in \autoref{eq:attention-step-5}.
-The answer of the attention process $A$ is calculated as a weighted (with the interaction matrix $QK^\mathrm{T}$) sum of the values $V$ for each of the $n$ patches separately. 
+The answer to the attention process $A$ is calculated as a weighted (with the scaled interaction matrix $M'$) sum of the values $V$ for each of the $n$ patches separately. 
 This means for each of the $n$ entries of $x$, a \emph{query} is produced that is checked against all the other $n$ \emph{keys}. 
 The degree of similarity determining the proportion, the corresponding \emph{value} is going constitute to the answer.
 
@@ -74,7 +74,7 @@ As it is clear, that the same word can have a different meaning, depending if it
 For convolutions the direction and distance (and for pooling at least the distance) that a bit of information has traveled can be inferred, depending on the module's depth and size of the kernel. 
 As this is impossible in the attention calculation, the encoding is used to provide this helpful information to the model.
 
-The positional encoding is a unique vector that represents a position in the input sentence/image.
+The positional encoding is an unique vector that represents a position in the input sentence/image.
 It can either be learned as part of the trainable parameters (implementation reference: \cite{dinoGithub}) or be predefined (fore example a \emph{sinusoidal encoding} - implementation reference: \cite{positionalEncodingGithub}).
 The encoding either gets appended or added on top of the embedded token's value.
 
