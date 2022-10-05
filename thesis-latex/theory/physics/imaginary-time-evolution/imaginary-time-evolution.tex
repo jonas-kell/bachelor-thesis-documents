@@ -73,6 +73,6 @@ Because of that, for large values of $\tau$ all terms decay to 0, but the $n=0$ 
     \lim\limits_{\tau \rightarrow \infty}\frac{\ket{\Psi(\tau)}}{e^{-E_0 \tau / \hbar}} \stackrel{\ref{eq:complexTimeExponential}}{=} \bra{0}\ket{\Psi(0)} \ket{0}
 \end{equation}
 
-This means, that if the starting wavefunction has an overlap with the ground energy eigenstate ($\bra{0}\ket{\Psi(0)} \neq 0$), if the wavefunction is evolved in imaginary time, all contributions except the ground state contribution will be eliminated.
+This means, that if the starting wavefunction has an overlap with the ground state ($\bra{0}\ket{\Psi(0)} \neq 0$), if the wavefunction is evolved in imaginary time, all contributions except the ground state contribution will be eliminated.
 
 This can be used to find the ground state \cite{quantumMonteCarloSimulationsOfSolids}. A random starting function is chosen and evolved in complex time with the aid of Monte Carlo sampling. The ground state can then be extracted. If there is no overlap between the starting function and the ground state, the method converges to the base state with the smallest energy that also has overlap.

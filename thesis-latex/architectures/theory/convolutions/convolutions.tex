@@ -41,8 +41,8 @@ The leftmost case in \autoref{fig:comparison-depthwise-convolution} shows such a
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{./architectures/theory/convolutions/depthwise.pdf}}
-    \caption{This figure show the differences between a \emph{normal convolution} (left), a \emph{depthwise convolution}  (center) and a \emph{depthwise separable convolution} (right).
-    The normal convolution has a 3D-kernel. 
+    \caption{This figure show the differences between a \emph{full convolution} (left), a \emph{depthwise convolution}  (center) and a \emph{depthwise separable convolution} (right).
+    The full convolution has a 3D-kernel. 
     The depthwise convolution splits it into multiple 2D-kernels.
     The depthwise separable convolution works basically in the same way as the depthwise, but at the end a 1D-kernel (1$\times$1-convolution) is used to combine the channels.
      Original images from \cite{separableConvolutions}, but modified and almost completely redrawn.}

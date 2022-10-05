@@ -5,7 +5,7 @@ If a good update strategy is chosen, the solution may converge towards the desir
 
 Because of the iterative nature, it is not necessary to do a complete computation at once. 
 As learned in \autoref{sec:theory-numericalsolution}, the memory requirement for storing a complete hamiltonian matrix representation is also exponential.
-So even with unlimited time, a numerical calculation could be impossible because of limited available memory. 
+So even with unlimited time, a diagonalization calculation could be impossible because of limited available memory. 
 The iterative methods get around this, by being able to chose a data structure with much higher information density than the full hamiltonian. For example if only the ground state is wanted, it is unnecessary to store anything but information regarding it. The hamiltonian though encodes a lot of \glqq unnecessary\grqq{} information about other states. This structure can then be iteratively refined.
 
 In practice a so called \emph{neural quantum state} (NQS) is used. 
