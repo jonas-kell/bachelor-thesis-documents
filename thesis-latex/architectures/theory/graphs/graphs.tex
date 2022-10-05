@@ -54,11 +54,11 @@ For graphs of bigger size, the matrices are generally quite likely to be highly 
         1 & 1 & 0 & 0 & 0 \\
     \end{matrix}\right)\qquad
     A_\mathrm{nnn} = \left(\begin{matrix}
-        1 & 1 & 1 & 1 & 1 \\
-        1 & 1 & 0 & 1 & 1 \\
-        1 & 0 & 1 & 1 & 1 \\
-        1 & 1 & 1 & 1 & 1 \\
-        1 & 1 & 1 & 1 & 1 \\
+        0 & 1 & 1 & 1 & 1 \\
+        1 & 0 & 0 & 1 & 1 \\
+        1 & 0 & 0 & 1 & 1 \\
+        1 & 1 & 1 & 0 & 1 \\
+        1 & 1 & 1 & 1 & 0 \\
     \end{matrix}\right)
 \end{equation}
 
@@ -82,7 +82,9 @@ Note that as the number of neighbors is not fixed and the accumulated values get
 The \emph{averaging adjacency matrix} $\tilde{A}$ gets rid of this behavior.
 To generate $\tilde{A}$, the matrices $D$ and subsequently $D^{-\frac{1}{2}}$ (\autoref{eq:edge-counting-matrix}) are needed. 
 $D$ is the matrix, that counts to number of edges on the corresponding nodes (still for the graph in \autoref{fig:five-node-graph-example}).
-Raising matrices to negative fractional powers feels wrong, is however perfectly logical and even easy to compute for purely diagonal matrices. 
+Raising a square matrix to a negative fractional power can not only be defined, but even efficiently computed for purely diagonal matrices. 
+The calculation is performed element-wise.
+Because the matrix has no entries aside from the main diagonal, the expected properties for this inverse are satisfied for the normal matrix multiplication.
 
 \begin{equation}
     \label{eq:edge-counting-matrix}
