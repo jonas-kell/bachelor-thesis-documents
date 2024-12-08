@@ -15,3 +15,14 @@
 **/_minted*
 
 bachelor-thesis-jonas-kell.pdf
+
+thesis-latex/experiments/ground-state-search/differences-phase-diagram/performance-across-phase/performance-across-phase.pdf
+thesis-latex/experiments/ground-state-search/differences-phase-diagram/phase-transition/phase-transition.pdf
+thesis-latex/experiments/ground-state-search/comparison-established/architecture-comparison/architecture-comparison.pdf
+thesis-latex/experiments/ground-state-search/resiliency-encoding/encoding-comparison/encoding-comparison.pdf
+thesis-latex/experiments/ground-state-search/ansatz/hyperparameter-matrix/hyperparameter-matrix.pdf
+thesis-latex/experiments/image-classification/positional-encoding/pe-comparison/pe-comparison.pdf
+thesis-latex/experiments/image-classification/training-settings/optimizer/optimizer.pdf
+thesis-latex/experiments/image-classification/training-settings/metrics/metrics.pdf
+thesis-latex/experiments/image-classification/comparison-token-mixers/overall-comp/overall-comp.pdf
+thesis-latex/experiments/image-classification/comparison-token-mixers/graph-conv/graph-conv.pdf
